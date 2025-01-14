@@ -1,0 +1,16 @@
+{
+    "name": "tilmannruppert/uikit-blocks",
+    "description": "Tilmann Ruppert Blocs",
+    "license": "MIT",
+    "type": "kirby-plugin",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Tilmann Ruppert",
+            "email": "hallo@tilmann-ruppert.de"
+        }
+    ],
+    "require": {
+        "getkirby/composer-installer": "^1.1"
+    }
+}
