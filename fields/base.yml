@@ -1,0 +1,161 @@
+label: Layout
+type: layout
+fieldsets:
+  basis:
+    label: Basis Elemente
+    type: group
+    fieldsets:
+      - heading
+      - text
+      - image
+      - buttons
+      - form
+      - overlay
+      - panel
+  grups:
+    label: Gruppen Elemente
+    type: group
+    fieldsets:
+      - imageslider
+      - panels
+      - overlays
+      - images
+  prestyle:
+    extends: fields/sections
+
+layouts:
+  - 1/1
+  - 1/2, 1/2
+  - 1/3, 1/3, 1/3
+  - 1/3, 2/3
+  - 2/3, 1/3
+  - 1/4, 1/4, 1/4, 1/4
+settings:
+  fields:
+    class:
+      type: text
+      width: 1/2
+    sectioncolor:
+      type: select
+      label: Section Farbe
+      width: 1/2
+      options:
+        uk-section-primary: primary
+        uk-section-secondary: secondary
+        uk-section-muted: muted
+    sectionsize:
+      type: select
+      label: Section Padding
+      width: 1/3
+      options:
+        uk-section-xsmall: xsmall
+        uk-section-small: small
+        uk-section-large: large
+        uk-section-xlarge: xlarge
+        uk-padding-remove-vertical: remove
+    sectionbreite:
+      type: select
+      label: Section Breite
+      width: 1/3
+      options:
+        uk-container-xsmall: xsmall
+        uk-container-small: small
+        uk-container-large: large
+        uk-container-xlarge: xlarge
+        uk-container-expand: expand
+        remove: remove
+    sectionexpand:
+      type: select
+      width: 1/3
+      label: zu Seite erweitern
+      options:
+        uk-container-expand-right: right
+        uk-container-expand-left: left
+    sectionausrichtung:
+      type: select
+      label: Section Ausrichtung
+      width: 1/2
+      options:
+        uk-flex-middle: middle
+    gutter:
+      type: select
+      label: Gutter
+      width: 1/2
+      options:
+        uk-grid-small: small
+        uk-grid-large: large
+        uk-grid-collapse: collapse
+    usebackgroundimage:
+      label: Hintergrundbild verwenden
+      type: toggle
+      text:
+        - "Nein"
+        - "Ja"
+    backgroundimage:
+      label: Hintergrundbild
+      type: files
+      multiple: false
+      when:
+        usebackgroundimage: true
+    backgroundimageat:
+      label: erst anzeigen ab einer Größe von ...
+      type: select
+      when:
+        usebackgroundimage: true
+      options:
+        uk-background-image@s: small
+        uk-background-image@m: medium
+        uk-background-image@l: large
+        uk-background-image@xl: xlarge
+    backgroundoptions:
+      type: group
+      label: Hintergrundbild Optionen
+      when:
+        usebackgroundimage: true
+      fields:
+        backgroundsize:
+          label: Hintergrundgröße
+          type: select
+          default: cover
+          options:
+            contain: "Contain"
+            cover: "Cover"
+            "": "Originalgröße"
+        backgroundposition:
+          label: Hintergrundposition
+          type: select
+          options:
+            "": "Standard"
+            uk-background-top-left: "Oben Links"
+            uk-background-top-center: "Oben Mitte"
+            uk-background-top-right: "Oben Rechts"
+            uk-background-center-left: "Mitte Links"
+            uk-background-center-center: "Mitte Mitte"
+            uk-background-center-right: "Mitte Rechts"
+            uk-background-bottom-left: "Unten Links"
+            uk-background-bottom-center: "Unten Mitte"
+            uk-background-bottom-right: "Unten Rechts"
+        backgroundblendmode:
+          label: Hintergrund Blend Mode
+          type: select
+          options:
+            "": "Keiner"
+            uk-background-blend-multiply: "Multiply"
+            uk-background-blend-screen: "Screen"
+            uk-background-blend-overlay: "Overlay"
+            uk-background-blend-darken: "Darken"
+            uk-background-blend-lighten: "Lighten"
+            uk-background-blend-color-dodge: "Color Dodge"
+            uk-background-blend-color-burn: "Color Burn"
+            uk-background-blend-hard-light: "Hard Light"
+            uk-background-blend-soft-light: "Soft Light"
+            uk-background-blend-difference: "Difference"
+            uk-background-blend-exclusion: "Exclusion"
+            uk-background-blend-hue: "Hue"
+            uk-background-blend-saturation: "Saturation"
+            uk-background-blend-color: "Color"
+            uk-background-blend-luminosity: "Luminosity"
+        backgroundfixed:
+          label: Hintergrund fixieren
+          type: toggle
+          text: false

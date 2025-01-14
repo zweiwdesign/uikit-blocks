@@ -1,0 +1,78 @@
+title: UIkit Overlay
+name: uikit-overlay
+wysiwyg: true
+preview: fields
+tabs:
+  bild:
+    fields:
+      image:
+        label: Background Image
+        type: files
+        layout: cards
+        size: full
+        image:
+          ratio: 16/9
+          cover: true        
+        multiple: false
+        max: 1
+  inhalt:
+    fields:
+      subblocks: fields/subblocks      
+      style:
+        label: Overlay Style
+        type: select
+        width: 1/3
+        options:
+          uk-overlay-default: Default
+          uk-overlay-primary: Primary
+          uk-tile-default: Tile Default
+          uk-tile-primary: Tile Primary
+          uk-tile-secondary: Tile Secondary
+          uk-tile-muted: Tile Muted
+      position:
+        label: Position
+        type: select
+        width: 1/3
+        options:
+          top: Top
+          top-left: Top Left
+          top-center: Top Center
+          top-right: Top Right
+          center-left: Center Left
+          center: Middle Center
+          center-right: Center Right
+          bottom: Bottom
+          bottom-left: Bottom Left
+          bottom-center: Bottom Center
+          bottom-right: Bottom Right
+          cover: Cover
+      width:
+        label: Breite
+        type: select
+        width: 1/3
+        options:
+          uk-width-1-1: 1/1
+          uk-width-1-2: 1/2
+          uk-width-1-3: 1/3
+          uk-width-1-4: 1/4
+          uk-width-small: small
+          uk-width-medium: medium
+          uk-width-large: large
+          uk-width-xlarge: xlarge
+          uk-width-2xlarge: 2xlarge     
+      padding:
+        label: Padding in der Box
+        type: select
+        width: 1/3
+        options:
+          uk-padding-small: small
+          uk-padding: medium
+          uk-padding-large: large    
+      space:
+        label: Außenabstand der Box
+        type: select
+        width: 1/3
+        options:
+          uk-position-small: small
+          uk-position-medium: medium
+          uk-position-large: large

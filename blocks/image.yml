@@ -1,0 +1,19 @@
+title: Bild
+fields:
+  image:
+    label: Bild auswählen
+    type: files
+    multiple: false
+    required: true
+    width: 1/1
+  width:
+    label: Angezeigte Breite (px)
+    type: range
+    min: 10
+    max: 2000
+    step: 10
+    width: 1/2
+  alt:
+    label: Alternativer Text
+    type: text
+    width: 1/1

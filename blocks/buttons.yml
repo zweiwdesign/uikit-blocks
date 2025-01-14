@@ -1,0 +1,31 @@
+name: Buttons
+icon: button
+fields:
+  buttons: # Feld für mehrere Buttons
+    label: Buttons
+    type: blocks
+    mode: builder # Modus auf Builder setzen
+    max: 1 # Maximal 1 Button pro Block
+    fields:
+      text:
+        label: Button Text
+        type: text
+        required: true
+      link:
+        label: Button Link
+        type: url
+        required: true
+      style:
+        label: Button Stil
+        type: select
+        options:
+          uk-button-default: Default
+          uk-button-primary: Primary
+          uk-button-secondary: Secondary
+          uk-button-danger: Danger
+          uk-button-link: Link
+    # Standardwert hinzufügen
+    default:
+      - text: "Standard Button" # Standardtext für den Button
+        link: "#" # Standardlink
+        style: uk-button-default # Standardstil

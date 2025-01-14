@@ -1,0 +1,7 @@
+label: Layout
+type: blocks
+fieldsets:
+  - buttons
+  - heading
+  - text
+  - image
