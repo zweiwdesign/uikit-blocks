@@ -33,6 +33,9 @@ fields:
     type: toggles
     labels: false
     options:
+      - value: uk-heading-small
+        icon: small
+        text: small
       - value: uk-h1
         icon: h1
         text: H1
@@ -50,7 +53,7 @@ fields:
         text: H5
       - value: uk-h6
         icon: h6
-        text: H6        
+        text: H6
   text:
     label: field.blocks.heading.text
     type: writer
