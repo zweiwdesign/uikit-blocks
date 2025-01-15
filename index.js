@@ -11,7 +11,7 @@ panel.plugin("tilmannruppert/uikit-blocks", {
             type="text"
             :placeholder="placeholder"
             :value="content.text"
-            :class="[content.class, content.align]"
+            :class="[content.class]"
             @input="update({ text: $event.target.value })"
             @dblclick="open"
           />

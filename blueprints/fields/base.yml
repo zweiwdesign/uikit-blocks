@@ -52,7 +52,15 @@ settings:
         uk-section-small: small
         uk-section-large: large
         uk-section-xlarge: xlarge
-        uk-padding-remove-vertical: remove
+        vh: VH
+    sectionremove:
+      type: select
+      label: Section Padding Remove
+      width: 1/3
+      options:
+        uk-padding-remove-top: top
+        uk-padding-remove-bottom: bottom
+        uk-padding-remove-vertical: top + bottom
     sectionbreite:
       type: select
       label: Section Breite
@@ -64,6 +72,29 @@ settings:
         uk-container-xlarge: xlarge
         uk-container-expand: expand
         remove: remove
+    sectionvh:
+      width: 1/3
+      type: range
+      label: %
+      min: 1
+      max: 100
+      when:
+        sectionsize: vh
+    sectionvhoffset:
+      width: 1/3
+      type: toggle
+      label: offset TOP
+      when:
+        sectionsize: vh
+    sectionflex:
+      width: 1/3
+      type: select
+      label: section position
+      options:
+        uk-flex-middle: middle
+        uk-flex-bottom: bottom
+      when:
+        sectionsize: vh
     sectionexpand:
       type: select
       width: 1/3
@@ -74,13 +105,13 @@ settings:
     sectionausrichtung:
       type: select
       label: Section Ausrichtung
-      width: 1/2
+      width: 1/3
       options:
         uk-flex-middle: middle
     gutter:
       type: select
       label: Gutter
-      width: 1/2
+      width: 1/3
       options:
         uk-grid-small: small
         uk-grid-large: large

@@ -31,29 +31,43 @@ fields:
   size:
     label: Anzeigegröße
     type: toggles
-    labels: false
+    labels: true
     options:
+      - value: uk-heading-3xlarge
+        text: 3xlarge
+      - value: uk-heading-2xlarge
+        text: 2xlarge
+      - value: uk-heading-xlarge
+        text: xlarge
+      - value: uk-heading-large
+        text: large
+      - value: uk-heading-medium
+        text: medium
       - value: uk-heading-small
-        icon: small
         text: small
       - value: uk-h1
-        icon: h1
         text: H1
       - value: uk-h2
-        icon: h2
         text: H2
       - value: uk-h3
-        icon: h3
         text: H3
       - value: uk-h4
-        icon: h4
         text: H4
       - value: uk-h5
-        icon: h5
         text: H5
       - value: uk-h6
-        icon: h6
         text: H6
+  color:
+    label: Farbe
+    type: toggles
+    labels: true
+    options:
+      - value: uk-text-muted
+        text: muted
+      - value: uk-text-primary
+        text: primary
+      - value: uk-text-secondary
+        text: primary
   text:
     label: field.blocks.heading.text
     type: writer
