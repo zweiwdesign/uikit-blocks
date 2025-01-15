@@ -1,0 +1,35 @@
+
+.k-block-type-button input {
+    border: 1px solid #000;
+    border-radius: 2rem;
+    padding: .45rem .75rem;
+    cursor: pointer;
+    font: inherit;
+    margin-left: 5px;
+    text-align: center;
+    width: auto;
+}
+.k-block-type-button input:focus {
+    outline: 0;
+    border-color: var(--color-focus);
+}
+
+.k-block-type-button input.uk-button-primary {
+    border: 2px solid var(--primary);
+}
+
+.k-block-type-button input.uk-button-secondary {
+    border: 2px solid var(--secondary);
+}
+
+*:has(> .uk-text-center) {
+    text-align: center;
+}
+
+*:has(> .uk-text-right) {
+    text-align: right;
+}
+
+.k-layout-toolbar {
+    justify-content: start;
+    }

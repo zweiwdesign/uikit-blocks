@@ -1,0 +1,29 @@
+title: Button
+name: button
+tabs:
+  bild:
+    fields:
+      link:
+        type: url
+      text:
+        type: text
+      class:
+        type: select
+        options:
+          uk-button-primary: primary
+          uk-button-secondary: secondary
+      align:
+        type: toggles
+        empty: false
+        default: "uk-text-left"
+        labels: false
+        options:
+          - value: uk-text-left
+            icon: text-left
+            text: left
+          - value: uk-text-center
+            icon: text-center
+            text: center
+          - value: uk-text-right
+            icon: text-right
+            text: right

@@ -8,7 +8,7 @@ fieldsets:
       - heading
       - text
       - image
-      - buttons
+      - button
       - form
       - overlay
       - panel

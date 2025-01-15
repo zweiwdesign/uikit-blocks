@@ -1,0 +1,23 @@
+title: Default Page
+title: Site
+tabs:
+  content:
+    label: Layout
+    columns:
+      main:
+        width: 3/4
+        sections:
+          fields:
+            type: fields
+            fields:
+              baselayout: fields/uikit
+      jobs:
+        width: 1/4
+        sections:   
+          pages:
+            type: pages
+          files:
+            type: files
+  seo: seo/page
+
+
