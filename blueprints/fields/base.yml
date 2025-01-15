@@ -108,6 +108,7 @@ settings:
       width: 1/3
       options:
         uk-flex-middle: middle
+        uk-flex-bottom: bottom
     gutter:
       type: select
       label: Gutter

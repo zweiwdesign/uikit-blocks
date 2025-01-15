@@ -21,9 +21,9 @@ tabs:
           - value: uk-text-left
             icon: text-left
             text: left
-          - value: uk-text-center
+          - value: uk-text-center@m
             icon: text-center
             text: center
-          - value: uk-text-right
+          - value: uk-text-right@m
             icon: text-right
             text: right
