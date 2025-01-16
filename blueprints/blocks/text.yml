@@ -1,0 +1,42 @@
+name: field.blocks.text.name
+icon: text
+wysiwyg: true
+preview: text
+fields:
+  text:
+    type: writer
+    nodes: false
+    placeholder: field.blocks.text.placeholder
+  align:
+    type: toggles
+    empty: false
+    default: "uk-text-left"
+    labels: false
+    options:
+      - value: uk-text-left
+        icon: text-left
+        text: left
+      - value: uk-text-center@m
+        icon: text-center
+        text: center
+      - value: uk-text-right@m
+        icon: text-right
+        text: right
+  color:
+    label: Farbe
+    type: toggles
+    labels: true
+    options:
+      - value: uk-text-muted
+        text: muted
+      - value: uk-text-primary
+        text: primary
+      - value: uk-text-secondary
+        text: secondary
+  size:
+    type: toggles
+    options:
+      - value: uk-text-meta
+        text: meta
+      - value: uk-text-lead
+        text: lead

@@ -4,7 +4,12 @@ tabs:
   bild:
     fields:
       link:
-        type: url
+        type: link
+        width: 1/2
+      target:
+        type: toggle
+        text: Im neuen Fenster öffnen?
+        width: 1/2
       text:
         type: text
       class:

@@ -14,12 +14,14 @@ Kirby::plugin('tilmannruppert/uikit-blocks', [
         'blocks/overlay' => __DIR__ . '/blueprints/blocks/overlay.yml',
         'blocks/heading' => __DIR__ . '/blueprints/blocks/heading.yml',
         'blocks/image' => __DIR__ . '/blueprints/blocks/image.yml',
+        'blocks/text' => __DIR__ . '/blueprints/blocks/text.yml',
     ],
     'snippets' => [
         'blocks/overlay' => __DIR__ . '/blocks/overlay.php',
         'blocks/image' => __DIR__ . '/blocks/image.php',
         'blocks/heading' => __DIR__ . '/blocks/heading.php',
         'blocks/button' => __DIR__ . '/blocks/button.php',
+        'blocks/text' => __DIR__ . '/blocks/text.php',
     ],
     'templates' => [
         'default' => __DIR__ . '/templates/default.php',
