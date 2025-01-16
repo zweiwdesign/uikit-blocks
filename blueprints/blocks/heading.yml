@@ -67,7 +67,7 @@ fields:
       - value: uk-text-primary
         text: primary
       - value: uk-text-secondary
-        text: primary
+        text: secondary
   text:
     label: field.blocks.heading.text
     type: writer
