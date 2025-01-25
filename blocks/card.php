@@ -70,7 +70,7 @@ $mediaPosition = $block->medialayout() == 'right' ? 'uk-flex-last@s' : '';
             <?php endif; ?>
 
             <div class="uk-width-expand">
-                <div class="uk-card-body">
+                <div class="uk-card-body panel">
                     <?= $block->blocks()->toBlocks(); ?>
                 </div>
             </div>

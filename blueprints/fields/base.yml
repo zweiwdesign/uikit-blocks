@@ -122,6 +122,10 @@ settings:
         uk-grid-small: small
         uk-grid-large: large
         uk-grid-collapse: collapse
+    sameHeight:
+      label: Same Height
+      type: toggle
+      text: Aktivieren, um gleiche Höhe von Cards zu erzwingen
     usebackgroundimage:
       label: Hintergrundbild verwenden
       type: toggle

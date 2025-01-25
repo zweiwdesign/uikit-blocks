@@ -11,7 +11,7 @@ tabs:
             type: fields
             fields:
               baselayout: fields/uikit
-      jobs:
+      side:
         width: 1/4
         sections:   
           pages:

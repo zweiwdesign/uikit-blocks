@@ -19,7 +19,8 @@
         <div class="uk-width-1-1">
             <div
                 class="<?php if($layout->sectionbreite() != 'remove'): ?>uk-container <?= $layout->sectionbreite() ?><?php endif; ?> <?= $layout->sectionexpand() ?>">
-                <div class="uk-grid uk-flex <?= $layout->sectionausrichtung() ?> <?= $layout->gutter() ?>" uk-grid>
+                <div class="uk-grid <?= $layout->sectionausrichtung() ?> <?= $layout->gutter() ?>"
+                    uk-grid<?= $layout->sameHeight()->isTrue() ? ' uk-height-match="target: .panel"' : ''; ?>>
                     <?php foreach ($layout->columns() as $column): ?>
                     <div class="uk-width-<?= str_replace('/', '-', $column->width()) ?>@m">
                         <div <?php if($layout->sectionexpand() == 'uk-container-expand-left' && $column->isFirst()): ?>class="uk-container-item-padding-remove-left"
