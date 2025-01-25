@@ -1,0 +1,155 @@
+title: Card
+name: Card
+tabs:
+  main:
+    fields:
+      blocks:
+        type: blocks
+        label: Inhalte
+        width: 1/1
+
+      cardtype:
+        label: Art der Karte
+        type: toggles
+        width: 1/2
+        options:
+          - value: uk-card-muted
+            text: Muted
+          - value: uk-card-primary
+            text: Primary
+          - value: uk-card-secondary
+            text: Secondary
+
+      cardsize:
+        label: Kartengröße
+        type: toggles
+        width: 1/2
+        options:
+          - value: uk-card-small
+            text: Small
+          - value: uk-card-large
+            text: Large
+
+      cardlink:
+        type: link
+        label: Externer Link
+        width: 1/1
+
+      image:
+        type: files
+        label: Bild
+        multiple: false
+        width: 1/1
+
+      medialayout:
+        label: Media-Layout
+        type: toggles
+        width: 1/2
+        default: top
+        required: true
+        options:
+          - value: top
+            text: Oben
+          - value: left
+            text: Links
+          - value: right
+            text: Rechts
+
+      mediaWidth:
+        label: Breite der Media-Spalte
+        type: select
+        width: 1/2
+        options:
+          1-4: 1/4
+          1-3: 1/3
+          1-2: 1/2
+        default: 1-2
+
+  move:
+    label: Parallax-Einstellungen
+    fields:
+      paraY:
+        label: Vertikale Bewegung (y - Start)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraYend:
+        label: Vertikale Bewegung (y - End)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraX:
+        label: Horizontale Bewegung (x - Start)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraXend:
+        label: Horizontale Bewegung (x - End)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraOpacityStart:
+        label: Transparenz (Start)
+        type: number
+        width: 1/2
+        default: 1
+
+      paraOpacityEnd:
+        label: Transparenz (Ende)
+        type: number
+        width: 1/2
+        default: 1
+
+      paraScaleStart:
+        label: Skalierung (Start)
+        type: number
+        width: 1/2
+        default: 1
+
+      paraScaleEnd:
+        label: Skalierung (Ende)
+        type: number
+        width: 1/2
+        default: 1
+
+      paraRotateStart:
+        label: Rotation (Start)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraRotateEnd:
+        label: Rotation (Ende)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraBlurStart:
+        label: Unschärfe (Start)
+        type: number
+        width: 1/2
+        default: 0
+
+      paraBlurEnd:
+        label: Unschärfe (Ende)
+        type: number
+        width: 1/2
+        default: 0
+
+      parallaxBreakpoint:
+        label: Parallax-Breakpoint
+        type: toggles
+        width: 1/1
+        options:
+          - value: "@s"
+            text: Small
+          - value: "@m"
+            text: Medium
+          - value: "@l"
+            text: Large
+          - value: ""
+            text: Alle Größen
