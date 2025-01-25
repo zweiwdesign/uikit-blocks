@@ -11,7 +11,7 @@ fieldsets:
       - button
       - form
       - overlay
-      - panel
+      - card
   grups:
     label: Gruppen Elemente
     type: group
