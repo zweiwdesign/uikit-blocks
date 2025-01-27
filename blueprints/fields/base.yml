@@ -12,6 +12,7 @@ fieldsets:
       - form
       - overlay
       - card
+      - divider
   grups:
     label: Gruppen Elemente
     type: group

@@ -16,6 +16,7 @@ Kirby::plugin('tilmannruppert/uikit-blocks', [
         //'blocks/image' => __DIR__ . '/blueprints/blocks/image.yml',
         'blocks/text' => __DIR__ . '/blueprints/blocks/text.yml',
         'blocks/card' => __DIR__ . '/blueprints/blocks/card.yml',
+        'blocks/divider' => __DIR__ . '/blueprints/blocks/divider.yml',
     ],
     'snippets' => [
         'blocks/overlay' => __DIR__ . '/blocks/overlay.php',
@@ -24,6 +25,7 @@ Kirby::plugin('tilmannruppert/uikit-blocks', [
         'blocks/button' => __DIR__ . '/blocks/button.php',
         'blocks/text' => __DIR__ . '/blocks/text.php',
         'blocks/card' => __DIR__ . '/blocks/card.php',
+        'blocks/divider' => __DIR__ . '/blocks/divider.php',
     ],
     'templates' => [
         'default' => __DIR__ . '/templates/default.php',

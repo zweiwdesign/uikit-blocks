@@ -1,9 +1,6 @@
-title: UIkit Overlay
-name: uikit-overlay
-wysiwyg: true
-preview: fields
+title: Overlay
 tabs:
-  bild:
+  content:
     fields:
       image:
         label: Background Image
@@ -12,12 +9,13 @@ tabs:
         size: full
         image:
           ratio: 16/9
-          cover: true        
+          cover: true
         multiple: false
         max: 1
-  inhalt:
-    fields:
-      subblocks: fields/subblocks      
+      blocks:
+        type: blocks
+        label: Inhalte
+        width: 1/1
       style:
         label: Overlay Style
         type: select
@@ -59,7 +57,7 @@ tabs:
           uk-width-medium: medium
           uk-width-large: large
           uk-width-xlarge: xlarge
-          uk-width-2xlarge: 2xlarge     
+          uk-width-2xlarge: 2xlarge
       padding:
         label: Padding in der Box
         type: select
@@ -67,7 +65,7 @@ tabs:
         options:
           uk-padding-small: small
           uk-padding: medium
-          uk-padding-large: large    
+          uk-padding-large: large
       space:
         label: Außenabstand der Box
         type: select

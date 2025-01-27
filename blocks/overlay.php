@@ -13,12 +13,10 @@ $space = $block->space();
 
 <div class="uk-inline-clip">
     <?php if($image): ?>
-        <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>" class="uk-width-1-1">
+    <img src="<?= $image->url() ?>" alt="<?= $image->alt() ?>" class="uk-width-1-1">
     <?php endif; ?>
 
     <div class="uk-overlay uk-position-<?= $position ?> <?= $style ?> <?= $width ?> <?= $padding ?> <?= $space ?>">
-    <?php foreach ($block->subblocks()->toBlocks() as $block): ?>
-        <?= $block ?>
-    <?php endforeach ?>
+        <?= $block->blocks()->toBlocks(); ?>
     </div>
 </div>

@@ -1,0 +1,30 @@
+title: Divider
+name: Divider
+fields:
+  dividertype:
+    label: Art
+    type: toggles
+    width: 1/1
+    options:
+      - value: uk-divider-icon
+        text: Divider mit Icon
+      - value: uk-divider-small
+        text: Small
+      - value: uk-divider-vertical
+        text: Verikal
+  dividerausrichtung:
+    label: Ausrichtung
+    type: toggles
+    width: 1/2
+    options:
+      - value: uk-text-left
+        text: Left
+        icon: text
+      - value: uk-text-center
+        text: Center
+        icon: text-center
+      - value: uk-text-right
+        text: Right
+        icon: text-right
+    when:
+      dividertype: uk-divider-small
