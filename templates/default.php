@@ -13,7 +13,7 @@
     ?>
 
     <!-- Section-Container mit UIkit-Klassen zur Hover-Einblendung -->
-    <div class="uk-section uk-position-relative uk-visible-toggle
+    <div class="uk-section uk-position-relative uk-visible-toggle uk-flex
                 <?= $layout->sectionflex() ?> <?= $layout->backgroundimageat() ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?> <?= $layout->sectioncolor() ?> <?= $layout->class() ?>
                 <?php if($backgroundImage): ?>
                     uk-background-<?= $layout->backgroundsize() ?> <?= $layout->backgroundposition() ?> <?= $layout->backgroundblendmode() ?>
