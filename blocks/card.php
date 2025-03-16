@@ -50,20 +50,26 @@ $gridClasses = $block->medialayout() == 'left' || $block->medialayout() == 'righ
 $mediaPosition = $block->medialayout() == 'right' ? 'uk-flex-last@s' : '';
 ?>
 
+<?php
+$cardlink = $block->cardlink();
+$cardsize = $block->cardsize();
+$medialayout = $block->medialayout();
+?>
+
 <div <?= $parallaxSettings ? 'uk-parallax="' . $parallaxSettings . '"' : ''; ?>>
-    <?php if ($block->cardlink()->isNotEmpty()): ?>
-    <a href="<?= $block->cardlink()->toUrl(); ?>" class="uk-link-reset">
+    <?php if ($cardlink->isNotEmpty()): ?>
+    <a href="<?= $cardlink->toUrl(); ?>" class="uk-link-reset">
         <?php endif; ?>
 
-        <div class="uk-card <?= $block->cardsize(); ?> <?= $cardType; ?> <?= $linkClass; ?> <?= $gridClasses; ?>"
-            <?= $block->medialayout() == 'left' || $block->medialayout() == 'right' ? 'uk-grid' : ''; ?>>
+        <div class="uk-card <?= $cardsize; ?> <?= $cardType; ?> <?= $linkClass; ?> <?= $gridClasses; ?>"
+            <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-grid' : ''; ?>>
 
             <?php if ($img = $block->image()->toFile()): ?>
             <div
-                class="<?= $block->medialayout() == 'top' ? '' : 'uk-width-' . $mediaWidth . '@s uk-cover-container ' . $mediaPosition; ?>">
+                class="<?= $medialayout == 'top' ? '' : 'uk-width-' . $mediaWidth . '@s uk-cover-container ' . $mediaPosition; ?>">
                 <img src="<?= $img->url(); ?>" width="<?= $img->width(); ?>" height="<?= $img->height(); ?>" alt=""
-                    <?= $block->medialayout() == 'left' || $block->medialayout() == 'right' ? 'uk-cover' : ''; ?>>
-                <?php if ($block->medialayout() == 'left' || $block->medialayout() == 'right'): ?>
+                    <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-cover' : ''; ?>>
+                <?php if ($medialayout == 'left' || $medialayout == 'right'): ?>
                 <canvas width="600" height="400"></canvas>
                 <?php endif; ?>
             </div>
@@ -76,7 +82,7 @@ $mediaPosition = $block->medialayout() == 'right' ? 'uk-flex-last@s' : '';
             </div>
         </div>
 
-        <?php if ($block->cardlink()->isNotEmpty()): ?>
+        <?php if ($cardlink->isNotEmpty()): ?>
     </a>
     <?php endif; ?>
 </div>

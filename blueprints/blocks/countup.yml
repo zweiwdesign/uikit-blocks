@@ -1,12 +1,12 @@
-name: field.blocks.text.name
+title: Count Up
+name: Count Up
 icon: text
 wysiwyg: true
 preview: text
 fields:
-  class:
-    type: text
   text:
-    type: writer
+    label: Nummer
+    type: number
     nodes: false
     placeholder: field.blocks.text.placeholder
   align:
@@ -38,37 +38,27 @@ fields:
   size:
     type: toggles
     options:
-      - value: uk-text-meta
-        text: meta
       - value: uk-text-lead
         text: lead
-  textstyle:
-    label: Text Style
-    type: select
-    default: none
-    width: 1/3
-    options:
-      - value: uk-text-uppercase
-        text: uppercase
-      - value: uk-text-lowercase
-        text: lowercase
-  textcolumns:
-    label: Text Spalten
-    type: select
-    width: 1/3
-    options:
-      uk-column-1-2: 1/2
-      uk-column-1-3: 1/3
-      uk-column-1-4: 1/4
-      uk-column-1-5: 1/5
-      uk-column-1-6: 1/6
-  textcolumnsresponsiv:
-    label: Text Spalten ab...
-    type: select
-    width: 1/3
-    default: m
-    placeholder: ab m
-    options:
-      s: ab s
-      l: ab l
-      xl: ab xl
+      - value: uk-heading-3xlarge
+        text: 3xlarge
+      - value: uk-heading-2xlarge
+        text: 2xlarge
+      - value: uk-heading-xlarge
+        text: xlarge
+      - value: uk-heading-large
+        text: large
+      - value: uk-heading-medium
+        text: medium
+      - value: uk-heading-small
+        text: small
+      - value: uk-h1
+        text: H1
+      - value: uk-h2
+        text: H2
+      - value: uk-h3
+        text: H3
+      - value: uk-h4
+        text: H4
+      - value: uk-h5
+        text: H5

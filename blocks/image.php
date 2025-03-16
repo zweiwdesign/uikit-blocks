@@ -1,21 +1,60 @@
-
 <?php
-// Überprüfen, ob ein Bild ausgewählt wurde
-if ($image = $block->image()->toFile()):
 
-    // Angegebene Breite verwenden oder Standardwert
-    $width = $block->width()->isNotEmpty() ? $block->width()->toInt() : 800;
+/** @var \Kirby\Cms\Block $block */
+$alt     = $block->alt();
+$caption = $block->caption();
+$crop    = $block->crop()->isTrue();
+$link    = $block->link();
+$ratio   = $block->ratio()->or('auto');
+$src     = null;
 
-    // Alternativen Text
-    $alt = $block->alt()->isNotEmpty() ? $block->alt()->html() : $image->alt()->html();
+if ($block->location() == 'web') {
+    $src = $block->src()->esc();
+} elseif ($image = $block->image()->toFile()) {
+    $alt = $alt->or($image->alt());
+    if ($ratio == 'auto') {
+        $thumbLarge  = $image->thumb(['width' => 1400, 'format' => 'webp']);
+        $thumbMobile = $image->thumb(['width' => 610,  'format' => 'webp']);
+        $widthLarge = $thumbLarge->width();
+        $heightLarge = $thumbLarge->height();
+    } else {
+        [$wRatio, $hRatio] = explode('/', $ratio);
+        $widthLarge  = 1400;
+        $heightLarge = intval($widthLarge * ($hRatio / $wRatio));
+        $thumbLarge  = $image->thumb(['width' => $widthLarge, 'height' => $heightLarge, 'crop' => true, 'format' => 'webp']);
+        
+        $widthMobile  = 610;
+        $heightMobile = intval($widthMobile * ($hRatio / $wRatio));
+        $thumbMobile  = $image->thumb(['width' => $widthMobile, 'height' => $heightMobile, 'crop' => true, 'format' => 'webp']);
+    }
+    $src = $thumbLarge->url();
+}
 
-    // Thumbnail erstellen
-    $thumb = $image->thumb([
-        'width'  => $width*2,
-        'format' => 'webp', // Optional, wenn du WebP verwenden möchtest
-    ]);
-
-    // Bild-Tag erstellen
-    echo '<img width="' . $width . '" src="' . $thumb->url() . '" alt="' . $alt . '" loading="lazy">';
-endif;
 ?>
+<?php if ($src): ?>
+<figure role="group">
+    <?php if ($link->isNotEmpty()): ?>
+    <a href="<?= Str::esc($link->toUrl()) ?>">
+        <picture>
+            <source media="(max-width: 610px)" srcset="<?= $thumbMobile->url() ?>">
+            <img src="<?= $src ?>" alt="<?= $alt ?>" loading="lazy"
+                <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
+                height="<?= $heightLarge ?>" <?php endif; ?> <?= empty($alt) ? 'aria-hidden="true"' : '' ?>>
+        </picture>
+    </a>
+    <?php else: ?>
+    <picture>
+        <source media="(max-width: 610px)" srcset="<?= $thumbMobile->url() ?>">
+        <img src="<?= $src ?>" alt="<?= $alt ?>" loading="lazy"
+            <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
+            height="<?= $heightLarge ?>" <?php endif; ?> <?= empty($alt) ? 'aria-hidden="true"' : '' ?>>
+    </picture>
+    <?php endif ?>
+
+    <?php if ($caption->isNotEmpty()): ?>
+    <figcaption>
+        <?= $caption ?>
+    </figcaption>
+    <?php endif ?>
+</figure>
+<?php endif ?>

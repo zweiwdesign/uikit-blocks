@@ -7,6 +7,13 @@ tabs:
         type: blocks
         label: Inhalte
         width: 1/1
+        fieldsets:
+          - heading
+          - text
+          - list
+          - divider
+          - buttons
+          - iconflex
 
       cardtype:
         label: Art der Karte

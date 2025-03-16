@@ -1,0 +1,84 @@
+title: Tab
+name: Tab
+fields:
+  tabs:
+    type: structure
+    label: Inhalt
+    fields:
+      headline:
+        label: Headline
+        type: text
+      toggle_disabled:
+        label: Disabled
+        type: toggle
+      blocks:
+        label: Inhalt
+        type: blocks
+  tab_art:
+    label: Tabs Art
+    type: toggles
+    options:
+      - value: uk-tab
+        text: Tab
+      - value: button
+        text: Button
+      - value: uk-switcher
+        text: Switcher
+  tablinie_ausrichtung:
+    label: Tablinie Ausrichtung
+    type: toggles
+    help: To save space, the alignment automatically switches back to horizontal when the viewport width goes below 960px.
+    options:
+      - value: uk-tab-bottom
+        text: Text unter der Linie
+      - value: normal
+        text: Text über der Linie
+      - value: uk-tab-left
+        text: Text links von der Linie
+      - value: uk-tab-right
+        text: Text rechts von der Linie
+    when:
+      tab_art: uk-tab
+  tabs_ausrichtung:
+    label: Tabs Ausrichtung
+    type: toggles
+    width: 1/1
+    options:
+      - value: uk-flex-left
+        text: Links
+      - value: uk-flex-center
+        text: Center
+      - value: uk-flex-right
+        text: Rechts
+      - value: uk-child-width-expand
+        text: Gleichmäßig verteilt
+    when:
+      tab_art: uk-tab
+  switcher_ausrichtung:
+    label: Switcher Ausrichtung
+    type: toggles
+    width: 1/1
+    options:
+      - value: uk-flex-left
+        text: Links
+      - value: uk-flex-center
+        text: Center
+      - value: uk-flex-right
+        text: Rechts
+      - value: uk-child-width-expand
+        text: Gleichmäßig verteilt
+    when:
+      tab_art: uk-switcher
+  buttons_ausrichtung:
+    label: Tabs Ausrichtung
+    type: toggles
+    width: 1/1
+    options:
+      - value: uk-text-left
+        text: Links
+      - value: uk-text-center
+        text: Center
+      - value: uk-text-right
+        text: Rechts
+    when:
+      tab_art: button

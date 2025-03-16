@@ -3,6 +3,8 @@ icon: title
 wysiwyg: true
 preview: heading
 fields:
+  class:
+    type: text
   level:
     label: field.blocks.heading.level
     type: toggles
@@ -88,3 +90,9 @@ fields:
       - value: uk-text-right@m
         icon: text-right
         text: right
+  margin:
+    type: select
+    options:
+      uk-margin-remove: remove top + bottom
+      uk-margin-remove-top: remove top
+      uk-margin-remove-bottom: remove bottom

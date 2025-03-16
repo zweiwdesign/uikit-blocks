@@ -1,0 +1,13 @@
+title: Accordion
+name: Accordion
+fields:
+  blocks:
+    type: blocks
+    fieldsets:
+      - inner_accordion
+  toggle_nocollapsing:
+    label: No collapsing
+    type: toggle
+  toggle_multipleopen:
+    label: Multiple open items
+    type: toggle

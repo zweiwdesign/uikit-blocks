@@ -7,15 +7,71 @@ tabs:
         type: files
         layout: cards
         size: full
+        width: 1/2
         image:
           ratio: 16/9
           cover: true
         multiple: false
         max: 1
+      image_2:
+        label: Bild 2 sichtbar vor Hover
+        type: files
+        layout: cards
+        size: full
+        width: 1/2
+        image:
+          ratio: 16/9
+          cover: true
+        multiple: false
+        max: 1
+        when:
+          hover_image: true
+      gap_image:
+        type: gap
+        width: 1/3
+        when:
+          hover_image: false
+      ratio:
+        label: Image Ratio
+        type: select
+        placeholder: Auto
+        width: 1/3
+        options:
+          1/1: "1:1"
+          16/9: "16:9"
+          10/8: "10:8"
+          21/9: "21:9"
+          7/5: "7:5"
+          4/3: "4:3"
+          5/3: "5:3"
+          3/2: "3:2"
+          3/1: "3:1"
+      hover_image:
+        type: toggle
+        text: Bei Hover anderes Bild anzeigen?
+        width: 1/3
+      transition_image:
+        label: Image Transition bei Hover
+        type: select
+        width: 1/3
+        default: fade
+        placeholder: Image fades in
+        options:
+          scale-up: Image scales up
+          scale-down: Image scales down
+
       blocks:
         type: blocks
         label: Inhalte
         width: 1/1
+        fieldsets:
+          - heading
+          - text
+          - list
+          - divider
+          - buttons
+          - iconflex
+
       style:
         label: Overlay Style
         type: select
@@ -27,6 +83,13 @@ tabs:
           uk-tile-primary: Tile Primary
           uk-tile-secondary: Tile Secondary
           uk-tile-muted: Tile Muted
+      color:
+        label: Color
+        type: select
+        width: 1/3
+        options:
+          uk-light: Light
+          uk-dark: Dark
       position:
         label: Position
         type: select
@@ -44,12 +107,53 @@ tabs:
           bottom-center: Bottom Center
           bottom-right: Bottom Right
           cover: Cover
+      flex_vertical:
+        label: Ausrichtung des Inhalts vertikal
+        type: select
+        width: 1/2
+        default: uk-flex-top
+        placeholder: uk-flex-top
+        options:
+          uk-flex-middle: uk-flex-middle
+          uk-flex-bottom: uk-flex-bottom
+      flex_horizontal:
+        label: Ausrichtung des Inhalts horizontal
+        type: select
+        width: 1/2
+        default: uk-flex-left
+        placeholder: uk-flex-left
+        options:
+          uk-flex-center: uk-flex-center
+          uk-flex-right: uk-flex-right
+      hover:
+        type: toggle
+        text: Overlay erst beim Hover anzeigen?
+        width: 1/2
+      transition:
+        label: Transition
+        type: select
+        width: 1/2
+        default: fade
+        placeholder: Element fades in
+        when:
+          hover: true
+        options:
+          scale-up: Element scales up
+          scale-down: Element scales down
+          slide-top: Element slides in from the Top
+          slide-bottom: Element slides in from the Bottom
+          slide-left: Element slides in from the Left
+          slide-right: Element slides in from the Right
+      gap_hover:
+        type: gap
+        width: 1/2
+        when:
+          hover: false
       width:
         label: Breite
         type: select
         width: 1/3
         options:
-          uk-width-1-1: 1/1
           uk-width-1-2: 1/2
           uk-width-1-3: 1/3
           uk-width-1-4: 1/4

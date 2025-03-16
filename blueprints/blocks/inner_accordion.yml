@@ -1,0 +1,19 @@
+title: Inner Accordion
+name: Inner Accordion
+fields:
+  toggle_open:
+    label: Ausgeklappt
+    type: toggle
+  headline:
+    type: text
+    label: Headline
+  blocks:
+    type: blocks
+    fieldsets:
+      - text
+      - list
+      - image
+      - heading
+      - divider
+      - buttons
+      - iconflex

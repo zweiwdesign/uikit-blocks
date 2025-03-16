@@ -1,0 +1,26 @@
+title: Table
+name: Table
+fields:
+  table:
+    type: table
+  toggle_divider:
+    type: toggle
+    label: Divider
+    width: 1/2
+  toggle_striped:
+    type: toggle
+    label: Gestreift
+    width: 1/2
+  size:
+    label: Größe
+    type: select
+    width: 1/2
+    options:
+      uk-table-small: Small
+      uk-table-large: Large
+  ausrichtung:
+    label: Ausrichtung
+    type: select
+    width: 1/2
+    options:
+      uk-table-middle: Middle

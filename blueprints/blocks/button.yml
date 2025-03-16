@@ -12,23 +12,56 @@ tabs:
         width: 1/2
       text:
         type: text
-      class:
+      icon_show:
+        type: toggle
+        text: Icon
+        width: 2/3
+      icon_toggle:
+        label: Icon
+        type: toggles
+        empty: false
+        width: 1/3
+        default: "text-icon"
+        when:
+          icon_show: true
+        options:
+          - value: text-icon
+            text: Text und Icon
+          - value: only-icon
+            text: nur Icon
+      icon:
+        label: Icon
+        type: text
+        width: 1/2
+        help: Die Iconbiliothek ist zu finden unter https://getuikit.com/docs/icon#library
+        when:
+          icon_show: true
+      icon_align:
+        type: toggle
+        text: Icon Position
+        width: 1/2
+        text:
+          - "links vom Text"
+          - "rechts vom Text"
+        when:
+          icon_toggle: text-icon
+          icon_show: true
+      style:
         type: select
+        label: Style
         options:
           uk-button-primary: primary
           uk-button-secondary: secondary
-      align:
-        type: toggles
-        empty: false
-        default: "uk-text-left"
-        labels: false
+          uk-button-text: text
+          uk-button-link: link
+      breite:
+        type: toggle
+        text: Komplette Breite einnehmen?
+        width: 1/2
+      size:
+        label: Größe
+        type: select
+        width: 1/2
         options:
-          - value: uk-text-left
-            icon: text-left
-            text: left
-          - value: uk-text-center@m
-            icon: text-center
-            text: center
-          - value: uk-text-right@m
-            icon: text-right
-            text: right
+          uk-button-small: small
+          uk-button-large: large

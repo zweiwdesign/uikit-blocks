@@ -22,6 +22,10 @@
     border: 2px solid var(--secondary);
 }
 
+.k-block-type-countup > .k-number-input {
+    font-size: 36px; 
+}
+
 *:has(> .uk-text-center) {
     text-align: center;
 }
@@ -33,3 +37,34 @@
 .k-layout-toolbar {
     justify-content: start;
     }
+
+    
+.iconplus {
+    display: flex; /* Flexbox für nebeneinander Anordnung */
+    gap: 8px; /* Abstand zwischen den Elementen */
+}
+
+.uitab {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ui-tab {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid black;
+    padding: 0;
+    margin: 0;
+  }
+  
+.ui-tab li {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+    margin-right: 5px;
+    list-style: none;
+  }
+  .ui-tab li:hover, .ui-tab li.active {
+    background: #ddd;
+  }

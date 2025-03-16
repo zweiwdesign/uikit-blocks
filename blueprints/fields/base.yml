@@ -7,20 +7,26 @@ fieldsets:
     fieldsets:
       - heading
       - text
+      - list
       - image
-      - button
+      - divider
+      - iconflex
+      - countup
       - form
       - overlay
       - card
-      - divider
-  grups:
+      - table
+  groups:
     label: Gruppen Elemente
     type: group
     fieldsets:
-      - imageslider
-      - panels
+      #- imageslider
+      #- panels
       - overlays
-      - images
+      #- images
+      - buttons
+      - accordion
+      - tab
   prestyle:
     extends: fields/sections
 
@@ -29,6 +35,7 @@ layouts:
   - 1/2, 1/2
   - 1/1, 1/2, 1/2
   - 1/3, 1/3, 1/3
+  - 1/3, 1/3, 1/3, 1/3, 1/3, 1/3
   - 1/1, 1/3, 1/3, 1/3
   - 1/3, 2/3
   - 1/1, 1/3, 2/3
@@ -36,10 +43,16 @@ layouts:
   - 1/1, 2/3, 1/3
   - 1/4, 1/4, 1/4, 1/4
   - 1/1, 1/4, 1/4, 1/4, 1/4
-  - 1/1, 1/5, 1/5, 1/5, 1/5, 1/5
+  - 1/2, 1/2, 1/4, 1/4, 1/4, 1/4
   - 1/5, 1/5, 1/5, 1/5, 1/5
+  - 1/1, 1/5, 1/5, 1/5, 1/5, 1/5
+  - 1/2, 1/2, 1/5, 1/5, 1/5, 1/5, 1/5
+
 settings:
   fields:
+    sectionId:
+      type: text
+      width: 1/2
     class:
       type: text
       width: 1/2
@@ -91,13 +104,13 @@ settings:
     sectionvhoffset:
       width: 1/3
       type: toggle
-      label: offset TOP
+      label: Offset TOP
       when:
         sectionsize: vh
     sectionflex:
       width: 1/3
       type: select
-      label: section position
+      label: Section position
       options:
         uk-flex-middle: middle
         uk-flex-bottom: bottom
@@ -117,6 +130,8 @@ settings:
       options:
         uk-flex-middle: middle
         uk-flex-bottom: bottom
+    flexfirst:
+      type: toggle
     gutter:
       type: select
       label: Gutter
@@ -129,6 +144,39 @@ settings:
       label: Same Height
       type: toggle
       text: Aktivieren, um gleiche Höhe von Cards zu erzwingen
+    toggle_griddivider:
+      label: Griddivider
+      type: toggle
+      width: 1/2
+    sectionvisibility:
+      label: Section ausblenden/anzeigen ab...
+      type: select
+      width: 1/2
+      options:
+        uk-visible@s: ausblenden ab s und größer
+        uk-visible@m: ausblenden ab m und größer
+        uk-visible@l: ausblenden ab l und größer
+        uk-visible@xl: ausblenden ab xl und größer
+        uk-hidden@s: anzeigen ab s und kleiner
+        uk-hidden@m: anzeigen ab m und kleiner
+        uk-hidden@l: anzeigen ab l und kleiner
+        uk-hidden@xl: anzeigen ab xl und kleiner
+    sectiongridchildwidth:
+      label: Section Child Width
+      type: select
+      help: Die eingestellte Width hat nur eine Auswirkung auf Layouts kleiner als 1/1
+      width: 1/2
+      options:
+        uk-width-1-2: 1/2
+        uk-width-1-3: 1/3
+        uk-width-1-4: 1/4
+    sectiongridchildwidthresponsiv:
+      label: Child Width ab...
+      type: select
+      width: 1/2
+      options:
+        s: Child Width ab s bis l
+        m: Child Width ab m bis l
     usebackgroundimage:
       label: Hintergrundbild verwenden
       type: toggle

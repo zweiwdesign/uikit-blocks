@@ -1,0 +1,9 @@
+title: List
+name: List
+wysiwyg: true
+preview: list
+fields:
+  text:
+    label: List
+    type: list
+    placeholder: field.blocks.list.placeholder
