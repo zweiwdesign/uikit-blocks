@@ -12,6 +12,13 @@
     ],
     "require": {
         "php": ">=8.1.0",
-        "getkirby/composer-installer": "^1.1"
+        "getkirby/composer-installer": "^1.1",
+        "uikit/uikit": "^3.23",
+        "wikimedia/less.php": "^5.2"
+    },
+    "config": {
+        "allow-plugins": {
+            "getkirby/composer-installer": true
+        }
     }
 }

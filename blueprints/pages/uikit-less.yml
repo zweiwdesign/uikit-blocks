@@ -1,0 +1,384 @@
+title: UIKIT LESS Compiler
+options:
+  changeStatus: false # Deaktiviert die Statusänderung
+  preview: "{{ site.url }}"
+
+columns:
+  left:
+    width: 3/4
+    sections:
+      fields:
+        type: fields
+        fields:
+          colorheading:
+            label: Hauptfarben
+            type: headline
+
+          background:
+            label: Hintergrundfarbe
+            type: color
+            width: 1/5
+          primary:
+            label: Primärfarbe
+            type: color
+            width: 1/5
+          secondary:
+            label: Sekundärfarbe
+            type: color
+            width: 1/5
+          muted:
+            label: Gedämpfte Farbe
+            type: color
+            width: 1/5
+          selection:
+            label: Selection Farbe
+            type: color
+            width: 1/5
+
+          line1:
+            type: line
+          fontheading:
+            label: Schriften
+            type: headline
+          primaryfont:
+            label: Hauptschriftart
+            type: files
+            multiple: false
+            uploads:
+              template: fonts
+            empty: Keine externe Schrift zugewiesen
+            width: 1/2
+            help: >
+              Lade eine Schriftart hoch (WOFF, WOFF2). 
+              <a href="https://gwfh.mranftl.com/fonts/" target="_blank" rel="noopener">GoogleFontHelper</a>
+          secondaryfont:
+            label: Zusatzschriftart
+            type: files
+            multiple: false
+            uploads:
+              template: fonts
+            empty: Keine externe Schrift zugewiesen
+            width: 1/2
+          basefontsize:
+            label: Basis Schriftgröße
+            type: range
+            step: 1
+            min: 10
+            max: 30
+            width: 1/3
+            tooltip:
+              after: px
+          basefontline:
+            type: number
+            label: Basis LineHeight
+            width: 1/3
+            step: 0.1
+          basecolor:
+            label: Basis Schriftfarbe
+            type: color
+            width: 1/3
+          headingcolor:
+            label: Überschriften Farbe
+            type: color
+            width: 1/3
+          headingweight:
+            label: Überschriften Dicke
+            type: select
+            default: normal
+            width: 1/3
+            required: true
+            options:
+              normal: normal
+              700: bold
+          headingstyle:
+            label: Überschriften Style
+            type: select
+            default: none
+            width: 1/3
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          metacolor:
+            label: Meta Farbe
+            type: color
+            width: 1/2
+          metastyle:
+            label: Meta transform
+            type: select
+            default: none
+            width: 1/2
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          linkcolor:
+            label: Link Farbe
+            type: color
+            width: 1/2
+          linkhovercolor:
+            label: Link Farbe Hover
+            type: color
+            width: 1/2
+
+          line2:
+            type: line
+          buttonsheading:
+            label: Buttons
+            type: headline
+          buttonradius:
+            label: Button Radius
+            width: 1/2
+            type: range
+            default: 0
+            step: 1
+            min: 0
+            max: 100
+            tooltip:
+              after: px
+          buttonstyle:
+            label: Button-Transform
+            type: select
+            default: none
+            width: 1/2
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+
+          line3:
+            type: line
+          cardsheading:
+            label: Cards
+            type: headline
+          cardradius:
+            label: Card Radius
+            width: 1/2
+            type: range
+            default: 0
+            step: 1
+            min: 0
+            max: 100
+            tooltip:
+              after: px
+
+          line4:
+            type: line
+          accordionheading:
+            label: Accordion
+            type: headline
+          accordiontitlecolor:
+            label: Accordion-Farbe
+            type: color
+            width: 1/3
+          accordiontitlehovercolor:
+            label: Accordion Hover-Farbe
+            type: color
+            width: 1/3
+          accordionstyle:
+            label: Accordion-Transform
+            type: select
+            default: none
+            width: 1/3
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          accordioniconopen:
+            label: Open Icon
+            type: files
+            width: 1/3
+            multiple: false
+            help: Wenn kein Icon eingefügt, wird das Standardicon verwendet.
+          accordioniconclose:
+            label: Close Icon
+            type: files
+            width: 1/3
+            multiple: false
+            help: Wenn kein Icon eingefügt, wird das Standardicon verwendet.
+
+          line5:
+            type: line
+          dividerheading:
+            label: Divider
+            type: headline
+          dividerlineborder:
+            label: Divider Borderfarbe
+            type: color
+            default: "#e5e5e5"
+            placeholder: "#e5e5e5"
+            width: 1/4
+          dividerlineborderwidth:
+            label: Divider Border
+            width: 1/4
+            type: range
+            default: 1
+            step: 1
+            min: 1
+            max: 10
+            tooltip:
+              after: px
+          gap_divider:
+            type: gap
+            width: 1/2
+
+          dividericonlineborder:
+            label: Icon-Divider Borderfarbe
+            type: color
+            width: 1/4
+          dividericonlineborderwidth:
+            label: Icon-Divider Border
+            width: 1/4
+            type: range
+            default: 1
+            step: 1
+            min: 1
+            max: 10
+            tooltip:
+              after: px
+          dividericon:
+            label: Icon-Divider Icon
+            type: files
+            width: 1/4
+            multiple: false
+            help: Wenn kein Icon eingefügt, wird das Standardicon verwendet.
+          dividericoncolor:
+            label: Icon-Divider Iconfarbe
+            type: color
+            width: 1/4
+
+          dividersmallborderwidth:
+            label: Small-Divider Color
+            width: 1/4
+            type: color
+          dividersmallborder:
+            label: Small-Divider Border
+            width: 1/4
+            type: range
+            tooltip:
+              after: px
+            default: 1
+            step: 1
+            min: 1
+            max: 10
+          dividersmallimage:
+            label: Small-Divider Image
+            type: files
+            width: 1/4
+            multiple: false
+            help: Wenn kein Image eingefügt, wird ein normaler Divider angezeigt.
+          dividersmallwidth:
+            label: Small-Divider Width
+            width: 1/4
+            type: range
+            default: 50
+            step: 50
+            min: 50
+            max: 800
+            tooltip:
+              after: px
+
+          dividerverticalborderwidth:
+            label: Vertical-Divider Color
+            width: 1/4
+            type: color
+          dividerverticalborder:
+            label: Vertical-Divider Border
+            width: 1/4
+            type: range
+            tooltip:
+              after: px
+            default: 1
+            step: 1
+            min: 1
+            max: 10
+          dividerverticalheight:
+            label: Vertical-Divider Height
+            width: 1/4
+            type: range
+            default: 50
+            step: 50
+            min: 50
+            max: 800
+            tooltip:
+              after: px
+
+          line6:
+            type: line
+          navheading:
+            label: Navigation
+            type: headline
+          navbackgroundcolor:
+            label: Navigation Background Color
+            type: color
+            width: 1/2
+          gap:
+            type: gap
+            width: 1/2
+          navstyle:
+            label: Nav-Transform
+            type: select
+            default: none
+            width: 1/4
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          navitemcolor:
+            label: Nav-Item-Farbe
+            type: color
+            width: 1/4
+          navitemhovercolor:
+            label: Nav-Item-Farbe Hover
+            type: color
+            width: 1/4
+          navitemactivecolor:
+            label: Nav-Item-Farbe Aktiv
+            type: color
+            width: 1/4
+
+          line7:
+            type: line
+          preheaderheading:
+            label: Preheader
+            type: headline
+          preheaderbackgroundcolor:
+            label: Preheader Background Color
+            type: color
+            width: 1/3
+          preheaderstyle:
+            label: Preheader-Transform
+            type: select
+            default: none
+            width: 1/3
+            required: true
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          preheaderitemcolor:
+            label: Preheader-Text-Farbe
+            type: color
+            width: 1/3
+
+          line8:
+            type: line
+          sonstigesheading:
+            label: Sonstiges
+            type: headline
+          lesscode:
+            label: Custom LESS Code
+            type: code-editor
+            help: |
+              Definiere hier deine LESS-Variablen und -Regeln, um UIKit anzupassen.
+
+  right:
+    width: 1/4
+    sections:
+      files:
+        type: files
