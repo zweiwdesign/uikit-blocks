@@ -3,25 +3,6 @@
 use Kirby\Cms\App as Kirby;
 
 Kirby::plugin('tilmannruppert/uikit-blocks', [
-'routes' => [
-        [
-            'pattern' => 'composer-update/(:any)',
-            'action'  => function ($secret) {
-
-                // Zugriff nur für eingeloggte Admin-User
-                if (!kirby()->user() || !kirby()->user()->isAdmin()) {
-                    return new Kirby\Http\Response('Forbidden', 'text/plain', 403);
-                }
-
-                // Zusätzliche Secret-Key-Prüfung aus config.php
-                if ($secret !== option('composerupdater.secret')) {
-                    return new Kirby\Http\Response('Invalid Secret Key', 'text/plain', 403);
-                }
-
-                require __DIR__ . '/update.php';
-            }
-        ]
-        ],
     'blueprints' => [
         'pages/default' => __DIR__ . '/blueprints/pages/default.yml',
         'fields/uikit' => __DIR__ . '/blueprints/fields/base.yml',
