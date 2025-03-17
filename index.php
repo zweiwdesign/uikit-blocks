@@ -15,14 +15,32 @@ App::plugin('tilmannruppert/uikit-blocks', [
             'pattern' => '/assets/js/uikit.min.js',
             'action'  => function () {
                 $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit.min.js';
-                return file_exists($filePath) ? Response::file($filePath, ['mime' => 'application/javascript']) : Response::json(['error' => 'File not found'], 404);
+                if (!file_exists($filePath)) {
+                    return Response::json(['error' => 'File not found'], 404);
+                }
+                return Response::file($filePath, [
+                    'mime'    => 'application/javascript',
+                    'headers' => [
+                        'Cache-Control' => 'public, max-age=2592000',
+                        'Expires'       => gmdate('D, d M Y H:i:s', time() + 2592000) . ' GMT'
+                    ]
+                ]);
             }
         ],
         [
             'pattern' => '/assets/js/uikit-icons.min.js',
             'action'  => function () {
                 $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit-icons.min.js';
-                return file_exists($filePath) ? Response::file($filePath, ['mime' => 'application/javascript']) : Response::json(['error' => 'File not found'], 404);
+                if (!file_exists($filePath)) {
+                    return Response::json(['error' => 'File not found'], 404);
+                }
+                return Response::file($filePath, [
+                    'mime'    => 'application/javascript',
+                    'headers' => [
+                        'Cache-Control' => 'public, max-age=2592000',
+                        'Expires'       => gmdate('D, d M Y H:i:s', time() + 2592000) . ' GMT'
+                    ]
+                ]);
             }
         ]
     ],
