@@ -9,7 +9,7 @@ use Less_Parser;
 require_once kirby()->root('index') . "/vendor/wikimedia/less.php/lib/Less/Autoloader.php";
 \Less_Autoloader::register();
 
-\Kirby::plugin('tilmannruppert/uikit-blocks', [
+App::plugin('tilmannruppert/uikit-blocks', [
     'routes' => [
         [
             'pattern' => '/assets/js/uikit.min.js',
