@@ -1,8 +1,8 @@
 <?php return array(
     'root' => array(
         'name' => 'tilmannruppert/uikit-blocks',
-        'pretty_version' => '1.0.18',
-        'version' => '1.0.18.0',
+        'pretty_version' => '1.0.19',
+        'version' => '1.0.19.0',
         'reference' => null,
         'type' => 'kirby-plugin',
         'install_path' => __DIR__ . '/../../',
@@ -20,8 +20,8 @@
             'dev_requirement' => false,
         ),
         'tilmannruppert/uikit-blocks' => array(
-            'pretty_version' => '1.0.18',
-            'version' => '1.0.18.0',
+            'pretty_version' => '1.0.19',
+            'version' => '1.0.19.0',
             'reference' => null,
             'type' => 'kirby-plugin',
             'install_path' => __DIR__ . '/../../',

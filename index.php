@@ -1,8 +1,10 @@
 <?php
+namespace TilmannRuppert\UIKITLess;
 
 use Kirby\Cms\App;
 use Kirby\Exception\Exception;
 use Kirby\Http\Response;
+use Less_Parser;
 
 require_once __DIR__ . "/vendor/wikimedia/less.php/lib/Less/Autoloader.php";
 \Less_Autoloader::register();
