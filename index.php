@@ -6,7 +6,7 @@ use Kirby\Exception\Exception;
 use Kirby\Http\Response;
 use Less_Parser;
 
-require_once __DIR__ . "/vendor/wikimedia/less.php/lib/Less/Autoloader.php";
+require_once kirby()->root('index') . "/vendor/wikimedia/less.php/lib/Less/Autoloader.php";
 \Less_Autoloader::register();
 
 Kirby::plugin('tilmannruppert/uikit-blocks', [
@@ -14,14 +14,14 @@ Kirby::plugin('tilmannruppert/uikit-blocks', [
         [
             'pattern' => '/assets/js/uikit.min.js',
             'action'  => function () {
-                $filePath = __DIR__ . '/vendor/uikit/uikit/dist/js/uikit.min.js';
+                $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit.min.js';
                 return file_exists($filePath) ? Response::file($filePath, ['mime' => 'application/javascript']) : Response::json(['error' => 'File not found'], 404);
             }
         ],
         [
             'pattern' => '/assets/js/uikit-icons.min.js',
             'action'  => function () {
-                $filePath = __DIR__ . '/vendor/uikit/uikit/dist/js/uikit-icons.min.js';
+                $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit-icons.min.js';
                 return file_exists($filePath) ? Response::file($filePath, ['mime' => 'application/javascript']) : Response::json(['error' => 'File not found'], 404);
             }
         ]
@@ -88,7 +88,7 @@ Kirby::plugin('tilmannruppert/uikit-blocks', [
                 $panel = new Less_Parser( $options );
 
                 // Erstelle die Less-Zeichenkette mit importierten Werten
-                $lessCode = '@import "' . $name . '/vendor/uikit/uikit/src/less/uikit.theme.less"; ';
+                $lessCode = '@import "' . kirby()->root('index') . '/vendor/uikit/uikit/src/less/uikit.theme.less"; ';
 
                 //Hauptfarben
                 $lessCode .= '@global-primary-background:' . $newPage->primary()->value() . '; ';
