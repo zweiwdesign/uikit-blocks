@@ -1,6 +1,5 @@
-<?php foreach ($page->baselayout()->toLayouts() as $i => $layout): ?>
-<?php $isFirstLayout = ($i === 0); ?>
-
+<?php foreach ($page->baselayout()->toLayouts()->values() as $i => $layout): ?>
+<?php $isFirstLayout = $layout->isFirst(); ?>
 <?php
 // Prüfen, ob ein Hintergrundbild verwendet werden soll
 $useBackgroundImage = $layout->usebackgroundimage()->toBool();
@@ -45,7 +44,9 @@ $sectionJson = json_encode($layout->toArray());
                         class="uk-container-item-padding-remove-left"
                         <?php elseif($layout->sectionexpand() == 'uk-container-expand-right' && $column->isLast()): ?>
                         class="uk-container-item-padding-remove-right" <?php endif; ?>>
-                        <?= $column->blocks(['firstLayout' => $isFirstLayout]) ?>
+                        <?php foreach($column->blocks() as $block): ?>
+                        <?php snippet('blocks/' . $block->type(), ['block' => $block, 'isfirstLayout' => $isFirstLayout]) ?>
+                        <?php endforeach ?>
                     </div>
                 </div>
                 <?php endforeach ?>

@@ -37,18 +37,18 @@ if ($block->location() == 'web') {
     <a href="<?= Str::esc($link->toUrl()) ?>">
         <picture>
             <source media="(max-width: 610px)" srcset="<?= $thumbMobile->url() ?>">
-            <img src="<?= $src ?>" alt="<?= $alt ?>"
-                <?php if (isset($firstLayout) && $firstLayout === true): ?>loading="eager" <?php else: ?>loading="lazy"
-                <?php endif; ?> <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
+            <img src="<?= $src ?>" alt="<?= $alt ?>" <?php if (!empty($isfirstLayout)): ?>loading="eager"
+                <?php else: ?>loading="lazy" <?php endif; ?>
+                <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
                 height="<?= $heightLarge ?>" <?php endif; ?> <?= empty($alt) ? 'aria-hidden="true"' : '' ?>>
         </picture>
     </a>
     <?php else: ?>
     <picture>
         <source media="(max-width: 610px)" srcset="<?= $thumbMobile->url() ?>">
-        <img src="<?= $src ?>" alt="<?= $alt ?>"
-            <?php if (isset($firstLayout) && $firstLayout === true): ?>loading="eager" <?php else: ?>loading="lazy"
-            <?php endif; ?> <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
+        <img src="<?= $src ?>" alt="<?= $alt ?>" <?php if (!empty($isfirstLayout)): ?>loading="eager"
+            <?php else: ?>loading="lazy" <?php endif; ?>
+            <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>"
             height="<?= $heightLarge ?>" <?php endif; ?> <?= empty($alt) ? 'aria-hidden="true"' : '' ?>>
     </picture>
     <?php endif ?>
