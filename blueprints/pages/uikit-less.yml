@@ -49,7 +49,7 @@ columns:
             empty: Keine externe Schrift zugewiesen
             width: 1/2
             help: >
-              Lade eine Schriftart hoch (WOFF, WOFF2). 
+              Lade eine Schriftart hoch (WOFF, WOFF2).
               <a href="https://gwfh.mranftl.com/fonts/" target="_blank" rel="noopener">GoogleFontHelper</a>
           secondaryfont:
             label: Zusatzschriftart
@@ -251,11 +251,11 @@ columns:
             type: color
             width: 1/4
 
-          dividersmallborderwidth:
+          dividersmallbordercolor:
             label: Small-Divider Color
             width: 1/4
             type: color
-          dividersmallborder:
+          dividersmallborderwidth:
             label: Small-Divider Border
             width: 1/4
             type: range
@@ -282,11 +282,11 @@ columns:
             tooltip:
               after: px
 
-          dividerverticalborderwidth:
+          dividerverticalbordercolor:
             label: Vertical-Divider Color
             width: 1/4
             type: color
-          dividerverticalborder:
+          dividerverticalborderwidth:
             label: Vertical-Divider Border
             width: 1/4
             type: range
@@ -323,10 +323,9 @@ columns:
             label: Nav-Transform
             type: select
             default: none
+            placeholder: none
             width: 1/4
-            required: true
             options:
-              none: none
               uppercase: uppercase
               lowercase: lowercase
           navitemcolor:
@@ -355,10 +354,9 @@ columns:
             label: Preheader-Transform
             type: select
             default: none
+            placeholder: none
             width: 1/3
-            required: true
             options:
-              none: none
               uppercase: uppercase
               lowercase: lowercase
           preheaderitemcolor:
@@ -367,6 +365,18 @@ columns:
             width: 1/3
 
           line8:
+            type: line
+          formulareheading:
+            label: Formulare
+            type: headline
+          form_emcolor:
+            label: Farbe der Pflichtfeld-Sternchen
+            type: color
+            width: 1/3
+            default: "#f0506e"
+            placeholder: "#f0506e"
+
+          line00:
             type: line
           sonstigesheading:
             label: Sonstiges

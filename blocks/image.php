@@ -1,5 +1,5 @@
 <?php
-
+ 
 /** @var \Kirby\Cms\Block $block */
 $alt     = $block->alt();
 $caption = $block->caption();
@@ -7,7 +7,10 @@ $crop    = $block->crop()->isTrue();
 $link    = $block->link();
 $ratio   = $block->ratio()->or('auto');
 $src     = null;
-
+ 
+$class            = $block->class();
+$toggle_align     = $block->toggle_align();
+ 
 if ($block->location() == 'web') {
     $src = $block->src()->esc();
 } elseif ($image = $block->image()->toFile()) {
@@ -29,12 +32,13 @@ if ($block->location() == 'web') {
     }
     $src = $thumbLarge->url();
 }
-
+ 
 ?>
 <?php if ($src): ?>
-<figure role="group">
+<figure role="group"
+    class="<?= $class ?> <?php if($toggle_align == "center") { echo "uk-flex uk-flex-center@m";} else if ($toggle_align == "right") { echo "uk-flex uk-flex-right@m";} ?>">
     <?php if ($link->isNotEmpty()): ?>
-    <a href="<?= Str::esc($link->toUrl()) ?>">
+    <a href=" <?= Str::esc($link->toUrl()) ?>">
         <picture>
             <source media="(max-width: 610px)" srcset="<?= $thumbMobile->url() ?>">
             <img src="<?= $src ?>" alt="<?= $alt ?>" <?php if (!empty($isfirstLayout)): ?>loading="eager"
