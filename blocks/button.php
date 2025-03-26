@@ -14,7 +14,7 @@ $icon_align = $block->icon_align()->toBool();
 $icon_show = $block->icon_show()->toBool();
 ?>
 
-<a class="uk-button <?php if($style->isNotEmpty()) { echo $style(); } else { echo "uk-button-default"; } ?> <?= $size ?> <?php if($breite === true) { echo 'uk-width-1-1'; } ?>"
+<a class="uk-button <?php if($style->isNotEmpty()) { echo $style; } else { echo "uk-button-default"; } ?> <?= $size ?> <?php if($breite === true) { echo 'uk-width-1-1'; } ?>"
     href="<?= $link ?>" <?= $target_blank === true ? 'target="_blank"' : '' ?> uk-scroll aria-label="<?= $text ?>">
     <?php if($icon_show === true) { ?>
     <?php if($icon_toggle == "only-icon") { ?>
