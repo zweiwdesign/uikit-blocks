@@ -10,10 +10,12 @@ fields:
     nodes: false
     placeholder: field.blocks.text.placeholder
   align:
+    label: Textausrichtung
     type: toggles
     empty: false
     default: "uk-text-left"
     labels: false
+    help: Legt die horizontale Ausrichtung des Textes ab mittleren Bildschirmgrößen fest.
     options:
       - value: uk-text-left
         icon: text-left
@@ -27,6 +29,7 @@ fields:
   color:
     label: Farbe
     type: toggles
+    help: Wähle eine definierte Textfarbe entsprechend dem UIkit-Design.
     labels: true
     options:
       - value: uk-text-muted
@@ -36,15 +39,18 @@ fields:
       - value: uk-text-secondary
         text: secondary
   size:
+    label: Textgröße
     type: toggles
+    help: Wähle eine spezielle Textgröße oder Stilklasse.
     options:
       - value: uk-text-meta
-        text: meta
+        text: Meta
       - value: uk-text-lead
-        text: lead
+        text: Lead
   textstyle:
-    label: Text Style
+    label: Text Stil
     type: select
+    help: Wähle eine Textformatierung – z. B. Groß- oder Kleinschreibung.
     default: none
     width: 1/3
     options:
@@ -53,8 +59,9 @@ fields:
       - value: uk-text-lowercase
         text: lowercase
   textcolumns:
-    label: Text Spalten
+    label: Textspalten
     type: select
+    help: Bestimmt, wie viele Spalten der Text aufgeteilt wird.
     width: 1/3
     options:
       uk-column-1-2: 1/2
@@ -63,12 +70,21 @@ fields:
       uk-column-1-5: 1/5
       uk-column-1-6: 1/6
   textcolumnsresponsiv:
-    label: Text Spalten ab...
+    label: Spalten ab Bildschirmgröße
     type: select
     width: 1/3
+    help: Lege fest, ab welcher Bildschirmgröße die Spaltenaufteilung greift.
     default: m
     placeholder: ab m
     options:
-      s: ab s
-      l: ab l
-      xl: ab xl
+      s: ab „s“ (kleine Geräte)
+      l: ab „l“ (große Geräte)
+      xl: ab „xl“ (sehr große Geräte)
+  margin:
+    type: select
+    width: 1/3
+    options:
+      uk-margin-remove: remove top + bottom
+      uk-margin-remove-top: remove top
+      uk-margin-remove-bottom: remove bottom
+    help: Steuert den Außenabstand (Margin) oben und/oder unten

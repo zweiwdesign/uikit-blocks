@@ -1,19 +1,19 @@
 title: Count Up
 name: Count Up
 icon: text
-wysiwyg: true
-preview: text
 fields:
-  text:
+  number:
     label: Nummer
     type: number
     nodes: false
     placeholder: field.blocks.text.placeholder
   align:
     type: toggles
-    empty: false
-    default: "uk-text-left"
+    reset: false
+    default: uk-text-left
     labels: false
+    width: 1/2
+    help: Horizontale Ausrichtung des Textes (links, zentriert oder rechts)
     options:
       - value: uk-text-left
         icon: text-left
@@ -28,7 +28,13 @@ fields:
     label: Farbe
     type: toggles
     labels: true
+    reset: false
+    width: 1/2
+    default: default
+    help: Textfarbe nach UIkit-Vorgaben
     options:
+      - value: default
+        text: default
       - value: uk-text-muted
         text: muted
       - value: uk-text-primary
@@ -37,7 +43,13 @@ fields:
         text: secondary
   size:
     type: toggles
+    reset: false
+    default: default
+    help: Visuelle Größe
+    width: 1/1
     options:
+      - value: default
+        text: default
       - value: uk-text-lead
         text: lead
       - value: uk-heading-3xlarge

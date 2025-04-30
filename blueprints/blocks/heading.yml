@@ -3,12 +3,21 @@ icon: title
 wysiwyg: true
 preview: heading
 fields:
+  text:
+    label: field.blocks.heading.text
+    type: writer
+    inline: true
+    placeholder: field.blocks.heading.placeholder
+    help: Inhalt der Überschrift, inline bearbeitbar direkt im Block
   class:
     type: text
+    width: 1/4
+    help: Zusätzliche CSS-Klassen
   level:
     label: field.blocks.heading.level
     type: toggles
-    empty: false
+    width: 3/4
+    reset: false
     default: "h2"
     labels: false
     options:
@@ -30,6 +39,7 @@ fields:
       - value: h6
         icon: h6
         text: H6
+    help: HTML-Tag der Überschrift (z. B. H1–H6 für semantische Struktur)
   size:
     label: Anzeigegröße
     type: toggles
@@ -59,25 +69,26 @@ fields:
         text: H5
       - value: uk-h6
         text: H6
+    help: Visuelle Größe der Überschrift, unabhängig vom HTML-Tag
   color:
     label: Farbe
     type: toggles
+    reset: false
     labels: true
     options:
+      - value: default
+        text: default
       - value: uk-text-muted
         text: muted
       - value: uk-text-primary
         text: primary
       - value: uk-text-secondary
         text: secondary
-  text:
-    label: field.blocks.heading.text
-    type: writer
-    inline: true
-    placeholder: field.blocks.heading.placeholder
+    help: Textfarbe der Überschrift nach UIkit-Vorgaben
   align:
     type: toggles
-    empty: false
+    width: 2/3
+    reset: false
     default: "uk-text-left"
     labels: false
     options:
@@ -90,9 +101,12 @@ fields:
       - value: uk-text-right@m
         icon: text-right
         text: right
+    help: Horizontale Ausrichtung des Textes (links, zentriert oder rechts)
   margin:
     type: select
+    width: 1/3
     options:
       uk-margin-remove: remove top + bottom
       uk-margin-remove-top: remove top
       uk-margin-remove-bottom: remove bottom
+    help: Steuert den Außenabstand (Margin) oben und/oder unten

@@ -1,0 +1,135 @@
+label: Global
+type: group
+fields:
+  scripts:
+    label: Header Scripts
+    type: structure
+    fields:
+      datacategory:
+        type: select
+        default: necessary
+        empty: false
+        options:
+          necessary: necessary
+          measurement: measurement
+          marketing: marketing
+          functionality: functionality
+          experience: experience
+      dataservice:
+        type: text
+      code:
+        type: textarea
+        counter: false
+        font: monospace
+        spellcheck: false
+        buttons: false
+  favicon:
+    type: files
+    help: "Das Icon, das im Browser-Tab angezeigt wird. Empfohlen: quadratisch, mind. 32×32 px, als PNG."
+    multiple: false
+    width: 1/3
+    required: true
+
+  # Menübuilder
+  menubuilder:
+    label: Menüs
+    type: structure
+    fields:
+      title:
+        label: Titel des Menüs
+        type: text
+      menuentrys:
+        type: structure
+        label: Menüeinträge
+        columns:
+          title:
+            width: 2/3
+          toggle_subpages:
+            width: 1/3
+        fields:
+          title:
+            label: Titel
+            help: Wenn leer, wird automatisch der Seitentitel verwendet.
+            type: text
+          class:
+            label: Class
+            type: text
+            width: 1/2
+          openNewTab:
+            label: In neuem Tab öffnen?
+            type: toggle
+            width: 1/2
+            text:
+              - "Nein"
+              - "Ja"
+            help: Öffnet den Link bei Aktivierung in einem neuen Browser-Tab.
+          toggle_custom:
+            type: toggle
+            label: Benutzerdefinierter Link
+            width: 1/2
+            help: Aktivieren, um einen benutzerdefinierten (internen oder externen) Link zu verwenden.
+          pages:
+            label: Verlinkte Seite
+            type: pages
+            multiple: false
+            width: 1/2
+            when:
+              toggle_custom: false
+            help: Wähle eine interne Seite.
+          toggle_linktype:
+            label: Linktyp
+            type: toggles
+            reset: false
+            default: intern
+            width: 1/2
+            when:
+              toggle_custom: true
+            options:
+              intern: Interner Link
+              extern: Externer Link
+            help: "Auswahl des Linktyps: Intern für Seiten innerhalb der Website oder Extern für eine externe URL."
+          entrylink:
+            label: Interner Link
+            type: link
+            options:
+              - page
+              - file
+              - email
+              - tel
+            width: 1/2
+            when:
+              toggle_linktype: intern
+              toggle_custom: true
+            help: Wähle eine interne Seite, Datei, E-Mail oder Telefonnummer als Linkziel.
+          entrylinkanchor:
+            label: Anker
+            type: text
+            width: 1/2
+            when:
+              toggle_linktype: intern
+              toggle_custom: true
+            help: "Optionaler Seitenanker (z. B. #kontakt), der an den internen Link angehängt wird."
+          externlink:
+            label: Externer Link
+            type: link
+            width: 1/2
+            options:
+              - url
+            when:
+              toggle_linktype: extern
+              toggle_custom: true
+            help: Gib eine vollständige externe URL an (z. B. https://example.com).
+          toggle_subpages:
+            type: toggle
+            label: Unterseiten anzeigen?
+            text:
+              - "Nein"
+              - "Ja"
+            help: Aktivieren, wenn die Seite Unterseiten enthalten soll.
+          subpages:
+            label: Subpages
+            type: blocks
+            when:
+              toggle_subpages: true
+            fieldsets:
+              - subnavigation

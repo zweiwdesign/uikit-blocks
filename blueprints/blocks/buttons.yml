@@ -12,8 +12,9 @@ tabs:
       align:
         type: toggles
         empty: false
-        default: "uk-text-left"
+        default: uk-text-left
         labels: false
+        help: Horizontale Ausrichtung der Buttons (links, zentriert oder rechts)
         options:
           - value: uk-text-left
             icon: text-left

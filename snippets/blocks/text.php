@@ -18,6 +18,7 @@ if ($textcolumns->isNotEmpty()) {
 
 ?>
 
-<div class="<?= $class ?> <?= $textcolumnsfinal ?> <?= $size ?> <?= $color ?> <?= $align ?> <?= $textstyle ?>">
+<div
+    class="<?= $class ?> <?= $textcolumnsfinal ?> <?= $size ?> <?= $color ?> <?= $align ?> <?= $textstyle ?> uk-margin <?= $block->margin() ?> <?php if($block->margin() == "uk-margin-remove-bottom" || $block->margin() == ""): ?>uk-margin-top<?php endif; ?>">
     <?= $text ?>
 </div>

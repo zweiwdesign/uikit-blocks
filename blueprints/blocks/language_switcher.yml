@@ -1,0 +1,77 @@
+title: Language Switcher
+name: Language Switcher
+icon: translate
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    label: Sprachen
+    fields:
+      languages:
+        label: Verfügbare Sprachen
+        help: Auswahl der verfügbaren anzuzeigenden Sprachen für den Language-Switcher
+        type: multiselect
+        options: query
+        query:
+          fetch: kirby.languages
+          text: "{{item.code}}"
+          value: "{{item.code}}"
+        default: []
+
+  einstellungen:
+    label: Einstellungen
+    fields:
+      displayMode:
+        label: Darstellungsart
+        type: select
+        help: Auswahl der Darstellungsart des Language-Switchers (entweder als Liste oder als Dropdown-Box)
+        default: list
+        options:
+          list: Liste
+          dropdown: Dropdown
+      direction:
+        label: Listenrichtung
+        type: select
+        help: Auswahl der Richtung des Language-Switchers (entweder horizontal (Einträge nebeneinander) oder vertikal (Einträge untereinander))
+        default: horizontal
+        placeholder: Horizontal
+        options:
+          vertikal: Vertikal
+        when:
+          displayMode: list
+      dropdown_art:
+        label: Dropdown Art
+        type: select
+        help: Auswahl der Art des Dropdown Buttons (entweder als Default-Button, Primary-Button, Secondary-Button, Text-Button oder Link-Button)
+        default: uk-button-link
+        options:
+          uk-button-default: Default Button
+          uk-button-primary: Primary Button
+          uk-button-secondary: Secondary Button
+          uk-button-text: Text
+          uk-button-link: Link
+        when:
+          displayMode: dropdown
+      showCodes:
+        label: Sprachcodes statt ausgeschriebene Namen
+        type: toggle
+        help: Option Sprachcodes wie DE oder EN anstelle des kompletten ausgeschriebenenen Sprachnamens anzeigen zu lassen.
+        default: false
+      toggle_divider:
+        type: toggle
+        label: Divider
+        width: 1/2
+        help: Option, zwischen den Elementen einen Divider anzuzeigen.
+        when:
+          displayMode: list
+      divider_size:
+        type: select
+        label: Abstand zwischen den Elementen
+        default: none
+        placholder: Normaler Abstand
+        options:
+          large: Großer Abstand
+          collapse: Kein Abstand
+        when:
+          direction: vertikal
+          toggle_divider: true

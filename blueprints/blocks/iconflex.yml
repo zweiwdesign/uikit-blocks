@@ -4,36 +4,22 @@ fields:
   medium:
     type: toggles
     label: Medienart
-    width: 1/3
+    width: 1/2
+    reset: false
+    default: icon
+    help: Art des Mediums (Icon aus er Ui-Kit Bibliothek oder Bild)
     options:
       - value: icon
         text: Icon
       - value: bild
         text: Bild
-  icon:
-    label: Icon
-    type: text
-    width: 1/3
-    help: Die Iconbiliothek ist zu finden unter https://getuikit.com/docs/icon#library
-    when:
-      medium: icon
-  iconcolor:
-    label: Icon Farbe
-    type: color
-    width: 1/3
-    when:
-      medium: icon
-  bild:
-    label: Bild
-    type: files
-    multiple: false
-    width: 1/3
-    when:
-      medium: bild
   iconlink:
     type: toggles
     label: Link Art
-    width: 1/3
+    width: 1/2
+    reset: false
+    default: uk-link-reset
+    help: Einstellung, ob das Icon/Bild verlinkt sein soll in der Art eines Button sein soll, einem normalen Link oder keinem Link.
     options:
       - value: uk-icon-button
         text: Button
@@ -43,9 +29,21 @@ fields:
         text: None
   link:
     type: link
-    width: 1/3
+    width: 1/2
+    help: Link, auf den verwiesen werden soll.
     when:
       iconlink: uk-icon-link
+  link_gap:
+    type: gap
+    width: 1/2
+    when:
+      iconlink: uk-icon-link
+  button:
+    type: link
+    width: 1/2
+    help: Link, auf den verwiesen werden soll.
+    when:
+      iconlink: uk-icon-button
   buttonPadding:
     label: Padding Button
     type: number
@@ -53,26 +51,47 @@ fields:
     min: 1
     max: 50
     after: px
-    width: 1/3
+    width: 1/2
     when:
       iconlink: uk-icon-button
-  button:
-    type: link
-    width: 1/3
+  icon:
+    label: Icon
+    type: text
+    width: 1/2
+    help: Das entsprechende Icon bitte als Text eingeben. Die Iconbiliothek ist zu finden unter https://getuikit.com/docs/icon#library
     when:
-      iconlink: uk-icon-button
+      medium: icon
+  iconcolor:
+    label: Icon Farbe
+    type: color
+    width: 1/2
+    help: Farbe des Icons
+    when:
+      medium: icon
+  bild:
+    label: Bild
+    type: files
+    multiple: false
+    width: 1/2
+    when:
+      medium: bild
+  # Einstellungen
   iconsize:
     label: Größe
     type: range
     step: 0.1
     min: 1
     max: 5
+    help: Größe des Icons/Bildes
     tooltip:
       before: ratio
   gap:
     type: toggles
     label: Gap
+    help: Abstand zwischen Icon/Bild und Text
+    reset: false
     width: 1/2
+    default: uk-grid-small
     options:
       - value: uk-grid-small
         text: Small
@@ -82,10 +101,25 @@ fields:
         text: Large
       - value: uk-grid-collapse
         text: None
+  toggle_textfirst:
+    type: toggles
+    label: Reihenfolge
+    help: Reihenfolge von Text und Icon/Bild
+    width: 1/2
+    reset: false
+    default: icon-text
+    options:
+      - value: icon-text
+        text: Erst Icon/Bild, dann Text
+      - value: text-icon
+        text: Erst Text, dann Icon/Bild
   ausrichtung:
     type: toggles
-    label: Ausrichtung
+    label: Ausrichtung Vertikal
     width: 1/2
+    reset: false
+    default: uk-flex-top
+    help: Vertikale Ausrichtung (oben, mitte oder unten)
     options:
       - value: uk-flex-top
         text: Top
@@ -96,12 +130,50 @@ fields:
       - value: uk-flex-bottom
         text: Bottom
         icon: text-bottom
-  toggle_textfirst:
-    type: toggle
-    label: Text zuerst
-    text:
-      - "Erst Icon, dann Text"
-      - "Erst Text, dann Icon"
+  gap_ausrichtung:
+    type: gap
+    when:
+      width_text: expand
+  ausrichtung_hori:
+    type: toggles
+    label: Ausrichtung Horizontal
+    width: 1/2
+    reset: false
+    default: uk-flex-left
+    help: Horizontale Ausrichtung (links, zentriert oder rechts)
+    options:
+      - value: uk-flex-left
+        text: left
+      - value: uk-flex-center
+        text: center
+      - value: uk-flex-right
+        text: right
+    when:
+      width_text: auto
+  width_text:
+    type: toggles
+    label: Breite Text
+    default: expand
+    width: 1/2
+    reset: false
+    help: Breite des Textes
+    options:
+      - value: expand
+        text: Expand
+      - value: auto
+        text: Auto
+  width_icon_m:
+    type: toggles
+    label: Breite Icon/Bild bei m
+    default: uk-width-1-1@m
+    reset: false
+    help: Breite des Icons/Bildes ab einem Breakpotint von m (Tablet)
+    width: 1/2
+    options:
+      - value: uk-width-1-1@m
+        text: Volle Breite
+      - value: uk-width-auto@m
+        text: Auto
   blocks:
     type: blocks
     fieldsets:

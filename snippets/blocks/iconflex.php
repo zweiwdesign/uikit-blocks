@@ -1,6 +1,9 @@
 <?php
 $ausrichtung = $block->ausrichtung();
+$ausrichtung_hori = $block->ausrichtung_hori();
 $gap = $block->gap();
+
+$width_text = $block->width_text()->or('expand');
 
 $medium = $block->medium();
 
@@ -16,12 +19,14 @@ $link = $block->link()->toUrl();
 
 $bild = $block->bild()->toFile();
 
-$toggle_textfirst = $block->toggle_textfirst()->toBool();
+$toggle_textfirst = $block->toggle_textfirst();
+
+$width_icon_m = $block->width_icon_m()->or('uk-width-1-1@m');
 ?>
 
 <div class="icon-plus uk-margin">
-    <div class="uk-grid <?= $ausrichtung ?> <?= $gap ?>" uk-grid>
-        <div class="uk-width-auto@l uk-width-1-1@m uk-width-auto@s">
+    <div class="uk-grid <?= $ausrichtung ?> <?= $ausrichtung_hori ?> <?= $gap ?>" uk-grid>
+        <div class="uk-width-auto@l <?= $width_icon_m ?> uk-width-auto@s">
             <?php if($medium == "icon"): ?>
             <a class="<?= $iconlink?>" <?php if($iconlink == "uk-icon-button") { ?> style="color: <?= $iconcolor ?> !important; 
                     width: <?=(20 * $iconsize) + $button_padding; ?>px; 
@@ -44,7 +49,7 @@ $toggle_textfirst = $block->toggle_textfirst()->toBool();
             <?php endif; ?>
         </div>
         <span
-            class="uk-width-expand uk-icon-flex-right <?php if($toggle_textfirst === true) { echo 'uk-flex-first@m';} ?>">
+            class="uk-width-<?= $width_text ?> uk-icon-flex-right <?php if($toggle_textfirst == "text-icon") { echo 'uk-flex-first@m';} ?>">
             <?= $block->blocks()->toBlocks(); ?>
         </span>
     </div>

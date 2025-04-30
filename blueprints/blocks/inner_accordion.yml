@@ -4,11 +4,15 @@ fields:
   toggle_open:
     label: Ausgeklappt
     type: toggle
+    width: 1/3
+    help: Option die Akkordion-Sektion beim Start ausgeklappt zu haben.
   headline:
     type: text
     label: Headline
+    help: Überschrift der Akkordion-Sektion
   blocks:
     type: blocks
+    help: Inhalt der Akkordion-Sektion
     fieldsets:
       - text
       - list

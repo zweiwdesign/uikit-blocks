@@ -17,23 +17,19 @@ columns:
           background:
             label: Hintergrundfarbe
             type: color
-            width: 1/5
+            width: 1/4
           primary:
             label: Primärfarbe
             type: color
-            width: 1/5
+            width: 1/4
           secondary:
             label: Sekundärfarbe
             type: color
-            width: 1/5
+            width: 1/4
           muted:
             label: Gedämpfte Farbe
             type: color
-            width: 1/5
-          selection:
-            label: Selection Farbe
-            type: color
-            width: 1/5
+            width: 1/4
 
           line1:
             type: line
@@ -83,13 +79,12 @@ columns:
             width: 1/3
           headingweight:
             label: Überschriften Dicke
-            type: select
-            default: normal
+            type: range
+            default: 400
             width: 1/3
-            required: true
-            options:
-              normal: normal
-              700: bold
+            min: 100
+            max: 900
+            step: 100
           headingstyle:
             label: Überschriften Style
             type: select
@@ -100,6 +95,18 @@ columns:
               none: none
               uppercase: uppercase
               lowercase: lowercase
+          linkcolor:
+            label: Link Farbe
+            type: color
+            width: 1/3
+          linkhovercolor:
+            label: Link Farbe Hover
+            type: color
+            width: 1/3
+          selection:
+            label: Selection Farbe
+            type: color
+            width: 1/3
           metacolor:
             label: Meta Farbe
             type: color
@@ -114,15 +121,6 @@ columns:
               none: none
               uppercase: uppercase
               lowercase: lowercase
-          linkcolor:
-            label: Link Farbe
-            type: color
-            width: 1/2
-          linkhovercolor:
-            label: Link Farbe Hover
-            type: color
-            width: 1/2
-
           line2:
             type: line
           buttonsheading:
@@ -230,6 +228,8 @@ columns:
             label: Icon-Divider Borderfarbe
             type: color
             width: 1/4
+            default: "#e5e5e5"
+            placeholder: "#e5e5e5"
           dividericonlineborderwidth:
             label: Icon-Divider Border
             width: 1/4
@@ -250,30 +250,19 @@ columns:
             label: Icon-Divider Iconfarbe
             type: color
             width: 1/4
+            help: Hat nur Auswirkungen beim Standard Icon
+            default: "#e5e5e5"
+            placeholder: "#e5e5e5"
 
           dividersmallbordercolor:
             label: Small-Divider Color
-            width: 1/4
+            width: 1/3
             type: color
-          dividersmallborderwidth:
-            label: Small-Divider Border
-            width: 1/4
-            type: range
-            tooltip:
-              after: px
-            default: 1
-            step: 1
-            min: 1
-            max: 10
-          dividersmallimage:
-            label: Small-Divider Image
-            type: files
-            width: 1/4
-            multiple: false
-            help: Wenn kein Image eingefügt, wird ein normaler Divider angezeigt.
+            default: "#e5e5e5"
+            placeholder: "#e5e5e5"
           dividersmallwidth:
             label: Small-Divider Width
-            width: 1/4
+            width: 1/3
             type: range
             default: 50
             step: 50
@@ -281,14 +270,68 @@ columns:
             max: 800
             tooltip:
               after: px
+          dividersmallborderwidth:
+            label: Small-Divider Border
+            width: 1/3
+            type: range
+            tooltip:
+              after: px
+            default: 1
+            step: 1
+            min: 1
+            max: 10
+            when:
+              toggle_dividersmallimage: false
+          dividersmallheight:
+            label: Small-Divider Height
+            width: 1/3
+            type: range
+            tooltip:
+              after: px
+            default: 10
+            step: 1
+            min: 1
+            max: 100
+            when:
+              toggle_dividersmallimage: true
+          toggle_dividersmallimage:
+            type: toggle
+            label: Bei Small Divider ein eigenes Bild verwenden
+            width: 1/3
+          dividersmallimage:
+            label: Small-Divider Image
+            type: files
+            width: 1/3
+            multiple: false
+            when:
+              toggle_dividersmallimage: true
+          dividersmallrepeat:
+            label: Image Repeat
+            type: select
+            default: no-repeat
+            placeholder: no-repeat
+            width: 1/3
+            options:
+              repeat-x: Wiederholen horizontal
+              repeat-y: Wiederholen verikal
+              round: Wiederholen verikal und horizontal
+            when:
+              toggle_dividersmallimage: true
+          gapsmall:
+            type: gap
+            width: 2/3
+            when:
+              toggle_dividersmallimage: false
 
           dividerverticalbordercolor:
             label: Vertical-Divider Color
-            width: 1/4
+            width: 1/3
             type: color
+            default: "#e5e5e5"
+            placeholder: "#e5e5e5"
           dividerverticalborderwidth:
             label: Vertical-Divider Border
-            width: 1/4
+            width: 1/3
             type: range
             tooltip:
               after: px
@@ -298,7 +341,7 @@ columns:
             max: 10
           dividerverticalheight:
             label: Vertical-Divider Height
-            width: 1/4
+            width: 1/3
             type: range
             default: 50
             step: 50
@@ -309,23 +352,49 @@ columns:
 
           line6:
             type: line
+          preheaderheading:
+            label: Preheader
+            type: headline
+          preheaderbackgroundcolor:
+            label: Preheader Background Color
+            type: color
+            width: 1/3
+          preheaderstyle:
+            label: Preheader-Transform
+            type: select
+            default: none
+            width: 1/3
+            options:
+              none: none
+              uppercase: uppercase
+              lowercase: lowercase
+          preheaderitemcolor:
+            label: Preheader-Text-Farbe
+            type: color
+            width: 1/3
+
+          line7:
+            type: line
+          headerheading:
+            label: Header
+            type: headline
+          headerbackgroundcolor:
+            label: Header Background Color
+            type: color
+            width: 1/2
+
+          line8:
+            type: line
           navheading:
             label: Navigation
             type: headline
-          navbackgroundcolor:
-            label: Navigation Background Color
-            type: color
-            width: 1/2
-          gap:
-            type: gap
-            width: 1/2
           navstyle:
             label: Nav-Transform
             type: select
             default: none
-            placeholder: none
             width: 1/4
             options:
+              none: none
               uppercase: uppercase
               lowercase: lowercase
           navitemcolor:
@@ -341,30 +410,34 @@ columns:
             type: color
             width: 1/4
 
-          line7:
+          line9:
             type: line
-          preheaderheading:
-            label: Preheader
+          menuheading:
+            label: Menus
             type: headline
-          preheaderbackgroundcolor:
-            label: Preheader Background Color
-            type: color
-            width: 1/3
-          preheaderstyle:
-            label: Preheader-Transform
+          menustyle:
+            label: Menu-Text transform
             type: select
             default: none
             placeholder: none
-            width: 1/3
+            width: 1/4
             options:
               uppercase: uppercase
               lowercase: lowercase
-          preheaderitemcolor:
-            label: Preheader-Text-Farbe
+          menuitemcolor:
+            label: Menu-Item-Farbe
             type: color
-            width: 1/3
+            width: 1/4
+          menuitemhovercolor:
+            label: Menu-Item-Farbe Hover
+            type: color
+            width: 1/4
+          menuitemactivecolor:
+            label: Menu-Item-Farbe Aktiv
+            type: color
+            width: 1/4
 
-          line8:
+          line10:
             type: line
           formulareheading:
             label: Formulare

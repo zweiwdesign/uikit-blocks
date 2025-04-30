@@ -3,7 +3,7 @@ tabs:
   content:
     fields:
       image:
-        label: Background Image
+        label: Hintergrundbild
         type: files
         layout: cards
         size: full
@@ -14,11 +14,12 @@ tabs:
         multiple: false
         max: 1
       image_2:
-        label: Bild 2 sichtbar vor Hover
+        label: Hintergrundbild (2) sichtbar vor Hover
         type: files
         layout: cards
         size: full
         width: 1/2
+        help: Wenn mit der Maus über das Overlay gehovert wird, wird dieses Bild vor der Interkation mit der Maus angezeigt.
         image:
           ratio: 16/9
           cover: true
@@ -49,11 +50,13 @@ tabs:
       hover_image:
         type: toggle
         text: Bei Hover anderes Bild anzeigen?
+        help: Option bei Hover mit der Maus ein anderes Bild anzuzeigen.
         width: 1/3
       transition_image:
         label: Image Transition bei Hover
         type: select
         width: 1/3
+        help: Einstellung, wie bei Hover mit der Maus ein anderes Bild angezeigt werden soll.
         default: fade
         placeholder: Image fades in
         options:
@@ -70,12 +73,15 @@ tabs:
           - list
           - divider
           - buttons
+          - image
           - iconflex
 
       style:
         label: Overlay Style
         type: select
         width: 1/3
+        default: uk-overlay-default
+        help: Einstellung, wie der farbliche Style des Overlays sein soll?
         options:
           uk-overlay-default: Default
           uk-overlay-primary: Primary
@@ -87,6 +93,7 @@ tabs:
         label: Color
         type: select
         width: 1/3
+        help: Einstellung, wie die Textfarbe sein soll.
         options:
           uk-light: Light
           uk-dark: Dark
@@ -94,6 +101,7 @@ tabs:
         label: Position
         type: select
         width: 1/3
+        help: Position des Overlay-Inhalts
         options:
           top: Top
           top-left: Top Left
@@ -113,6 +121,7 @@ tabs:
         width: 1/2
         default: uk-flex-top
         placeholder: uk-flex-top
+        help: Vertikale Ausrichtung des Overlay-Inhalts (oben, mittig oder unten)
         options:
           uk-flex-middle: uk-flex-middle
           uk-flex-bottom: uk-flex-bottom
@@ -120,6 +129,7 @@ tabs:
         label: Ausrichtung des Inhalts horizontal
         type: select
         width: 1/2
+        help: Horizontale Ausrichtung des Overlay-Inhalts (links, zentriert oder rechts)
         default: uk-flex-left
         placeholder: uk-flex-left
         options:
@@ -128,11 +138,13 @@ tabs:
       hover:
         type: toggle
         text: Overlay erst beim Hover anzeigen?
+        help: Option das farbliche Overlay erst bei Hover mit der Maus erscheinen zu lassen.
         width: 1/2
       transition:
         label: Transition
         type: select
         width: 1/2
+        help: Art, wie das Overlay angezeigt wird.
         default: fade
         placeholder: Element fades in
         when:
@@ -150,7 +162,7 @@ tabs:
         when:
           hover: false
       width:
-        label: Breite
+        label: Breite der Overlay-Box
         type: select
         width: 1/3
         options:
@@ -166,6 +178,7 @@ tabs:
         label: Padding in der Box
         type: select
         width: 1/3
+        help: Padding (Innenabstand) zwischen Overlay-Inhalt und Overlay-Box
         options:
           uk-padding-small: small
           uk-padding: medium
@@ -174,6 +187,7 @@ tabs:
         label: Außenabstand der Box
         type: select
         width: 1/3
+        help: Margin (Außenabstand) der Overlay-Box
         options:
           uk-position-small: small
           uk-position-medium: medium

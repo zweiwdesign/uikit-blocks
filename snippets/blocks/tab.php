@@ -1,18 +1,23 @@
 <?php 
-
 $tabs = $block->tabs()->toStructure(); 
 $tablinie_ausrichtung = $block->tablinie_ausrichtung();
 $tab_art = $block->tab_art();
 
+if ($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") {
+    $tablinie_ausrichtung_leftright = true;
+} else {
+    $tablinie_ausrichtung_leftright = false;
+}
+
 $switcher_ausrichtung = $block->switcher_ausrichtung();
 ?>
-<?php if($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") { ?>
+<?php if($tablinie_ausrichtung_leftright) { ?>
 <div uk-grid>
     <div class="uk-width-auto@m">
         <?php } ?>
         <?php if($tab_art != "button") { ?>
         <ul <?php } else { echo '<div'; } ?>
-            class="<?php if($tab_art == "uk-tab") { echo $tablinie_ausrichtung; } else if($tab_art == "button") { echo $tablinie_ausrichtung; } else { echo $switcher_ausrichtung; } ?> <?php if($tablinie_ausrichtung != "normal") { echo $tablinie_ausrichtung;} ?> <?php if($tab_art == "uk-switcher") { ?>uk-subnav uk-subnav-pill<?php } ?>"
+            class="<?php if($tab_art == "uk-tab") { echo $tablinie_ausrichtung; } else if($tab_art == "button") { echo $tablinie_ausrichtung; } else { echo $switcher_ausrichtung; } ?> <?php if($tablinie_ausrichtung != "normal" && $tab_art != "uk-switcher") { echo $tablinie_ausrichtung;} ?> <?php if($tab_art == "uk-switcher") { ?>uk-subnav uk-subnav-pill<?php } ?>"
             <?php if($tab_art == "uk-tab") { 
                 if($tablinie_ausrichtung == "uk-tab-left") {
                     echo 'uk-tab="connect: #component-tab-left"';
@@ -39,25 +44,25 @@ $switcher_ausrichtung = $block->switcher_ausrichtung();
             <?php if($tab_art != "button") { ?>
         </ul> <?php } else { ?>
     </div> <?php } ?>
-    <?php if($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") { ?>
+    <?php if($tablinie_ausrichtung_leftright) { ?>
 </div>
 <?php } ?>
 
-<?php if($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") { ?>
+<?php if($tablinie_ausrichtung_leftright) { ?>
 <div class="uk-width-expand@m">
     <?php } ?>
     <div <?php if($tablinie_ausrichtung == "uk-tab-left") {
-                    echo 'id="component-tab-left"';
-                } else if($tablinie_ausrichtung == "uk-tab-right") {
-                    echo 'id="component-tab-right"';
-                } ?> class="uk-switcher uk-margin">
+                        echo 'id="component-tab-left"';
+                    } else if($tablinie_ausrichtung == "uk-tab-right") {
+                        echo 'id="component-tab-right"';
+                    } ?> class="uk-switcher uk-margin">
         <?php foreach ($tabs as $tab): ?>
         <?= $tab->blocks()->toBlocks(); ?>
         <?php endforeach ?>
     </div>
-    <?php if($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") { ?>
+    <?php if($tablinie_ausrichtung_leftright) { ?>
 </div>
 <?php } ?>
-<?php if($tablinie_ausrichtung == "uk-tab-left" || $tablinie_ausrichtung == "uk-tab-right") { ?>
+<?php if($tablinie_ausrichtung_leftright) { ?>
 </div>
 <?php } ?>

@@ -1,0 +1,79 @@
+title: Subnavigation
+name: Subnavigation
+icon: folder-structure
+preview: title
+tabs:
+  content:
+    label: Layout
+    fields:
+      title:
+        label: Titel
+        type: text
+        help: Wenn leer, wird automatisch der Seitentitel verwendet.
+      class:
+        label: Class
+        type: text
+        width: 1/2
+      openNewTab:
+        label: In neuem Tab öffnen?
+        type: toggle
+        text:
+          - "Nein"
+          - "Ja"
+        width: 1/2
+        help: Öffnet den Link bei Aktivierung in einem neuen Browser-Tab.
+      toggle_custom:
+        type: toggle
+        label: Benutzerdefinierter Link
+        width: 1/2
+        help: Aktivieren, um einen benutzerdefinierten (internen oder externen) Link zu verwenden.
+      pages:
+        label: Verlinkte Seite
+        type: pages
+        multiple: false
+        width: 1/2
+        when:
+          toggle_custom: false
+      toggle_linktype:
+        label: Linktyp
+        type: toggles
+        reset: false
+        default: intern
+        width: 1/2
+        when:
+          toggle_custom: true
+        options:
+          intern: Interner Link
+          extern: Externer Link
+        help: "Auswahl des Linktyps: Intern für Seiten innerhalb der Website oder Extern für eine externe URL."
+      entrylink:
+        label: Interner Link
+        type: link
+        options:
+          - page
+          - file
+          - email
+          - tel
+        width: 1/2
+        help: Wähle eine interne Seite, Datei, E-Mail oder Telefonnummer als Linkziel.
+        when:
+          toggle_linktype: intern
+          toggle_custom: true
+      entrylinkanchor:
+        label: Anker
+        type: text
+        width: 1/2
+        when:
+          toggle_linktype: intern
+          toggle_custom: true
+        help: "Optionaler Seitenanker (z. B. #kontakt), der an den internen Link angehängt wird."
+      externlink:
+        label: Externer Link
+        type: link
+        width: 1/2
+        options:
+          - url
+        when:
+          toggle_linktype: extern
+          toggle_custom: true
+        help: Gib eine vollständige externe URL an (z. B. https://example.com).

@@ -10,54 +10,28 @@ require_once kirby()->root('index') . "/vendor/wikimedia/less.php/lib/Less/Autol
 \Less_Autoloader::register();
  
 App::plugin('tilmannruppert/uikit-blocks', [
-    'routes' => [
-        [
-            'pattern' => '/assets/js/uikit.min.js',
-            'action'  => function () {
-                $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit.min.js';
-                if (!file_exists($filePath)) {
-                    return Response::json(['error' => 'File not found'], 404);
-                }
-                return Response::file($filePath, [
-                    'mime'    => 'application/javascript',
-                    'headers' => [
-                        'Cache-Control' => 'public, max-age=2592000',
-                        'Expires'       => gmdate('D, d M Y H:i:s', time() + 2592000) . ' GMT'
-                    ]
-                ]);
-            }
-        ],
-        [
-            'pattern' => '/assets/js/uikit-icons.min.js',
-            'action'  => function () {
-                $filePath = kirby()->root('index') . '/vendor/uikit/uikit/dist/js/uikit-icons.min.js';
-                if (!file_exists($filePath)) {
-                    return Response::json(['error' => 'File not found'], 404);
-                }
-                return Response::file($filePath, [
-                    'mime'    => 'application/javascript',
-                    'headers' => [
-                        'Cache-Control' => 'public, max-age=2592000',
-                        'Expires'       => gmdate('D, d M Y H:i:s', time() + 2592000) . ' GMT'
-                    ]
-                ]);
-            }
-        ]
-    ],
     'blueprints' => [
         'pages/uikit-less' => __DIR__ . '/blueprints/pages/uikit-less.yml',
         'pages/default' => __DIR__ . '/blueprints/pages/default.yml',
+        'pages/blog' => __DIR__ . '/blueprints/pages/blog.yml',
+        'pages/blogs' => __DIR__ . '/blueprints/pages/blogs.yml',
+        
         'fields/uikit' => __DIR__ . '/blueprints/fields/base.yml',
         'fields/subblocks' => __DIR__ . '/blueprints/fields/subblocks.yml',
+        'fields/global' => __DIR__ . '/blueprints/fields/global.yml',
+        'fields/builder' => __DIR__ . '/blueprints/fields/builder.yml',
         'fields/sections' => function ($kirby) {
             return include __DIR__ . '/blueprints/fields/sections.php';
         },
+
         'blocks/buttons' => __DIR__ . '/blueprints/blocks/buttons.yml',
         'blocks/button' => __DIR__ . '/blueprints/blocks/button.yml',
+        'blocks/to_top' => __DIR__ . '/blueprints/blocks/to_top.yml',
         'blocks/overlay' => __DIR__ . '/blueprints/blocks/overlay.yml',
         'blocks/heading' => __DIR__ . '/blueprints/blocks/heading.yml',
         'blocks/list' => __DIR__ . '/blueprints/blocks/list.yml',
         'blocks/image' => __DIR__ . '/blueprints/blocks/image.yml',
+        'blocks/logo' => __DIR__ . '/blueprints/blocks/logo.yml',
         'blocks/text' => __DIR__ . '/blueprints/blocks/text.yml',
         'blocks/card' => __DIR__ . '/blueprints/blocks/card.yml',
         'blocks/divider' => __DIR__ . '/blueprints/blocks/divider.yml',
@@ -67,28 +41,66 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/accordion' => __DIR__ . '/blueprints/blocks/accordion.yml',
         'blocks/inner_accordion' => __DIR__ . '/blueprints/blocks/inner_accordion.yml',
         'blocks/tab' => __DIR__ . '/blueprints/blocks/tab.yml',
- 
+        'blocks/social_icons' => __DIR__ . '/blueprints/blocks/social_icons.yml',
+
+        'blocks/navmenu' => __DIR__ . '/blueprints/blocks/navmenu.yml',
+        'blocks/menu_horizontal' => __DIR__ . '/blueprints/blocks/menu_horizontal.yml',
+        'blocks/menu_vertikal' => __DIR__ . '/blueprints/blocks/menu_vertikal.yml',
+
+        'blocks/preheader' => __DIR__ . '/blueprints/blocks/preheader.yml',
+        'blocks/header' => __DIR__ . '/blueprints/blocks/header.yml',
+
+        'blocks/language_switcher' => __DIR__ . '/blueprints/blocks/language_switcher.yml',
+        'blocks/subnavigation' => __DIR__ . '/blueprints/blocks/subnavigation.yml',
+
+        'blocks/form' => __DIR__ . '/blueprints/blocks/form.yml',
+
+        'files/default' => __DIR__ . '/blueprints/files/default.yml',
+        'files/fonts' => __DIR__ . '/blueprints/files/fonts.yml',
     ],
     'snippets' => [
-        'blocks/overlay' => __DIR__ . '/blocks/overlay.php',
-        'blocks/image' => __DIR__ . '/blocks/image.php',
-        'blocks/heading' => __DIR__ . '/blocks/heading.php',
-        'blocks/buttons' => __DIR__ . '/blocks/buttons.php',
-        'blocks/button' => __DIR__ . '/blocks/button.php',
-        'blocks/list' => __DIR__ . '/blocks/list.php',
-        'blocks/text' => __DIR__ . '/blocks/text.php',
-        'blocks/card' => __DIR__ . '/blocks/card.php',
-        'blocks/divider' => __DIR__ . '/blocks/divider.php',
-        'blocks/iconflex' => __DIR__ . '/blocks/iconflex.php',
-        'blocks/countup' => __DIR__ . '/blocks/countup.php',
-        'blocks/table' => __DIR__ . '/blocks/table.php',
-        'blocks/accordion' => __DIR__ . '/blocks/accordion.php',
-        'blocks/inner_accordion' => __DIR__ . '/blocks/inner_accordion.php',
-        'blocks/tab' => __DIR__ . '/blocks/tab.php',
+        'blocks/overlay' => __DIR__ . '/snippets/blocks/overlay.php',
+        'blocks/image' => __DIR__ . '/snippets/blocks/image.php',
+        'blocks/logo' => __DIR__ . '/snippets/blocks/logo.php',
+        'blocks/heading' => __DIR__ . '/snippets/blocks/heading.php',
+        'blocks/buttons' => __DIR__ . '/snippets/blocks/buttons.php',
+        'blocks/button' => __DIR__ . '/snippets/blocks/button.php',
+        'blocks/to_top' => __DIR__ . '/snippets/blocks/to_top.php',
+        'blocks/list' => __DIR__ . '/snippets/blocks/list.php',
+        'blocks/text' => __DIR__ . '/snippets/blocks/text.php',
+        'blocks/card' => __DIR__ . '/snippets/blocks/card.php',
+        'blocks/divider' => __DIR__ . '/snippets/blocks/divider.php',
+        'blocks/iconflex' => __DIR__ . '/snippets/blocks/iconflex.php',
+        'blocks/countup' => __DIR__ . '/snippets/blocks/countup.php',
+        'blocks/table' => __DIR__ . '/snippets/blocks/table.php',
+        'blocks/accordion' => __DIR__ . '/snippets/blocks/accordion.php',
+        'blocks/inner_accordion' => __DIR__ . '/snippets/blocks/inner_accordion.php',
+        'blocks/tab' => __DIR__ . '/snippets/blocks/tab.php',
+        'blocks/social_icons' => __DIR__ . '/snippets/blocks/social_icons.php',
+
+        'blocks/navmenu' => __DIR__ . '/snippets/blocks/navmenu.php',
+        'blocks/menu_horizontal' => __DIR__ . '/snippets/blocks/menu_horizontal.php',
+        'blocks/menu_vertikal' => __DIR__ . '/snippets/blocks/menu_vertikal.php',
+
+        'blocks/preheader' => __DIR__ . '/snippets/blocks/preheader.php',
+        'blocks/header' => __DIR__ . '/snippets/blocks/header.php',
+
+        'blocks/language_switcher' => __DIR__ . '/snippets/blocks/language_switcher.php',
+        'blocks/subnavigation' => __DIR__ . '/snippets/blocks/subnavigation.php',
+
+        'blocks/form' => __DIR__ . '/snippets/blocks/form.php',
+
         'layout' => __DIR__ . '/snippets/layout.php',
+        'header' => __DIR__ . '/snippets/header.php',
+        'navbar' => __DIR__ . '/snippets/navbar.php',
+        'footer' => __DIR__ . '/snippets/footer.php',
     ],
     'templates' => [
         'default' => __DIR__ . '/templates/default.php',
+        'error' => __DIR__ . '/templates/error.php',
+
+        'blog' => __DIR__ . '/templates/blog.php',
+        'blogs' => __DIR__ . '/templates/blogs.php',
     ],
     'hooks' => [
         'page.update:after' => function ($newPage, $oldPage) {
@@ -109,29 +121,29 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 $lessCode = '@import "' . kirby()->root('index') . '/vendor/uikit/uikit/src/less/uikit.theme.less"; ';
  
                 //Hauptfarben
-                $lessCode .= '@global-primary-background:' . $newPage->primary()->value() . '; ';
-                $lessCode .= '@global-background:' . $newPage->background()->value() . '; ';
-                $lessCode .= '@global-secondary-background:' . $newPage->secondary()->value() . '; ';
-                $lessCode .= '@global-muted-background:' . $newPage->muted()->value() . ';';
-                $lessCode .= '@base-selection-background: ' . $newPage->selection()->value() . ' !important;';
-                $lessCode .= '@base-selection-color: #fff;';
+                $lessCode .= '@global-primary-background:' . $newPage->primary() . '; ';
+                $lessCode .= '@global-background:' . $newPage->background() . '; ';
+                $lessCode .= '@global-secondary-background:' . $newPage->secondary() . '; ';
+                $lessCode .= '@global-muted-background:' . $newPage->muted() . ';';
+                $lessCode .= '@base-selection-background: ' . $newPage->selection()->or('@global-primary-background') . ';';
+               
  
-                $lessCode .= '@global-font-size:' . $newPage->basefontsize()->value() . 'px;';
-                $lessCode .= '@global-line-height:' . $newPage->basefontline()->value() . ';';
-                $lessCode .= '@global-color:' . $newPage->basecolor()->value() . ';';
+                $lessCode .= '@global-font-size:' . $newPage->basefontsize() . 'px;';
+                $lessCode .= '@global-line-height:' . $newPage->basefontline() . ';';
+                $lessCode .= '@global-color:' . $newPage->basecolor()->or('lighten(@global-secondary-background, 12%)') . ';';
  
                 //Headlines
-                $lessCode .= '@base-heading-color:' . $newPage->headingcolor()->value() . ';';
-                $lessCode .= '@base-heading-font-weight:' . $newPage->headingweight()->value() . ';';
-                $lessCode .= '@base-heading-text-transform:' . $newPage->headingstyle()->value() . ';';
+                $lessCode .= '@base-heading-color:' . $newPage->headingcolor()->or('@global-secondary-background') . ';';
+                $lessCode .= '@base-heading-font-weight:' . $newPage->headingweight()->or('400') . ';';
+                $lessCode .= '@base-heading-text-transform:' . $newPage->headingstyle() . ';';
  
                 //Links
-                $lessCode .= '@global-link-color:' . $newPage->linkcolor()->value() . ';';
-                $lessCode .= '@global-link-hover-color:' . $newPage->linkhovercolor()->value() . ';';
+                $lessCode .= '@global-link-color:' . $newPage->linkcolor()->or('@global-primary-background') . ';';
+                $lessCode .= '@global-link-hover-color:' . $newPage->linkhovercolor()->or('darken(@global-link-color, 12%)') . ';';
  
                 //Meta
-                $lessCode .= '@text-meta-color:' . $newPage->metacolor()->value() . ';';
-                $lessCode .= '.hook-text-meta() { text-transform:' . $newPage->metastyle()->value() . ';}';
+                $lessCode .= '@text-meta-color:' . $newPage->metacolor()->or('@global-primary-background') . ';';
+                $lessCode .= '.hook-text-meta() { text-transform:' . $newPage->metastyle()->or('none') . ';}';
  
                 //Buttons
                 $lessCode .= '.hook-button() { border-radius:' . $newPage->buttonradius() . 'px; text-transform:' . $newPage->buttonstyle()->value() . ';}';
@@ -140,35 +152,58 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 $lessCode .= '.hook-card() { border-radius:' . $newPage->cardradius() . 'px;}';
  
                 //Divider
-                if ($dividerlineborder =  $newPage->dividerlineborder()->isEmpty()) {
-                    $lessCode .= '@global-border: #e5e5e5;';
-                } else {
-                    $lessCode .= '@global-border:' . $newPage->dividerlineborder() . ';';
-                };
+                $lessCode .= '@global-border:' . $newPage->dividerlineborder()->or('#e5e5e5') . ';';
                 $lessCode .= '@global-border-width: ' . $newPage->dividerlineborderwidth() . 'px;';
-                //$lessCode .= '@global-border: ' . $newPage->dividerlineborder() . ';';
  
-                $lessCode .= '@divider-icon-line-border: ' . $newPage->dividericonlineborder() . ';';
+                $lessCode .= '@divider-icon-line-border: ' . $newPage->dividericonlineborder()->or('#e5e5e5') . ';';
                 $lessCode .= '@divider-icon-line-border-width: ' . $newPage->dividericonlineborderwidth() . 'px;';
-                $lessCode .= '@divider-icon-color: ' . $newPage->dividericoncolor() . ';';
+                $lessCode .= '@divider-icon-color: ' . $newPage->dividericoncolor()->or('#e5e5e5') . ';';
+                
                 if ($dividericon = $newPage->dividericon()->toFile()) {
-                    $lessCode .= '@internal-divider-icon-image: ' . $dividericon->url() . ';';
+                    $lessCode .= '.hook-divider-icon() { background-image: url(' . $dividericon->url() . ') !important; background-size: contain;}';
                 } else {
-                    $lessCode .= '.uk-divider-icon {
-                        .svg-fill(@internal-divider-icon-image, "#000", ' . $newPage->dividericoncolor() . ');
+                    $lessCode .= '.hook-divider-icon() {
+                        .svg-fill(@internal-divider-icon-image, "#000", ' . $newPage->dividericoncolor()->or('#e5e5e5') . ');
                     }';
                 };
- 
-                $lessCode .= '@divider-small-width: ' . $newPage->dividersmallwidth() . 'px;';
-                $lessCode .= '@divider-small-border-width: ' . $newPage->dividersmallborderwidth() . ';';
-                $lessCode .= '@divider-small-border: ' . $newPage->dividersmallbordercolor() . 'px;';
-                $lessCode .= '.uk-divider-small.uk-preserve-color {
-                    border-left: ' . $newPage->dividersmallborderwidth() .'px solid ' . $newPage->dividersmallbordercolor() . '!important;
-                }';
+
+
+                if ($newPage->toggle_dividersmallimage()->toBool()) {
+                    $dividersmallimage = $newPage->dividersmallimage()->toFile();
+                    $dividersmallheight = $newPage->dividersmallheight();
+                    $dividersmallrepeat = $newPage->dividersmallrepeat()->or('no-repeat');
+
+                    if($dividersmallimage) {
+                        $lessCode .= '.hook-divider-small() { 
+                            background-image: url(' . $dividersmallimage->url() . ') !important;
+                            border-color: transparent;
+                            background-size: contain;
+                            }';
+                    }
+
+                    if($dividersmallheight) {
+                        $lessCode .= '.hook-divider-small() { 
+                            height: ' . $dividersmallheight . 'px;
+                            }';
+                    }
+
+                        $lessCode .= '.hook-divider-small() { 
+                            background-repeat: ' . $dividersmallrepeat . ';
+                            }';
+                    
+                
+                } else {
+                    $lessCode .= '@divider-small-width: ' . $newPage->dividersmallwidth() . 'px;';
+                    $lessCode .= '@divider-small-border-width: ' . $newPage->dividersmallborderwidth() . 'px;';
+                    $lessCode .= '@divider-small-border: ' . $newPage->dividersmallbordercolor()->or('#e5e5e5') . ';';
+                    $lessCode .= '.uk-divider-small.uk-preserve-color {
+                        border-left: ' . $newPage->dividersmallborderwidth() .'px solid ' . $newPage->dividersmallbordercolor() . '!important;
+                    }';
+                }
  
                 $lessCode .= '@divider-vertical-height: ' . $newPage->dividerverticalheight() . 'px;';
                 $lessCode .= '@divider-vertical-border-width: ' . $newPage->dividerverticalborderwidth() . 'px;';
-                $lessCode .= '@divider-vertical-border: ' . $newPage->dividerverticalbordercolor() . ';';
+                $lessCode .= '@divider-vertical-border: ' . $newPage->dividerverticalbordercolor()->or('#e5e5e5') . ';';
                 $lessCode .= '.uk-divider-vertical.uk-preserve-color {
                     border-left: ' . $newPage->dividerverticalborderwidth() .'px solid ' . $newPage->dividerverticalbordercolor() . '!important;
                 }';
@@ -184,22 +219,47 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 if ($closeimage = $newPage->accordioniconclose()->toFile()) :
                     $lessCode .= '@internal-accordion-close-image:' . $closeimage->url() . ';';
                 endif;
- 
-                //Navigation
-                $lessCode .= '.uk-navbar-container, .uk-dropbar { background:' . $newPage->navbackgroundcolor() . ' !important;}';
-                $lessCode .= '.uk-navbar-nav > li > a, .uk-nav > li > a { text-transform:' . $newPage->navstyle()->value() . ';}';
-                $lessCode .= '.uk-navbar-nav > li > a, .uk-nav > li > a { color:' . $newPage->navitemcolor()->value() . ';}';
-                $lessCode .= '.uk-navbar-nav > li:hover > a, .uk-nav > li:hover > a { color:' . $newPage->navitemhovercolor()->value() . ' !important;}';
-                $lessCode .= '.uk-navbar-nav > li.uk-active > a, .uk-nav > li.uk-active > a { color:' . $newPage->navitemactivecolor()->value() . ';}';
                 
                 //Preheader
-                $lessCode .= '.preheader { background:' . $newPage->preheaderbackgroundcolor() . ';}';
-                $lessCode .= '.preheader-text { text-transform:' . $newPage->preheaderstyle()->value() . ';}';
-                $lessCode .= '.preheader-text { color:' . $newPage->preheaderitemcolor() . ' !important;}';
+                $lessCode .= '.preheader { background:' . $newPage->preheaderbackgroundcolor()->or('@global-primary-background') . ';}';
+                $lessCode .= '.preheader p { text-transform:' . $newPage->preheaderstyle()->value() . ';}';
+                $lessCode .= '.preheader p { color:' . $newPage->preheaderitemcolor() . ' !important;}';
                 
+                //Header
+                $lessCode .= '@navbar-background:' . $newPage->headerbackgroundcolor()->or('@global-background') . ';';
+                $lessCode .= '@navbar-dropdown-background:' . $newPage->headerbackgroundcolor()->or('@global-background') . ';';
+                $lessCode .= '@dropbar-background:' . $newPage->headerbackgroundcolor()->or('@global-muted-background') . ';';
+
+                // Navigation - Header
+                $lessCode .= '.hook-navbar-nav-item() { text-transform:' . $newPage->navstyle()->value() . ';}';
+                $lessCode .= '.hook-navbar-dropdown-nav-item() { text-transform:' . $newPage->navstyle()->value() . ';}';
+                $lessCode .= '@navbar-nav-item-color:' . $newPage->navitemcolor()->or('@global-color') . ';';
+                $lessCode .= '@navbar-nav-item-hover-color:' . $newPage->navitemhovercolor()->or('@global-secondary-background') . ';';
+                $lessCode .= '@navbar-nav-item-active-color:' . $newPage->navitemactivecolor()->or('@global-primary-background') . ';';
+
+                // Dropdown
+                $lessCode .= '@navbar-dropdown-nav-item-color:' . $newPage->navitemcolor()->or('@global-color') . ';';
+                $lessCode .= '@navbar-dropdown-nav-item-hover-color:' . $newPage->navitemhovercolor()->or('@global-secondary-background') . ';';
+                $lessCode .= '.hook-navbar-dropdown-nav-item-active() { color:' . $newPage->navitemactivecolor()->or('@global-primary-background') . ';}';
+                $lessCode .= '@dropdown-nav-item-color:' . $newPage->navitemcolor()->or('@global-color') . ' !important;';
+
+                // Menus - Subnav
+                $lessCode .= '.hook-subnav-item() { text-transform:' . $newPage->menustyle()->value() . ';}';
+                $lessCode .= '.hook-dropdown-nav-item() { text-transform:' . $newPage->menustyle()->value() . ';}';
+                $lessCode .= '@subnav-item-color:' . $newPage->menuitemcolor()->or('@global-muted-color') . ';';
+                $lessCode .= '@subnav-item-hover-color:' . $newPage->menuitemhovercolor()->or('@global-color') . ';';
+                $lessCode .= '@subnav-item-active-color:' . $newPage->menuitemactivecolor()->or('@global-emphasis-color') . ';';
+
+                // Menus - Nav
+                $lessCode .= '.hook-nav-default-item() { text-transform:' . $newPage->menustyle()->value() . ';}';
+                $lessCode .= '@nav-default-item-color:' . $newPage->menuitemcolor()->or('@global-muted-color') . ';';
+                $lessCode .= '@nav-default-item-hover-color:' . $newPage->menuitemhovercolor()->or('@global-color') . ';';
+                $lessCode .= '@nav-default-item-active-color:' . $newPage->menuitemactivecolor()->or('@global-emphasis-color') . ';';
+
                 //Form
-                $lessCode .= 'em { color:' . $newPage->form_emcolor() . ';}';
- 
+                $lessCode .= 'em { color:' . $newPage->form_emcolor()->or('#f0506e') . ';}';
+                $lessCode .= '@base-body-font-family: var(--primary-font);';
+                $lessCode .= '@base-heading-font-family: var(--secondary-font);';
  
                 $lessCode .= $newPage->lesscode()->value();
  

@@ -1,0 +1,71 @@
+title: Menü Vertikal
+name: Menü Vertikal
+icon: angle-down
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    label: Navigation
+    fields:
+      navigations:
+        label: Navigation
+        type: select
+        default: Live-Seiten
+        placeholder: Live-Seiten
+        help: Auswahl des anzuzeigenden Menüs oder der Live-Seiten.
+        options:
+          type: query
+          query: site.menubuilder.toStructure.sortBy("title", "asc")
+          text: "{{ item.title }}"
+          value: "{{ item.id }}"
+  einstellungen:
+    label: Einstellungen
+    fields:
+      style:
+        type: toggles
+        label: Style
+        help: Aussehen des Menüs (entweder default, primary (große Schriftart) oder secondary).
+        reset: false
+        default: uk-nav-default
+        options:
+          - value: uk-nav-default
+            text: Default
+          - value: uk-nav-primary
+            text: Primary
+          - value: uk-nav-secondary
+            text: Secondary
+      toggle_center:
+        type: toggle
+        label: Center
+        width: 1/2
+        help: Option, die Menüelemente mittig auszurichten.
+      toggle_divider:
+        type: toggle
+        label: Divider
+        width: 1/2
+        help: Option, zwischen den Menüelementen einen Divider anzuzeigen.
+      size_primary:
+        type: select
+        label: Schriftgröße der Menüelemente
+        help: Auswahl der Schroftgröße der Menüelemente (entweder default, medium, large oder x-large).
+        width: 1/2
+        default: default
+        placeholder: default
+        when:
+          style: uk-nav-primary
+        options:
+          uk-nav-medium: Medium
+          uk-nav-large: Large
+          uk-nav-xlarge: XLarge
+      subpages_accordion:
+        label: Subpages immer anzeigen oder ausklappbar als Akkordion?
+        type: toggles
+        help: Bestimmt, ob Unterseiten immer direkt sichtbar sein sollen oder erst beim Klicken auf den Hauptmenüpunkt als Akkordeon aufklappen.
+        reset: false
+        width: 1/2
+        default: immer
+        options:
+          - value: immer
+            text: Immer
+          - value: akkordion
+            text: Akkordion

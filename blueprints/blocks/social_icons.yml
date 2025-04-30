@@ -1,0 +1,49 @@
+title: Social Media Icons
+name: Social Media Icons
+icon: account
+wysiwyg: true
+preview: fields
+fields:
+  align:
+    label: Ausrichtung
+    type: toggles
+    reset: false
+    help: Horizontale Ausrichtung der Icons.
+    options:
+      uk-flex-left: links
+      uk-flex-center: zentriert
+      uk-flex-right: rechts
+    default: uk-flex-left
+  button:
+    label: Icons als Button anzeigen?
+    type: toggle
+    text:
+      - Nein
+      - Ja
+    default: false
+  showlabel:
+    label: Label anzeigen?
+    type: toggle
+    text:
+      - Nein
+      - Ja
+    default: false
+  labelposition:
+    label: Position des Labels
+    type: toggles
+    reset: false
+    options:
+      right: Rechts neben dem Icon
+      left: Links neben dem Icon
+    default: right
+    when:
+      showlabel: true
+
+  layout:
+    label: Ausrichtung
+    type: toggles
+    reset: false
+    options:
+      horizontal: Nebeneinander
+      vertikal: Untereinander
+    default: horizontal

@@ -7,14 +7,17 @@ fields:
     type: toggle
     label: Divider
     width: 1/2
+    help: Option der Tabelle horizontale Linien hinzuzufügen.
   toggle_striped:
     type: toggle
     label: Gestreift
+    help: Option die Tabelle gestreift aussehen zu lassen.
     width: 1/2
   size:
     label: Größe
     type: select
     width: 1/2
+    help: Außenabstand zwischen den einzelnen Tabelleneinträgen.
     options:
       uk-table-small: Small
       uk-table-large: Large
@@ -22,5 +25,6 @@ fields:
     label: Ausrichtung
     type: select
     width: 1/2
+    help: Vertikale Ausrichtung der Einträhe innerhabl der Tabelle
     options:
       uk-table-middle: Middle

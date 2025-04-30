@@ -8,15 +8,20 @@ fields:
       headline:
         label: Headline
         type: text
+        help: Text, der sichtbar ist in dem jeweiligen Tab
       toggle_disabled:
         label: Disabled
         type: toggle
+        help: Option den Tab auf disabled (nicht klickbar) zu machen
       blocks:
         label: Inhalt
         type: blocks
   tab_art:
     label: Tabs Art
     type: toggles
+    default: uk-tab
+    reset: false
+    help: Aussehen der Tabs
     options:
       - value: uk-tab
         text: Tab
@@ -27,7 +32,9 @@ fields:
   tablinie_ausrichtung:
     label: Tablinie Ausrichtung
     type: toggles
-    help: To save space, the alignment automatically switches back to horizontal when the viewport width goes below 960px.
+    reset: false
+    default: normal
+    help: Position der Tablinie. Um Platz zu sparen, schaltet die Ausrichtung automatisch auf horizontal zurück, wenn die Breite des Ansichtsfensters unter 960 Pixel fällt.
     options:
       - value: uk-tab-bottom
         text: Text unter der Linie
@@ -43,6 +50,9 @@ fields:
     label: Tabs Ausrichtung
     type: toggles
     width: 1/1
+    default: uk-flex-left
+    reset: false
+    help: Horizontale Ausrichtung der Tabs (links, zentriert, rechts oder verteilt)
     options:
       - value: uk-flex-left
         text: Links
@@ -58,6 +68,9 @@ fields:
     label: Switcher Ausrichtung
     type: toggles
     width: 1/1
+    default: uk-flex-left
+    reset: false
+    help: Horizontale Ausrichtung der Tabs (links, zentriert, rechts oder verteilt)
     options:
       - value: uk-flex-left
         text: Links
@@ -72,7 +85,10 @@ fields:
   buttons_ausrichtung:
     label: Tabs Ausrichtung
     type: toggles
+    default: uk-text-left
+    reset: false
     width: 1/1
+    help: Horizontale Ausrichtung der Tabs (links, zentriert oder rechts)
     options:
       - value: uk-text-left
         text: Links

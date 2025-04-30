@@ -1,0 +1,35 @@
+title: Blog
+tabs:
+  content:
+    label: Layout
+    columns:
+      main:
+        width: 1/1
+        sections:
+          published:
+            label: Published Products
+            type: pages
+            status: published
+            templates: blogs
+            layout: cards
+            info: "{{ page.metaDescription }}"
+            image:
+              query: page.cover.toFile
+              ratio: 2/1
+              cover: true
+            size: huge
+          drafts:
+            label: Drafts
+            type: pages
+            status: draft
+            templates: blogs
+
+  seo: seo/page
+  sides:
+    label: Datein
+    columns:
+      main:
+        width: 1/1
+        sections:
+          files:
+            type: files

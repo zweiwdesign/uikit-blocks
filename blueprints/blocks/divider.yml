@@ -4,8 +4,12 @@ fields:
   dividertype:
     label: Art
     type: toggles
+    reset: false
     width: 1/1
+    default: uk-divider
     options:
+      - value: uk-divider
+        text: Divider
       - value: uk-divider-icon
         text: Divider mit Icon
       - value: uk-divider-small
@@ -15,7 +19,9 @@ fields:
   dividerausrichtung:
     label: Ausrichtung
     type: toggles
-    width: 1/2
+    reset: false
+    width: 1/1
+    default: uk-text-left
     options:
       - value: uk-text-left
         text: Left

@@ -54,9 +54,14 @@ $mediaPosition = $block->medialayout() == 'right' ? 'uk-flex-last@s' : '';
 $cardlink = $block->cardlink();
 $cardsize = $block->cardsize();
 $medialayout = $block->medialayout();
+
+if($cardsize == "normal") {
+    $cardsize = "";
+}
 ?>
 
-<div <?= $parallaxSettings ? 'uk-parallax="' . $parallaxSettings . '"' : ''; ?>>
+<div class="<?= $parallaxSettings ? 'uk-position-z-index uk-position-relative ' : '' ?>"
+    <?= $parallaxSettings ? 'uk-parallax="' . $parallaxSettings . '"' : ''; ?>>
     <?php if ($cardlink->isNotEmpty()): ?>
     <a href="<?= $cardlink->toUrl(); ?>" class="uk-link-reset">
         <?php endif; ?>
@@ -65,10 +70,18 @@ $medialayout = $block->medialayout();
             <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-grid' : ''; ?>>
 
             <?php if ($img = $block->image()->toFile()): ?>
+            <?php
+            $thumbLarge = $img->thumb(['width' => 1400, 'format' => 'webp']);
+            $thumbMobile = $img->thumb(['width' => 610, 'format' => 'webp']);
+            ?>
             <div
                 class="<?= $medialayout == 'top' ? '' : 'uk-width-' . $mediaWidth . '@s uk-cover-container ' . $mediaPosition; ?>">
-                <img src="<?= $img->url(); ?>" width="<?= $img->width(); ?>" height="<?= $img->height(); ?>" alt=""
-                    <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-cover' : ''; ?>>
+                <picture>
+                    <source srcset="<?= $thumbMobile->url(); ?>" media="(max-width: 640px)">
+                    <img src="<?= $thumbLarge->url(); ?>" width="<?= $thumbLarge->width(); ?>"
+                        height="<?= $thumbLarge->height(); ?>" alt=""
+                        <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-cover' : ''; ?>>
+                </picture>
                 <?php if ($medialayout == 'left' || $medialayout == 'right'): ?>
                 <canvas width="600" height="400"></canvas>
                 <?php endif; ?>

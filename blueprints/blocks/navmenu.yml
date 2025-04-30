@@ -1,0 +1,42 @@
+title: Navigation
+name: Navigation
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    label: Navigation
+    fields:
+      navigations:
+        label: Navigation
+        type: select
+        default: Live-Seiten
+        placeholder: Live-Seiten
+        help: Auswahl des Menüs, das auf der Website angezeigt werden soll. Wenn nichts ausgewählt wird, werden automatisch die Live-Seiten verwendet.
+        options:
+          type: query
+          query: site.menubuilder.toStructure.sortBy("title", "asc")
+          text: "{{ item.title }}"
+          value: "{{ item.id }}"
+  einstellungen:
+    label: Subpages-Einstellungen
+    fields:
+      burgernav:
+        label: Burger-Menü
+        type: toggle
+        help: Aktiviert die Anzeige des Menüs als Burger-Menü. Wenn deaktiviert, wird das Menü ab dem festgelegten Breakpoint ausgeblendet.
+        text:
+          - "Nein"
+          - "Ja"
+        width: 1/2
+      toggle_akkordion:
+        type: toggle
+        help: Zeigt ein Pfeil-Icon neben Menüeinträgen an, die Unterpunkte enthalten.
+        label: Pfeil-Icon
+        width: 1/2
+      blanklink:
+        label: Eltern-Menüeintrag Link entfernen
+        type: toggle
+        help: Entfernt den Link vom Eltern-Menüeintrag, wenn dieser Unterseiten enthält.
+        text:
+          - "Nein"
+          - "Ja"

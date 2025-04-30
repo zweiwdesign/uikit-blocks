@@ -5,19 +5,21 @@ tabs:
     label: Layout
     columns:
       main:
-        width: 3/4
+        width: 1/1
         sections:
           fields:
             type: fields
             fields:
               baselayout: fields/uikit
-      side:
-        width: 1/4
-        sections:   
+                                                
+  seo: seo/page
+  sides:
+    label: Unterseiten & Datein
+    columns:
+      main:
+        width: 1/1
+        sections:
           pages:
             type: pages
           files:
             type: files
-  seo: seo/page
-
-

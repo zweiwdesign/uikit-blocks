@@ -1,0 +1,27 @@
+title: To Top Button
+name: to-top
+tabs:
+  bild:
+    fields:
+      align:
+        type: toggles
+        label: Horizontale Ausrichtung
+        help: Legt die horizontale Ausrichtung des Buttons fest.
+        default: uk-flex-left
+        reset: false
+        options:
+          - value: uk-flex-left
+            text: links
+          - value: uk-flex-center
+            text: zentriert
+          - value: uk-flex-right
+            text: rechts
+      style:
+        type: toggles
+        label: Style
+        help: Stil des Buttons
+        default: normal
+        reset: false
+        options:
+          uk-icon-button: mit Hintergrund
+          none: normal

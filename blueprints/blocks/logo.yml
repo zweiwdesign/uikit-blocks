@@ -1,0 +1,18 @@
+title: Logo
+name: Logo
+preview: image
+fields:
+  image:
+    label: Logo
+    type: files
+    multiple: false
+    image:
+      back: black
+    uploads:
+      template: blocks/image
+  width:
+    label: Width
+    type: number
+    after: px
+    width: 1/2
+    help: Breite des Logos

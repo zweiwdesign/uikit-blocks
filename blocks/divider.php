@@ -1,1 +1,0 @@
-<hr class="<?= $block->dividertype() ?> <?= $block->dividerausrichtung() ?>">

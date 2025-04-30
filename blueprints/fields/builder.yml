@@ -1,0 +1,422 @@
+label: Builder
+type: group
+fields:
+  # Header-Builder
+  header_builder:
+    type: blocks
+    label: Header
+    width: 1/1
+    fieldsets:
+      - preheader
+      - header
+
+  # Einstellungen Burger und Offcanvas
+  burger_menu_visibility:
+    label: Burger Menü Sichtbarkeit
+    type: select
+    help: Bestimmt, ab welcher Bildschirmgröße das Burger-Menü angezeigt wird. Werte entsprechen den UIkit-Breakpoints (s, m, l) oder „immer“.
+    options:
+      s: Sichtbar unterhalb von „s“
+      m: Sichtbar unterhalb von „m“
+      l: Sichtbar unterhalb von „l“
+      immer: Immer sichtbar
+    default: l
+    width: 1/2
+  toggle_offcanvas:
+    type: toggle
+    label: Offcanvas bei Burger Menü selbst gestalten?
+    help: Aktiviert die Option, ein eigenes Offcanvas-Menü für das Burger-Menü zu gestalten, statt das Standard-Dropdown zu verwenden.
+    width: 1/2
+  offcanvas_align:
+    type: toggles
+    label: Verikale Ausrichtung der Inhalte
+    help: Legt die vertikale Ausrichtung der Inhalte im Offcanvas-Menü fest. Wird nur verwendet, wenn ein eigenes Offcanvas aktiviert ist.
+    default: uk-flex-top
+    reset: false
+    options:
+      - value: uk-flex-left
+        text: top
+      - value: uk-flex-center
+        text: middle
+      - value: uk-flex-right
+        text: bottom
+      - value: uk-flex-between
+        text: gleichmäßig verteilen
+    when:
+      toggle_offcanvas: true
+  offcanvas_builder:
+    type: layout
+    label: Offcanvas Inhalt
+    width: 1/1
+    when:
+      toggle_offcanvas: true
+    layouts:
+      - 1/1
+      - 1/2, 1/2
+      - 1/3, 1/3, 1/3
+      - 1/3, 2/3
+      - 2/3, 1/3
+    fieldsets:
+      - image
+      - heading
+      - text
+      - divider
+      - buttons
+      - iconflex
+      - menu_horizontal
+      - menu_vertikal
+      - social_icons
+      - language_switcher
+    settings:
+      fields:
+        class:
+          type: text
+          width: 1/2
+        sectioncolor:
+          type: select
+          label: Section Farbe
+          width: 1/2
+          options:
+            uk-section-primary: primary
+            uk-section-secondary: secondary
+            uk-section-muted: muted
+        sectionsize:
+          type: select
+          label: Section Padding
+          width: 1/3
+          options:
+            uk-section-xsmall: xsmall
+            uk-section-small: small
+            uk-section-large: large
+            uk-section-xlarge: xlarge
+            vh: VH
+        sectionremove:
+          type: select
+          label: Section Padding Remove
+          width: 1/3
+          options:
+            uk-padding-remove-top: top
+            uk-padding-remove-bottom: bottom
+            uk-padding-remove-vertical: top + bottom
+        sectionbreite:
+          type: select
+          label: Section Breite
+          width: 1/3
+          options:
+            uk-container-xsmall: xsmall
+            uk-container-small: small
+            uk-container-large: large
+            uk-container-xlarge: xlarge
+            uk-container-expand: expand
+            remove: remove
+        sectionexpand:
+          type: select
+          width: 1/2
+          label: zu Seite erweitern
+          options:
+            uk-container-expand-right: right
+            uk-container-expand-left: left
+          help: Erweitert die Section zum linken oder rechten Rand des Viewports
+        sectionausrichtung:
+          type: select
+          label: Section Ausrichtung Vertikal
+          width: 1/3
+          options:
+            uk-flex-middle: middle
+            uk-flex-bottom: bottom
+        sectionausrichtung_hori:
+          type: select
+          label: Section Ausrichtung Horizontal
+          width: 1/3
+          options:
+            uk-flex-center: center
+            uk-flex-right: right
+        gutter:
+          type: select
+          label: Gutter
+          width: 1/3
+          options:
+            uk-grid-small: small
+            uk-grid-large: large
+            uk-grid-collapse: collapse
+        toggle_griddivider:
+          label: Griddivider
+          type: toggle
+          width: 1/2
+        # background image
+        usebackgroundimage:
+          label: Hintergrundbild verwenden
+          type: toggle
+          text:
+            - "Nein"
+            - "Ja"
+          help: Aktiviert die Verwendung eines Hintergrundbilds für den Abschnitt
+        backgroundimage:
+          label: Hintergrundbild
+          type: files
+          multiple: false
+          when:
+            usebackgroundimage: true
+          help: Bilddatei, die als Hintergrundbild der Section verwendet wird
+        backgroundimageat:
+          label: erst anzeigen ab einer Größe von ...
+          type: select
+          when:
+            usebackgroundimage: true
+          options:
+            uk-background-image@s: small
+            uk-background-image@m: medium
+            uk-background-image@l: large
+            uk-background-image@xl: xlarge
+          help: Zeigt das Hintergrundbild erst ab einer definierten Bildschirmgröße an
+        backgroundoptions:
+          type: group
+          label: Hintergrundbild Optionen
+          when:
+            usebackgroundimage: true
+          fields:
+            backgroundsize:
+              label: Hintergrundgröße
+              type: select
+              default: cover
+              options:
+                contain: "Contain"
+                cover: "Cover"
+                "": "Originalgröße"
+              help: Art der Größenanpassung des Hintergrundbilds (z. B. Cover oder Contain)
+            backgroundposition:
+              label: Hintergrundposition
+              type: select
+              options:
+                "": "Standard"
+                uk-background-top-left: "Oben Links"
+                uk-background-top-center: "Oben Mitte"
+                uk-background-top-right: "Oben Rechts"
+                uk-background-center-left: "Mitte Links"
+                uk-background-center-center: "Mitte Mitte"
+                uk-background-center-right: "Mitte Rechts"
+                uk-background-bottom-left: "Unten Links"
+                uk-background-bottom-center: "Unten Mitte"
+                uk-background-bottom-right: "Unten Rechts"
+              help: Positionierung des Hintergrundbilds innerhalb der Section
+            backgroundblendmode:
+              label: Hintergrund Blend Mode
+              type: select
+              options:
+                "": "Keiner"
+                uk-background-blend-multiply: "Multiply"
+                uk-background-blend-screen: "Screen"
+                uk-background-blend-overlay: "Overlay"
+                uk-background-blend-darken: "Darken"
+                uk-background-blend-lighten: "Lighten"
+                uk-background-blend-color-dodge: "Color Dodge"
+                uk-background-blend-color-burn: "Color Burn"
+                uk-background-blend-hard-light: "Hard Light"
+                uk-background-blend-soft-light: "Soft Light"
+                uk-background-blend-difference: "Difference"
+                uk-background-blend-exclusion: "Exclusion"
+                uk-background-blend-hue: "Hue"
+                uk-background-blend-saturation: "Saturation"
+                uk-background-blend-color: "Color"
+                uk-background-blend-luminosity: "Luminosity"
+              help: Legt einen Mischmodus (Blend Mode) für das Hintergrundbild fest
+            backgroundfixed:
+              label: Hintergrund fixieren
+              type: toggle
+              text: false
+              help: Fixiert das Hintergrundbild beim Scrollen
+
+  # Footer-Builder
+  footer_builder:
+    type: layout
+    label: Footer
+    width: 1/1
+    layouts:
+      - 1/1
+      - 1/2, 1/2
+      - 1/3, 1/3, 1/3
+      - 1/3, 2/3
+      - 2/3, 1/3
+    fieldsets:
+      - image
+      - heading
+      - text
+      - divider
+      - buttons
+      - iconflex
+      - to_top
+      - menu_horizontal
+      - menu_vertikal
+      - social_icons
+      - language_switcher
+    settings:
+      fields:
+        class:
+          type: text
+          width: 1/2
+          help: Zusätzliche CSS-Klassen zur individuellen Gestaltung
+        sectioncolor:
+          type: select
+          label: Section Farbe
+          width: 1/2
+          options:
+            uk-section-primary: primary
+            uk-section-secondary: secondary
+            uk-section-muted: muted
+          help: Bestimmt die Farbstimmung bzw. Hintergrundfarbe des Abschnitts
+        sectionsize:
+          type: select
+          label: Section Padding
+          width: 1/2
+          options:
+            uk-section-xsmall: xsmall
+            uk-section-small: small
+            uk-section-large: large
+            uk-section-xlarge: xlarge
+          help: Definiert die vertikale Innenabstände (Padding) der Section
+        sectionremove:
+          type: select
+          label: Section Padding Remove
+          width: 1/2
+          options:
+            uk-padding-remove-top: top
+            uk-padding-remove-bottom: bottom
+            uk-padding-remove-vertical: top + bottom
+          help: Entfernt gezielt den oberen, unteren oder vertikalen Innenabstand
+        sectionbreite:
+          type: select
+          label: Section Breite
+          width: 1/2
+          options:
+            uk-container-xsmall: xsmall
+            uk-container-small: small
+            uk-container-large: large
+            uk-container-xlarge: xlarge
+            uk-container-expand: expand
+            remove: remove
+          help: Legt die maximale Breite des Inhaltsbereichs innerhalb der Section fest
+        sectionexpand:
+          type: select
+          width: 1/2
+          label: zu Seite erweitern
+          options:
+            uk-container-expand-right: right
+            uk-container-expand-left: left
+          help: Erweitert die Section zum linken oder rechten Rand des Viewports
+        sectionausrichtung:
+          type: select
+          label: Section Ausrichtung Vertikal
+          width: 1/2
+          options:
+            uk-flex-middle: middle
+            uk-flex-bottom: bottom
+          help: Vertikale Ausrichtung der Section-Inhalte
+        sectionausrichtung_hori:
+          type: select
+          label: Section Ausrichtung Horizontal
+          width: 1/2
+          options:
+            uk-flex-center: center
+            uk-flex-right: right
+          help: Horizontale Ausrichtung der Section-Inhalte
+        gutter:
+          type: select
+          label: Gutter
+          width: 1/2
+          options:
+            uk-grid-small: small
+            uk-grid-large: large
+            uk-grid-collapse: collapse
+          help: Abstand (Spacing) zwischen den Grid-Elementen
+        sameHeight:
+          label: Same Height
+          type: toggle
+          text: Aktivieren, um gleiche Höhe von Cards zu erzwingen
+          help: Aktivieren, um gleiche Höhe aller Elemente innerhalb des Grids zu erzwingen
+        toggle_griddivider:
+          label: Griddivider
+          type: toggle
+          width: 1/2
+          help: Trennt die Grid-Spalten optisch mit einer Linie
+        # background image
+        usebackgroundimage:
+          label: Hintergrundbild verwenden
+          type: toggle
+          text:
+            - "Nein"
+            - "Ja"
+          help: Aktiviert die Verwendung eines Hintergrundbilds für den Abschnitt
+        backgroundimage:
+          label: Hintergrundbild
+          type: files
+          multiple: false
+          when:
+            usebackgroundimage: true
+          help: Bilddatei, die als Hintergrundbild der Section verwendet wird
+        backgroundimageat:
+          label: erst anzeigen ab einer Größe von ...
+          type: select
+          when:
+            usebackgroundimage: true
+          options:
+            uk-background-image@s: small
+            uk-background-image@m: medium
+            uk-background-image@l: large
+            uk-background-image@xl: xlarge
+          help: Zeigt das Hintergrundbild erst ab einer definierten Bildschirmgröße an
+        backgroundoptions:
+          type: group
+          label: Hintergrundbild Optionen
+          when:
+            usebackgroundimage: true
+          fields:
+            backgroundsize:
+              label: Hintergrundgröße
+              type: select
+              default: cover
+              options:
+                contain: "Contain"
+                cover: "Cover"
+                "": "Originalgröße"
+              help: Art der Größenanpassung des Hintergrundbilds (z. B. Cover oder Contain)
+            backgroundposition:
+              label: Hintergrundposition
+              type: select
+              options:
+                "": "Standard"
+                uk-background-top-left: "Oben Links"
+                uk-background-top-center: "Oben Mitte"
+                uk-background-top-right: "Oben Rechts"
+                uk-background-center-left: "Mitte Links"
+                uk-background-center-center: "Mitte Mitte"
+                uk-background-center-right: "Mitte Rechts"
+                uk-background-bottom-left: "Unten Links"
+                uk-background-bottom-center: "Unten Mitte"
+                uk-background-bottom-right: "Unten Rechts"
+              help: Positionierung des Hintergrundbilds innerhalb der Section
+            backgroundblendmode:
+              label: Hintergrund Blend Mode
+              type: select
+              options:
+                "": "Keiner"
+                uk-background-blend-multiply: "Multiply"
+                uk-background-blend-screen: "Screen"
+                uk-background-blend-overlay: "Overlay"
+                uk-background-blend-darken: "Darken"
+                uk-background-blend-lighten: "Lighten"
+                uk-background-blend-color-dodge: "Color Dodge"
+                uk-background-blend-color-burn: "Color Burn"
+                uk-background-blend-hard-light: "Hard Light"
+                uk-background-blend-soft-light: "Soft Light"
+                uk-background-blend-difference: "Difference"
+                uk-background-blend-exclusion: "Exclusion"
+                uk-background-blend-hue: "Hue"
+                uk-background-blend-saturation: "Saturation"
+                uk-background-blend-color: "Color"
+                uk-background-blend-luminosity: "Luminosity"
+              help: Legt einen Mischmodus (Blend Mode) für das Hintergrundbild fest
+            backgroundfixed:
+              label: Hintergrund fixieren
+              type: toggle
+              text: false
+              help: Fixiert das Hintergrundbild beim Scrollen

@@ -8,6 +8,8 @@ fields:
   toggle_nocollapsing:
     label: No collapsing
     type: toggle
+    help: Option anstelle mehrere gleichzeitig geöffneter Akkordeon-Sektionen immer nur eine Sektion geöffnet haben.
   toggle_multipleopen:
     label: Multiple open items
     type: toggle
+    help: Option mehre offene Akkordion-Sektionen gleichzeitig zulassen.

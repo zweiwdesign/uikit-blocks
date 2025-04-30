@@ -3,6 +3,9 @@ $size = $block->size();
 $color = $block->color();
 $align = $block->align();
 $text = $block->text()->toInt();
+
+if($size == "default") { $size = "";}
+if($color == "default") { $color = "";}
 ?>
 
 <div class="counter <?= $size ?> <?= $color ?> <?= $align ?>" data-target="<?= $text ?>"><?= $text ?></div>

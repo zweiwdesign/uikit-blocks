@@ -1,0 +1,49 @@
+title: Menü Horizontal
+name: Menü Horizontal
+icon: angle-right
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    label: Navigation
+    fields:
+      navigations:
+        label: Navigation
+        type: select
+        default: Live-Seiten
+        placeholder: Live-Seiten
+        help: Auswahl des anzuzeigenden Menüs oder der Live-Seiten.
+        options:
+          type: query
+          query: site.menubuilder.toStructure.sortBy("title", "asc")
+          text: "{{ item.title }}"
+          value: "{{ item.id }}"
+  einstellungen:
+    label: Einstellungen
+    fields:
+      ausrichtung:
+        type: toggles
+        label: Ausrichtung
+        reset: false
+        default: uk-flex-left
+        help: Auswahl der Ausrichtung des Menüs (entweder links, zentriert oder rechts).
+        options:
+          - value: uk-flex-left
+            text: Left
+            icon: text-left
+          - value: uk-flex-center
+            text: Center
+            icon: text-center
+          - value: uk-flex-right
+            text: Right
+            icon: text-right
+      toggle_divider:
+        type: toggle
+        label: Divider
+        width: 1/2
+        help: Option, zwischen den Menüelementen einen Divider anzuzeigen.
+      toggle_pill:
+        type: toggle
+        label: Pill
+        width: 1/2
+        help: Option, das aktive Menüelement mit einem Hintergrund zu kennzeichnen.
