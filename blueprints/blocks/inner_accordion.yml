@@ -10,14 +10,4 @@ fields:
     type: text
     label: Headline
     help: Überschrift der Akkordion-Sektion
-  blocks:
-    type: blocks
-    help: Inhalt der Akkordion-Sektion
-    fieldsets:
-      - text
-      - list
-      - image
-      - heading
-      - divider
-      - buttons
-      - iconflex
+  blocks: main/fieldsets

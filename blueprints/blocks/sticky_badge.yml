@@ -1,0 +1,94 @@
+title: Sticky Badge
+name: Sticky Badge
+wysiwyg: true
+preview: fields
+tabs:
+  content:
+    label: Text
+    fields:
+      text:
+        type: text
+        help: Angezeigter Text im Button
+  einstellungen:
+    label: Einstellungen
+    fields:
+      # Inhalt & Verhalten
+      link:
+        type: link
+        width: 1/2
+        help: Link, auf den der Button verweisen soll
+      target:
+        type: toggle
+        text: Im neuen Fenster öffnen?
+        width: 1/2
+        help: Option den Link sich bei Klick in einem neuen Tab/Fenster zu öffnen.
+      class:
+        type: text
+      # Darstellung
+      icon_show:
+        type: toggle
+        label: Icon
+        width: 1/2
+        help: Option ein Icon aus der Ui-Kit Bibliothek anzuzeigen.
+      icon_toggle:
+        label: Icon und Text?
+        type: toggles
+        reset: false
+        width: 1/2
+        help: Einstellung ob der Text und das Icon oder nur das Icon angezeigt werden sollen.
+        default: text-icon
+        when:
+          icon_show: true
+        options:
+          - value: text-icon
+            text: Text und Icon
+          - value: only-icon
+            text: nur Icon
+      icon:
+        label: Icon
+        type: text
+        width: 1/2
+        help: Das entsprechende Icon bitte als Text eingeben. Die Iconbiliothek ist zu finden unter https://getuikit.com/docs/icon#library
+        when:
+          icon_show: true
+      icon_align:
+        type: toggles
+        label: Icon Position
+        help: Position des Icons im Bezug auf den Text.
+        width: 1/2
+        default: left
+        reset: false
+        options:
+          - value: left
+            text: links vom Text
+          - value: right
+            text: rechts vom Text
+        when:
+          icon_toggle: text-icon
+          icon_show: true
+      icon_gap:
+        type: gap
+        width: 1/2
+        when:
+          icon_show: false
+      style:
+        type: select
+        label: Style
+        help: Stil des Buttons
+        width: 1/2
+        default: uk-background-default
+        placeholder: default
+        options:
+          uk-background-primary: primary
+          uk-background-secondary: secondary
+          uk-background-muted: muted
+      size:
+        label: Größe
+        type: select
+        width: 1/2
+        default: default
+        placeholder: default
+        help: Größe des Buttons (Padding (Abstand) um den Text herum)
+        options:
+          uk-button-small: small
+          uk-button-large: large

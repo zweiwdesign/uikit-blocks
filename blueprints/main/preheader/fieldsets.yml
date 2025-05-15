@@ -1,0 +1,5 @@
+type: blocks
+label: Inhalte
+fieldsets:
+  - text
+  - buttons

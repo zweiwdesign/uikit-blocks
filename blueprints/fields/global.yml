@@ -119,6 +119,43 @@ fields:
               toggle_linktype: extern
               toggle_custom: true
             help: Gib eine vollständige externe URL an (z. B. https://example.com).
+          toggle_megamenu:
+            label: Mega-Menü anzeigen
+            type: toggle
+            width: 1/2
+            help: Aktivieren, wenn die Seite im Menü ein Mega Menü haben soll.
+            when:
+              toggle_subpages: false
+          mega_width:
+            label: Breite des Menüs
+            type: select
+            help: Das Mega-Menü wird nur so breit sein, wie der Header-Container.
+            default: uk-width-large
+            placeholder: Large (450px)
+            options:
+              uk-width-1-1: Komplette Breite
+              uk-width-medium: Medium (300px)
+              uk-width-xlarge: XLarge (600px)
+              uk-width-2xlarge: 2XLarge (750px)
+            when:
+              toggle_megamenu: true
+          megamenu_content:
+            label: Mega-Menü Inhalt
+            type: layout
+            layouts:
+              - 1/1
+              - 1/2, 1/2
+              - 1/3, 1/3, 1/3
+              - 1/4, 1/4, 1/4, 1/4
+            fieldsets:
+              base: base/base
+              groups: base/groups
+              prestyle:
+                extends: main/sections
+            settings:
+              extends: offcanvas/settings
+            when:
+              toggle_megamenu: true
           toggle_subpages:
             type: toggle
             label: Unterseiten anzeigen?
@@ -126,10 +163,14 @@ fields:
               - "Nein"
               - "Ja"
             help: Aktivieren, wenn die Seite Unterseiten enthalten soll.
+            width: 1/2
+            when:
+              toggle_megamenu: false
           subpages:
             label: Subpages
             type: blocks
             when:
               toggle_subpages: true
+              toggle_megamenu: false
             fieldsets:
               - subnavigation

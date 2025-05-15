@@ -3,18 +3,11 @@ name: Card
 tabs:
   main:
     fields:
-      blocks:
-        type: blocks
-        label: Inhalte
-        width: 1/1
-        fieldsets:
-          - heading
-          - text
-          - list
-          - divider
-          - buttons
-          - image
-          - iconflex
+      blocks: main/fieldsets
+
+      class:
+        label: Class
+        type: text
 
       cardtype:
         label: Art der Karte

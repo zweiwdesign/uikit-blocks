@@ -16,12 +16,12 @@ tabs:
         labels: false
         help: Horizontale Ausrichtung der Buttons (links, zentriert oder rechts)
         options:
-          - value: uk-text-left
+          - value: uk-flex-left
             icon: text-left
             text: left
-          - value: uk-text-center@m
+          - value: uk-flex-center@m
             icon: text-center
             text: center
-          - value: uk-text-right@m
+          - value: uk-flex-right@m
             icon: text-right
             text: right

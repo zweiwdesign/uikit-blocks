@@ -1,0 +1,22 @@
+type: layout
+label: Inhalt
+when:
+  toggle_offcanvas: true
+layouts:
+  - 1/1
+  - 1/2, 1/2
+  - 1/3, 1/3, 1/3
+  - 1/3, 2/3
+  - 2/3, 1/3
+fieldsets:
+  - image
+  - heading
+  - text
+  - divider
+  - buttons
+  - iconflex
+  - menu_horizontal
+  - menu_vertikal
+  - social_icons
+  - language_switcher
+settings: offcanvas/settings

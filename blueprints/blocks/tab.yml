@@ -13,9 +13,7 @@ fields:
         label: Disabled
         type: toggle
         help: Option den Tab auf disabled (nicht klickbar) zu machen
-      blocks:
-        label: Inhalt
-        type: blocks
+      blocks: fieldsets/tab
   tab_art:
     label: Tabs Art
     type: toggles

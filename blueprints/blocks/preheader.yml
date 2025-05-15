@@ -12,9 +12,4 @@ fields:
       uk-visible@s: Sichtbar ab s
       uk-visible@m: Sichtbar ab m
       uk-visible@l: Sichtbar ab l
-  preheader:
-    type: blocks
-    label: Preheader
-    fieldsets:
-      - text
-      - buttons
+  preheader: preheader/fieldsets

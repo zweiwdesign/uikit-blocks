@@ -51,6 +51,7 @@ $mediaPosition = $block->medialayout() == 'right' ? 'uk-flex-last@s' : '';
 ?>
 
 <?php
+$class = $block->class();
 $cardlink = $block->cardlink();
 $cardsize = $block->cardsize();
 $medialayout = $block->medialayout();
@@ -66,7 +67,7 @@ if($cardsize == "normal") {
     <a href="<?= $cardlink->toUrl(); ?>" class="uk-link-reset">
         <?php endif; ?>
 
-        <div class="uk-card <?= $cardsize; ?> <?= $cardType; ?> <?= $linkClass; ?> <?= $gridClasses; ?>"
+        <div class="<?= $class; ?> uk-card <?= $cardsize; ?> <?= $cardType; ?> <?= $linkClass; ?> <?= $gridClasses; ?>"
             <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-grid' : ''; ?>>
 
             <?php if ($img = $block->image()->toFile()): ?>

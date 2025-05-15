@@ -28,8 +28,6 @@ if($navigations == 'live') {
    $navigations = $menu ? $menu->menuentrys()->toStructure() : [];
 }
 
-
-
 $headerBuilder = $site->header_builder();
 $headerSection = $headerBuilder->toBlocks()->filterBy('type', 'sectionHeader')->first();
 
@@ -58,6 +56,9 @@ $burgerNavBlock = $block->burgernav()->toBool();
             $toggle_linktype = $item_navigation->toggle_linktype()->toText();
             $isCustom = $item_navigation->toggle_custom()->toBool();
             $hasSubpages = $item_navigation->subpages()->isNotEmpty();
+
+            $globalToggleMega = $item_navigation->toggle_megamenu()->toBool();
+            $hasMegaMenu = $globalToggleMega && $item_navigation->megamenu_content()->isNotEmpty();
             
             if (!$isCustom && $item_navigation->pages()->toPage()) {
                 $link = $item_navigation->pages()->toPage()->url();
@@ -78,7 +79,7 @@ $burgerNavBlock = $block->burgernav()->toBool();
                 $link_vegleich = '';
             } 
             
-            if($hasSubpages && $blanklink) {
+            if($hasSubpages && $blanklink || $hasMegaMenu && $blanklink) {
                 $link = "#";
             }
         }
@@ -91,12 +92,43 @@ $burgerNavBlock = $block->burgernav()->toBool();
 
     <li class="<?= ($link_vegleich === $page->url()) ? 'uk-active' : '' ?>">
         <a href="<?= $link ?>" <?= $openNewTab ?>><?= $title ?>
-            <?php if ($hasSubpages && $toggle_akkordion): ?>
+            <?php if ($hasSubpages && $toggle_akkordion|| $hasMegaMenu && $toggle_akkordion): ?>
             <span uk-nav-parent-icon></span>
             <?php endif; ?>
         </a>
 
-        <?php if ($hasSubpages): ?>
+        <?php if ($hasMegaMenu): ?>
+        <?php 
+                $mega_width = $item_navigation->mega_width();
+                $megaMenuContent = $item_navigation->megamenu_content()->toLayouts()->values();
+                 ?>
+        <div class="mega-menu uk-navbar-dropdown <?= $mega_width ?>">
+
+            <?php foreach ($megaMenuContent as $i => $layout): ?>
+            <div
+                class="uk-section <?= $layout->class() ?> <?= $layout->sectioncolor()->or('uk-section-default') ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?>">
+                <div class="uk-width-1-1">
+                    <div
+                        class="<?php if($layout->sectionbreite() != 'remove'): ?>uk-padding uk-container <?= $layout->sectionbreite() ?><?php endif; ?>">
+                        <div class="uk-grid uk-flex <?= $layout->sectionausrichtung() ?> <?= $layout->sectionausrichtung_hori() ?><?= $layout->gutter() ?>  <?php if($layout->toggle_griddivider()->toBool() === true) { echo "uk-grid-divider";} ?>"
+                            uk-grid>
+                            <?php foreach ($layout->columns() as $column): ?>
+                            <div class="uk-width-<?= str_replace('/', '-', $column->width()) ?>@l">
+                                <div>
+                                    <?php foreach($column->blocks() as $block): ?>
+                                    <?php snippet('blocks/' . $block->type(), ['block' => $block]) ?>
+                                    <?php endforeach ?>
+                                </div>
+                            </div>
+                            <?php endforeach ?>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <?php endforeach ?>
+        </div>
+        <?php elseif ($hasSubpages): ?>
         <div class="uk-navbar-dropdown">
             <ul class="uk-nav uk-navbar-dropdown-nav">
                 <?php foreach ($item_navigation->subpages()->toBlocks() as $subpage_item): ?>

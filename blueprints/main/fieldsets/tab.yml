@@ -1,0 +1,20 @@
+label: Inhalt
+type: blocks
+fieldsets:
+  - heading
+  - text
+  - list
+  - divider
+  - buttons
+  - image
+  - iconflex
+  - form
+  - language_switcher
+  - countup
+  - menu_horizontal
+  - menu_vertikal
+  - social_icons
+  - table
+  - card
+  - accordion
+  - overlay

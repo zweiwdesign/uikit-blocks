@@ -1,0 +1,16 @@
+type: blocks
+label: Inhalte
+fieldsets:
+  - heading
+  - text
+  - list
+  - divider
+  - buttons
+  - image
+  - iconflex
+  - form
+  - language_switcher
+  - countup
+  - menu_horizontal
+  - menu_vertikal
+  - social_icons

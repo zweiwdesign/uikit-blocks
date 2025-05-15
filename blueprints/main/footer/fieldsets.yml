@@ -1,0 +1,24 @@
+type: layout
+label: Footer
+layouts:
+  - 1/1
+  - 1/2, 1/2
+  - 1/3, 1/3, 1/3
+  - 1/3, 2/3
+  - 2/3, 1/3
+  - 1/4, 1/4, 1/4, 1/4
+  - 1/5, 1/5, 1/5, 1/5, 1/5
+fieldsets:
+  - image
+  - heading
+  - text
+  - divider
+  - buttons
+  - iconflex
+  - to_top
+  - menu_horizontal
+  - menu_vertikal
+  - social_icons
+  - language_switcher
+  - sticky_badge
+settings: footer/settings

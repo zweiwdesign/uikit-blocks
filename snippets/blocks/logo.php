@@ -18,7 +18,8 @@ $width          = $block->width()->toInt();
         $thumbMobile = $image->thumb(['width' => $widthMobile, 'height' => $heightMobile, 'format' => 'webp']);
 
 ?>
-<a href="<?= url('home') ?>" uk-scroll aria-label="Back to Home Link" class="uk-navbar-item uk-logo">
+<a href="<?= url('home') ?>" uk-scroll aria-label="Back to Home Link"
+    class="uk-navbar-item uk-logo <?= $block->class() ?>">
     <img src="<?= $image->url() ?>" alt="Logo <?= $site->title() ?>" loading="eager"
         <?php if(isset($widthLarge) && isset($heightLarge)): ?>width="<?= $widthLarge ?>" height="<?= $heightLarge ?>"
         <?php endif; ?>>

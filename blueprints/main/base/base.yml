@@ -1,0 +1,17 @@
+label: Basis Elemente
+type: group
+fieldsets:
+  - heading
+  - text
+  - list
+  - image
+  - divider
+  - iconflex
+  - countup
+  - form
+  - overlay
+  - card
+  - table
+  - social_icons
+  - menu_horizontal
+  - menu_vertikal

@@ -47,3 +47,6 @@ fields:
       horizontal: Nebeneinander
       vertikal: Untereinander
     default: horizontal
+  class:
+    label: Class
+    type: text

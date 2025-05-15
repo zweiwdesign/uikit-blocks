@@ -1,0 +1,10 @@
+label: Gruppen Elemente
+type: group
+fieldsets:
+  #- imageslider
+  #- panels
+  #- overlays
+  #- images
+  - buttons
+  - accordion
+  - tab

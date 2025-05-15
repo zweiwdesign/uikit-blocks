@@ -11,19 +11,47 @@ require_once kirby()->root('index') . "/vendor/wikimedia/less.php/lib/Less/Autol
  
 App::plugin('tilmannruppert/uikit-blocks', [
     'blueprints' => [
+        # Pages
         'pages/uikit-less' => __DIR__ . '/blueprints/pages/uikit-less.yml',
         'pages/default' => __DIR__ . '/blueprints/pages/default.yml',
         'pages/blog' => __DIR__ . '/blueprints/pages/blog.yml',
         'pages/blogs' => __DIR__ . '/blueprints/pages/blogs.yml',
         
-        'fields/uikit' => __DIR__ . '/blueprints/fields/base.yml',
+        # Fields
         'fields/subblocks' => __DIR__ . '/blueprints/fields/subblocks.yml',
         'fields/global' => __DIR__ . '/blueprints/fields/global.yml',
         'fields/builder' => __DIR__ . '/blueprints/fields/builder.yml',
-        'fields/sections' => function ($kirby) {
-            return include __DIR__ . '/blueprints/fields/sections.php';
+        'main/sections' => function ($kirby) {
+            return include __DIR__ . '/blueprints/main/sections.php';
         },
 
+        # Base
+        'fields/uikit' => __DIR__ . '/blueprints/main/base/fieldsets.yml',
+        'base/base' => __DIR__ . '/blueprints/main/base/base.yml',
+        'base/groups' => __DIR__ . '/blueprints/main/base/groups.yml',
+        'base/settings' => __DIR__ . '/blueprints/main/base/settings.yml',
+
+
+        'main/fieldsets' => __DIR__ . '/blueprints/main/fieldsets.yml',
+
+        # Preheader
+        'preheader/fieldsets' => __DIR__ . '/blueprints/main/preheader/fieldsets.yml',
+
+        # Header
+        'header/builder_fieldsets' => __DIR__ . '/blueprints/main/header/builder_fieldsets.yml',
+        'header/fieldsets' => __DIR__ . '/blueprints/main/header/fieldsets.yml',
+
+        # Offcanvas
+        'offcanvas/fieldsets' => __DIR__ . '/blueprints/main/offcanvas/fieldsets.yml',
+        'offcanvas/settings' => __DIR__ . '/blueprints/main/offcanvas/settings.yml',
+
+        # Footer
+        'footer/fieldsets' => __DIR__ . '/blueprints/main/footer/fieldsets.yml',
+        'footer/settings' => __DIR__ . '/blueprints/main/footer/settings.yml',
+
+        'fieldsets/tab' => __DIR__ . '/blueprints/main/fieldsets/tab.yml',
+
+        # Blocks
         'blocks/buttons' => __DIR__ . '/blueprints/blocks/buttons.yml',
         'blocks/button' => __DIR__ . '/blueprints/blocks/button.yml',
         'blocks/to_top' => __DIR__ . '/blueprints/blocks/to_top.yml',
@@ -39,9 +67,10 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/countup' => __DIR__ . '/blueprints/blocks/countup.yml',
         'blocks/table' => __DIR__ . '/blueprints/blocks/table.yml',
         'blocks/accordion' => __DIR__ . '/blueprints/blocks/accordion.yml',
-        'blocks/inner_accordion' => __DIR__ . '/blueprints/blocks/inner_accordion.yml',
+        'blocks/language_switcher' => __DIR__ . '/blueprints/blocks/language_switcher.yml',
         'blocks/tab' => __DIR__ . '/blueprints/blocks/tab.yml',
         'blocks/social_icons' => __DIR__ . '/blueprints/blocks/social_icons.yml',
+        'blocks/sticky_badge' => __DIR__ . '/blueprints/blocks/sticky_badge.yml',
 
         'blocks/navmenu' => __DIR__ . '/blueprints/blocks/navmenu.yml',
         'blocks/menu_horizontal' => __DIR__ . '/blueprints/blocks/menu_horizontal.yml',
@@ -50,11 +79,12 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/preheader' => __DIR__ . '/blueprints/blocks/preheader.yml',
         'blocks/header' => __DIR__ . '/blueprints/blocks/header.yml',
 
-        'blocks/language_switcher' => __DIR__ . '/blueprints/blocks/language_switcher.yml',
+        'blocks/inner_accordion' => __DIR__ . '/blueprints/blocks/inner_accordion.yml',
         'blocks/subnavigation' => __DIR__ . '/blueprints/blocks/subnavigation.yml',
 
         'blocks/form' => __DIR__ . '/blueprints/blocks/form.yml',
 
+        # Files
         'files/default' => __DIR__ . '/blueprints/files/default.yml',
         'files/fonts' => __DIR__ . '/blueprints/files/fonts.yml',
     ],
@@ -77,6 +107,7 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/inner_accordion' => __DIR__ . '/snippets/blocks/inner_accordion.php',
         'blocks/tab' => __DIR__ . '/snippets/blocks/tab.php',
         'blocks/social_icons' => __DIR__ . '/snippets/blocks/social_icons.php',
+        'blocks/sticky_badge' => __DIR__ . '/snippets/blocks/sticky_badge.php',
 
         'blocks/navmenu' => __DIR__ . '/snippets/blocks/navmenu.php',
         'blocks/menu_horizontal' => __DIR__ . '/snippets/blocks/menu_horizontal.php',
@@ -152,8 +183,8 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 $lessCode .= '.hook-card() { border-radius:' . $newPage->cardradius() . 'px;}';
  
                 //Divider
-                $lessCode .= '@global-border:' . $newPage->dividerlineborder()->or('#e5e5e5') . ';';
-                $lessCode .= '@global-border-width: ' . $newPage->dividerlineborderwidth() . 'px;';
+                $lessCode .= '@base-hr-border:' . $newPage->dividerlineborder()->or('#e5e5e5') . ';';
+                $lessCode .= '@base-hr-border-width: ' . $newPage->dividerlineborderwidth() . 'px;';
  
                 $lessCode .= '@divider-icon-line-border: ' . $newPage->dividericonlineborder()->or('#e5e5e5') . ';';
                 $lessCode .= '@divider-icon-line-border-width: ' . $newPage->dividericonlineborderwidth() . 'px;';

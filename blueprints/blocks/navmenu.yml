@@ -18,7 +18,7 @@ tabs:
           text: "{{ item.title }}"
           value: "{{ item.id }}"
   einstellungen:
-    label: Subpages-Einstellungen
+    label: Einstellungen
     fields:
       burgernav:
         label: Burger-Menü
@@ -30,13 +30,13 @@ tabs:
         width: 1/2
       toggle_akkordion:
         type: toggle
-        help: Zeigt ein Pfeil-Icon neben Menüeinträgen an, die Unterpunkte enthalten.
+        help: Zeigt ein Pfeil-Icon neben Menüeinträgen an, die Unterpunkte/Mega Menü enthalten.
         label: Pfeil-Icon
         width: 1/2
       blanklink:
         label: Eltern-Menüeintrag Link entfernen
         type: toggle
-        help: Entfernt den Link vom Eltern-Menüeintrag, wenn dieser Unterseiten enthält.
+        help: Entfernt den Link vom Eltern-Menüeintrag, wenn dieser Unterseiten/Mega Menü enthält.
         text:
           - "Nein"
           - "Ja"

@@ -6,6 +6,8 @@ $labelPosition = $block->labelposition()->value();
 $asButton = $block->button()->toBool();
 $align = $block->align()->value();
 
+$class = $block->class();
+
 if($layout == "vertikal") {
     if($align == "uk-flex-right") {
         $align = "uk-flex-column uk-flex-bottom";
@@ -26,7 +28,7 @@ $validIcons = [
 ];
 
 ?>
-<div class="uk-flex uk-grid-small <?= $align ?>" uk-grid>
+<div class="uk-flex uk-grid-small <?= $class ?> <?= $align ?>" uk-grid>
     <?php
 foreach ($accounts as $platform => $url):
     $platform = strtolower(trim($platform));
