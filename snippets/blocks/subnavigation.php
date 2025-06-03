@@ -27,6 +27,6 @@
         ?>
 
 <li class="<?= ($link_vegleich === $page->url()) ? 'uk-active' : '' ?>">
-    <a href="<?= $link ?>" <?= $openNewTab ?>><?= $title ?>
+    <a href="<?= $link ?>" uk-scroll <?= $openNewTab ?>><?= $title ?>
     </a>
 </li>

@@ -5,6 +5,8 @@ $gap = $block->gap();
 
 $width_text = $block->width_text()->or('expand');
 
+$class = $block->class();
+
 $medium = $block->medium();
 
 $icon = $block->icon();
@@ -24,7 +26,7 @@ $toggle_textfirst = $block->toggle_textfirst();
 $width_icon_m = $block->width_icon_m()->or('uk-width-1-1@m');
 ?>
 
-<div class="icon-plus uk-margin">
+<div class="icon-plus uk-margin <?= $class ?>">
     <div class="uk-grid <?= $ausrichtung ?> <?= $ausrichtung_hori ?> <?= $gap ?>" uk-grid>
         <div class="uk-width-auto@l <?= $width_icon_m ?> uk-width-auto@s">
             <?php if($medium == "icon"): ?>

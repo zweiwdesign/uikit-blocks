@@ -1,6 +1,9 @@
 title: Icon +
 name: Icon +
 fields:
+  class:
+    label: Class
+    type: text
   medium:
     type: toggles
     label: Medienart

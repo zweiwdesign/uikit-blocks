@@ -23,7 +23,8 @@ if ($navigations == 'live') {
 }
 ?>
 
-<ul class="uk-nav <?= $style ?> <?php if($style == "uk-nav-primary"){ echo $size_primary; } ?> <?php if($toggle_center) { echo "uk-nav-center";} ?> <?php if($toggle_divider) { echo "uk-nav-divider";} ?>"
+
+<ul class="uk-nav <?= $extraClass ?? '' ?> <?= $style ?> <?php if($style == "uk-nav-primary"){ echo $size_primary; } ?> <?php if($toggle_center) { echo "uk-nav-center";} ?> <?php if($toggle_divider) { echo "uk-nav-divider";} ?>"
     <?= $navAttr ?>>
     <?php foreach ($navigations as $item_navigation): ?>
 
@@ -68,7 +69,7 @@ if ($navigations == 'live') {
 
     <?php if ($hasSubpages): ?>
     <li class="uk-parent <?= $itemClass ?>">
-        <a href="<?= $link ?>" <?= $openNewTab ?>>
+        <a href="<?= $link ?>" uk-scroll <?= $openNewTab ?>>
             <?= $title ?>
             <?php if($useAccordion == "akkordion"): ?><span uk-nav-parent-icon></span><?php endif; ?>
         </a>
@@ -80,7 +81,7 @@ if ($navigations == 'live') {
     </li>
     <?php else: ?>
     <li class="<?= $itemClass ?>">
-        <a href="<?= $link ?>" <?= $openNewTab ?>><?= $title ?></a>
+        <a href="<?= $link ?>" uk-scroll <?= $openNewTab ?>><?= $title ?></a>
     </li>
     <?php endif; ?>
     <?php endforeach ?>

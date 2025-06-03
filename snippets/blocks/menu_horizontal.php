@@ -20,7 +20,7 @@ $ausrichtung = $block->ausrichtung()->or('uk-flex-left');
 $navAttr = '';
 ?>
 
-<ul class="uk-subnav <?= $ausrichtung ?> <?php if($toggle_divider) { echo "uk-subnav-divider";} ?> <?php if($toggle_pill) { echo "uk-subnav-pill";} ?>"
+<ul class="uk-subnav <?= $extraClass ?? '' ?> <?= $ausrichtung ?> <?php if($toggle_divider) { echo "uk-subnav-divider";} ?> <?php if($toggle_pill) { echo "uk-subnav-pill";} ?>"
     uk-margin <?= $navAttr ?>>
     <?php foreach ($navigations as $item_navigation): ?>
 
@@ -62,7 +62,8 @@ $navAttr = '';
     ?>
 
     <li class="<?= ($link_vegleich === $page->url()) ? 'uk-active' : '' ?>">
-        <a href="<?php if ($hasSubpages): ?>#<?php else: ?><?= $link ?><?php endif; ?>" <?= $openNewTab ?>><?= $title ?>
+        <a href="<?php if ($hasSubpages): ?>#<?php else: ?><?= $link ?><?php endif; ?>" uk-scroll
+            <?= $openNewTab ?>><?= $title ?>
             <?php if ($hasSubpages): ?>
             <span uk-icon="icon: triangle-down"></span>
             <?php endif; ?>

@@ -42,10 +42,12 @@ $burgerNavBlock = $block->burgernav()->toBool();
 
 <!-- Normales Menü nur, wenn kein offcanvas aktiv -->
 <?php if($burger_visibility != "immer"): ?>
-<ul class="uk-navbar-nav <?= $ausrichtung ?> <?= $burgerToggleClass ?>">
+<ul class="uk-navbar-nav <?= $ausrichtung ?> <?= $burgerToggleClass ?>"
+    uk-scrollspy-nav="closest: li; scroll: true; offset: 80">
     <?php foreach ($navigations as $item_navigation): ?>
 
     <?php 
+    $hasMegaMenu = false;
 
         if($navigations_check == 'live') {
             $isCustom = false;
@@ -58,8 +60,9 @@ $burgerNavBlock = $block->burgernav()->toBool();
             $hasSubpages = $item_navigation->subpages()->isNotEmpty();
 
             $globalToggleMega = $item_navigation->toggle_megamenu()->toBool();
-            $hasMegaMenu = $globalToggleMega && $item_navigation->megamenu_content()->isNotEmpty();
-            
+            if($globalToggleMega && $item_navigation->megamenu_content()->isNotEmpty()) {
+                $hasMegaMenu = true;
+            }            
             if (!$isCustom && $item_navigation->pages()->toPage()) {
                 $link = $item_navigation->pages()->toPage()->url();
                 $link_vegleich = $link;
@@ -91,7 +94,7 @@ $burgerNavBlock = $block->burgernav()->toBool();
         ?>
 
     <li class="<?= ($link_vegleich === $page->url()) ? 'uk-active' : '' ?>">
-        <a href="<?= $link ?>" <?= $openNewTab ?>><?= $title ?>
+        <a href="<?= $link ?>" uk-scroll <?= $openNewTab ?>><?= $title ?>
             <?php if ($hasSubpages && $toggle_akkordion|| $hasMegaMenu && $toggle_akkordion): ?>
             <span uk-nav-parent-icon></span>
             <?php endif; ?>
@@ -102,7 +105,8 @@ $burgerNavBlock = $block->burgernav()->toBool();
                 $mega_width = $item_navigation->mega_width();
                 $megaMenuContent = $item_navigation->megamenu_content()->toLayouts()->values();
                  ?>
-        <div class="mega-menu uk-navbar-dropdown <?= $mega_width ?>">
+        <div class="mega-menu uk-dropdown <?php if($mega_width != "uk-width-1-1") { echo $mega_width;} ?>"
+            <?php if($mega_width != "uk-width-1-1") { echo 'uk-dropdown="boundary: !.uk-navbar; flip: false"';} else { echo 'uk-dropdown="boundary: !.uk-navbar; stretch: x; flip: false"';} ?>>
 
             <?php foreach ($megaMenuContent as $i => $layout): ?>
             <div
@@ -116,7 +120,17 @@ $burgerNavBlock = $block->burgernav()->toBool();
                             <div class="uk-width-<?= str_replace('/', '-', $column->width()) ?>@l">
                                 <div>
                                     <?php foreach($column->blocks() as $block): ?>
-                                    <?php snippet('blocks/' . $block->type(), ['block' => $block]) ?>
+                                    <?php
+                                    $dropdownnavClass = '';
+                                    if ($block->type() === 'menu_vertikal' || $block->type() === 'menu_horizontal') {
+                                        $dropdownnavClass = 'uk-navbar-dropdown-nav';
+                                    }
+                                    ?>
+                                    <?php snippet('blocks/' . $block->type(), [
+                                        'block' => $block,
+                                        'extraClass' => $dropdownnavClass
+                                    ]) ?>
+
                                     <?php endforeach ?>
                                 </div>
                             </div>
@@ -129,7 +143,7 @@ $burgerNavBlock = $block->burgernav()->toBool();
             <?php endforeach ?>
         </div>
         <?php elseif ($hasSubpages): ?>
-        <div class="uk-navbar-dropdown">
+        <div class="uk-dropdown" uk-dropdown>
             <ul class="uk-nav uk-navbar-dropdown-nav">
                 <?php foreach ($item_navigation->subpages()->toBlocks() as $subpage_item): ?>
                 <?= $subpage_item ?>

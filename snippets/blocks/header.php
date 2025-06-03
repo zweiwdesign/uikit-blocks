@@ -4,7 +4,6 @@ $toggle_schatten = $block->toggle_schatten()->toBool();
 $toggle_transparent = $block->toggle_transparent()->toBool();
 $transparent_art = $block->transparent_art()->or('transparent-immer');
 $toggle_headerinverse = $block->toggle_headerinverse()->toBool();
-$toggle_dropbar = $block->toggle_dropbar()->toBool();
 
 $headerAlign = $block->header_vertical_align()->or('uk-flex-middle');
 
@@ -12,7 +11,6 @@ $headerClasses = '';
 $navbarClasses = '';
 $stickyAttributes = '';
 $navbarAttributes = '';
-$dropbarAttributes = '';
 
 if ($toggle_sticky) {
     $stickyAttributes = "uk-sticky='start: 80; animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky";
@@ -41,7 +39,6 @@ if ($toggle_transparent) {
     }
 }
 
-if ($toggle_dropbar) {$dropbarAttributes = "='dropbar: true; dropbar-transparent-mode: remove'";}
 ?>
 
 
@@ -51,8 +48,7 @@ if ($toggle_dropbar) {$dropbarAttributes = "='dropbar: true; dropbar-transparent
         <div class="uk-navbar-container <?= $navbarClasses ?>" <?= $navbarAttributes ?? '' ?>>
             <div
                 class="uk-container <?php if($block->sectionbreite() != 'remove'): ?><?= $block->sectionbreite() ?><?php endif; ?>">
-                <nav class="uk-navbar uk-flex uk-flex-auto <?= $headerAlign ?>" uk-navbar<?= $dropbarAttributes ?>
-                    style="width: 100%;">
+                <nav class="uk-navbar uk-flex uk-flex-auto <?= $headerAlign ?>" uk-navbar style="width: 100%;">
                     <?php $columns = $layout->columns(); $count = count($columns); ?>
                     <?php for ($i = 0; $i < $count; $i++): ?>
                     <?php $navbarClass = '';
