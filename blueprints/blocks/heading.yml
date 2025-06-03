@@ -87,7 +87,6 @@ fields:
     help: Textfarbe der Überschrift nach UIkit-Vorgaben
   align:
     type: toggles
-    width: 2/3
     reset: false
     default: "uk-text-left"
     labels: false
@@ -102,9 +101,22 @@ fields:
         icon: text-right
         text: right
     help: Horizontale Ausrichtung des Textes (links, zentriert oder rechts)
+  margin_set:
+    label: Margin setzten
+    type: multiselect
+    min: 0
+    max: 5
+    width: 1/2
+    options:
+      uk-margin-top: top
+      uk-margin-bottom: bottom
+      uk-margin-left: left
+      uk-margin-right: right
+    help: Steuert den Außenabstand (Margin).
   margin:
+    label: Margin entfernen
     type: select
-    width: 1/3
+    width: 1/2
     options:
       uk-margin-remove: remove top + bottom
       uk-margin-remove-top: remove top

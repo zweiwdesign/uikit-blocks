@@ -4,6 +4,7 @@ preview: image
 fields:
   class:
     type: text
+    help: Zusätzliche CSS-Klassen
   image:
     label: Logo
     type: files

@@ -460,6 +460,125 @@ panel.plugin("tilmannruppert/uikit-blocks", {
             </div>
           `
     },
+    panel: {
+      computed: {
+        backgroundStyle() {
+          let styles = [];
+
+          if (this.content.image && this.content.image.length) {
+            styles.push(`background-image: url('${this.content.image[0]?.url}')`);
+            styles.push("background-size: cover");
+            styles.push("background-position: center");
+          }
+
+          if (this.content.image_minheight) {
+            styles.push(`min-height: ${this.content.image_minheight}px`);
+          }
+
+          return styles.join("; ") + ";";
+        },
+        alignmentStyle() {
+          const align = this.content.flex_vertical || "uk-flex-top";
+          const justify = this.content.flex_horizontal || "uk-flex-left";
+
+          const alignMap = {
+            "uk-flex-top": "flex-start",
+            "uk-flex-middle": "center",
+            "uk-flex-bottom": "flex-end",
+          };
+          const justifyMap = {
+            "uk-flex-left": "flex-start",
+            "uk-flex-center": "center",
+            "uk-flex-right": "flex-end",
+          };
+
+          return `display: flex; justify-content: ${justifyMap[justify]}; align-items: ${alignMap[align]}; width: 100%; height: 100%;`;
+        },
+        contentPadding() {
+          const map = {
+            "uk-position-small": "10px",
+            "uk-position-medium": "30px",
+            "uk-position-large": "50px",
+          };
+          return map[this.content.space] || "0";
+        },
+        classNames() {
+          const classes = [];
+
+          if (this.content.background) {
+            classes.push(this.content.background);
+          }
+
+          if (this.content.color) {
+            classes.push(this.content.color);
+          }
+
+          if (this.content.padding) {
+            classes.push(this.content.padding);
+          }
+
+          if (this.content.class) {
+            classes.push(this.content.class);
+          }
+
+          return classes.join(" ");
+        },
+      },
+      template: `
+        <div
+          :style="backgroundStyle + ' position: relative; overflow: hidden; aspect-ratio: ' + (content.ratio || '16/9') + '; border: 1px dashed black;'"
+          :class="classNames"
+          @click="open"
+        >
+          <div :style="'padding: ' + contentPadding + '; box-sizing: border-box; width: 100%; height: 100%; display: flex;'">
+            <div :style="alignmentStyle">
+              <div style="background: white; width: 100%; display: flex; flex-direction: column;">
+                <k-block v-for="item in content.blocks" :type="item.type" :content="item.content" :key="item.id" disabled="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+      `,
+    },
+    grid: {
+      setup(props) {
+          const { computed } = window.Vue;
+
+          // columns reaktiv aus layout
+          const columns = computed(() => {
+          const layout = props.content.layout || "";
+          const match = layout.match(/uk-child-width-1-(\d)/);
+          if (match && match[1]) {
+              return Number(match[1]);
+          }
+          return 2;
+          });
+
+          // items = Array der Inhalte aus content.content (Blocks)
+          const items = computed(() => {
+          // Falls content.content ein Array von Blöcken ist, nutze deren Inhalt oder Typ als Platzhalter
+          if (Array.isArray(props.content.content)) {
+              return props.content.content.map(block => block.type || "Block");
+          }
+          return [];
+          });
+
+          return { columns, items };
+        },
+  
+        template: `
+          <k-grid :style="'gap: 0.25rem; --columns: ' + columns" @click="open">
+          <k-box
+              theme="passive"
+              v-for="(item, index) in items"
+              :key="index"
+              style="text-align: center;"
+          >
+              {{ item }}
+          </k-box>
+          </k-grid>
+        `
+    },
     },
     }
 );

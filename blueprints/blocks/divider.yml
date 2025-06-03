@@ -1,6 +1,9 @@
 title: Divider
 name: Divider
 fields:
+  class:
+    type: text
+    help: Zusätzliche CSS-Klassen
   dividertype:
     label: Art
     type: toggles

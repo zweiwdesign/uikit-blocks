@@ -23,3 +23,60 @@ tabs:
             type: pages
           files:
             type: files
+  mega_menu:
+    label: Mega Menü
+    columns:
+      megamenu:
+        width: 1/1
+        sections:
+          inhalte:
+            type: fields
+            fields:
+              toggle_megamenu:
+                label: Mega-Menü anzeigen
+                type: toggle
+                width: 1/2
+                help: Aktivieren, wenn die Seite im Menü ein Mega Menü haben soll.
+              mega_width:
+                label: Breite des Menüs
+                type: select
+                width: 1/2
+                default: uk-width-large
+                placeholder: Large (450px)
+                options:
+                  uk-width-1-1: Komplette Containerbreite
+                  uk-width-medium: Medium (300px)
+                  uk-width-xlarge: XLarge (600px)
+                  uk-width-2xlarge: 2XLarge (750px)
+                when:
+                  toggle_megamenu: true
+              megamenu_content:
+                label: Mega-Menü Inhalt
+                type: layout
+                layouts:
+                  - 1/1
+                  - 1/2, 1/2
+                  - 1/3, 1/3, 1/3
+                  - 1/4, 1/4, 1/4, 1/4
+                fieldsets:
+                  - heading
+                  - text
+                  - list
+                  - image
+                  - divider
+                  - iconflex
+                  - countup
+                  - form
+                  - overlay
+                  - card
+                  - panel
+                  - table
+                  - social_icons
+                  - menu_horizontal
+                  - menu_vertikal
+                settings:
+                  extends: offcanvas/settings
+                when:
+                  toggle_megamenu: true
+
+

@@ -1,0 +1,70 @@
+fields:
+  visible:
+    type: select
+    label: Sichtbarkeit
+    width: 1/2
+    default: immer
+    placeholder: immer
+    help: Legt fest, ab welcher Bildschirmgröße der Preheader angezeigt wird. Bei kleineren Größen wird er automatisch ausgeblendet.
+    options:
+      uk-visible@s: Sichtbar ab s
+      uk-visible@m: Sichtbar ab m
+      uk-visible@l: Sichtbar ab l
+  class:
+    type: text
+    width: 1/2
+
+  sectionbreite:
+    type: select
+    label: Section Breite
+    width: 1/2
+    options:
+      uk-container-xsmall: xsmall
+      uk-container-small: small
+      uk-container-large: large
+      uk-container-xlarge: xlarge
+      uk-container-expand: expand
+      remove: remove
+    help: Legt die maximale Breite des Inhaltsbereichs innerhalb der Section fest
+  sectionremove:
+    type: select
+    label: Section Padding Remove
+    width: 1/2
+    options:
+      uk-padding-remove-top: top
+      uk-padding-remove-bottom: bottom
+      uk-padding-remove-vertical: top + bottom
+    help: Entfernt gezielt den oberen, unteren oder vertikalen Innenabstand
+
+  sectionausrichtung:
+    type: select
+    label: Section Ausrichtung Vertikal
+    width: 1/2
+    options:
+      uk-flex-middle: middle
+      uk-flex-bottom: bottom
+    help: Vertikale Ausrichtung der Section-Inhalte
+  sectionausrichtung_hori:
+    type: select
+    label: Section Ausrichtung Horizontal
+    width: 1/2
+    options:
+      uk-flex-center: center
+      uk-flex-right: right
+    help: Horizontale Ausrichtung der Section-Inhalte
+
+  gutter:
+    type: select
+    label: Gutter
+    width: 1/2
+    options:
+      uk-grid-small: small
+      uk-grid-large: large
+      uk-grid-collapse: collapse
+    help: Abstand (Spacing) zwischen den Grid-Elementen
+
+  toggle_griddivider:
+    label: Griddivider
+    type: toggle
+    width: 1/2
+    help: Trennt die Grid-Spalten optisch mit einer Linie

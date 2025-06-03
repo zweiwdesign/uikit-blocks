@@ -8,6 +8,7 @@ tabs:
       class:
         label: Class
         type: text
+        help: Zusätzliche CSS-Klassen
 
       cardtype:
         label: Art der Karte

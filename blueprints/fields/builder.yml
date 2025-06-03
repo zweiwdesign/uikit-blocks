@@ -1,8 +1,19 @@
 label: Builder
 type: group
 fields:
+  # Preheader
+  toggle_preheader:
+    type: select
+    label: Preheader Position
+    help: Option den Preheader vor oder nach dem Header anzuzeigen.
+    default: davor
+    placeholder: davor
+    options:
+      danach: danach
+  # Preheader-Builder
+  preheader_builder: preheader/fieldsets
   # Header-Builder
-  header_builder: header/builder_fieldsets
+  header_builder: header/fieldsets
 
   # Einstellungen Burger
   burger_menu_visibility:

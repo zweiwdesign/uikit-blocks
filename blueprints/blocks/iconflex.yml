@@ -4,6 +4,7 @@ fields:
   class:
     label: Class
     type: text
+    help: Zusätzliche CSS-Klassen
   medium:
     type: toggles
     label: Medienart

@@ -36,10 +36,11 @@ App::plugin('tilmannruppert/uikit-blocks', [
 
         # Preheader
         'preheader/fieldsets' => __DIR__ . '/blueprints/main/preheader/fieldsets.yml',
+        'preheader/settings' => __DIR__ . '/blueprints/main/preheader/settings.yml',
 
         # Header
-        'header/builder_fieldsets' => __DIR__ . '/blueprints/main/header/builder_fieldsets.yml',
         'header/fieldsets' => __DIR__ . '/blueprints/main/header/fieldsets.yml',
+        'header/settings' => __DIR__ . '/blueprints/main/header/settings.yml',
 
         # Offcanvas
         'offcanvas/fieldsets' => __DIR__ . '/blueprints/main/offcanvas/fieldsets.yml',
@@ -71,13 +72,14 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/tab' => __DIR__ . '/blueprints/blocks/tab.yml',
         'blocks/social_icons' => __DIR__ . '/blueprints/blocks/social_icons.yml',
         'blocks/sticky_badge' => __DIR__ . '/blueprints/blocks/sticky_badge.yml',
+        'blocks/panel' => __DIR__ . '/blueprints/blocks/panel.yml',
+        'blocks/grid' => __DIR__ . '/blueprints/blocks/grid.yml',
+        'blocks/cookie-consent' => __DIR__ . '/blueprints/blocks/cookie-consent.yml',
+
 
         'blocks/navmenu' => __DIR__ . '/blueprints/blocks/navmenu.yml',
         'blocks/menu_horizontal' => __DIR__ . '/blueprints/blocks/menu_horizontal.yml',
         'blocks/menu_vertikal' => __DIR__ . '/blueprints/blocks/menu_vertikal.yml',
-
-        'blocks/preheader' => __DIR__ . '/blueprints/blocks/preheader.yml',
-        'blocks/header' => __DIR__ . '/blueprints/blocks/header.yml',
 
         'blocks/inner_accordion' => __DIR__ . '/blueprints/blocks/inner_accordion.yml',
         'blocks/subnavigation' => __DIR__ . '/blueprints/blocks/subnavigation.yml',
@@ -108,6 +110,9 @@ App::plugin('tilmannruppert/uikit-blocks', [
         'blocks/tab' => __DIR__ . '/snippets/blocks/tab.php',
         'blocks/social_icons' => __DIR__ . '/snippets/blocks/social_icons.php',
         'blocks/sticky_badge' => __DIR__ . '/snippets/blocks/sticky_badge.php',
+        'blocks/panel' => __DIR__ . '/snippets/blocks/panel.php',
+        'blocks/grid' => __DIR__ . '/snippets/blocks/grid.php',
+        'blocks/cookie-consent' => __DIR__ . '/snippets/blocks/cookie-consent.php',
 
         'blocks/navmenu' => __DIR__ . '/snippets/blocks/navmenu.php',
         'blocks/menu_horizontal' => __DIR__ . '/snippets/blocks/menu_horizontal.php',
@@ -152,15 +157,16 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 $lessCode = '@import "' . kirby()->root('index') . '/vendor/uikit/uikit/src/less/uikit.theme.less"; ';
  
                 //Hauptfarben
-                $lessCode .= '@global-primary-background:' . $newPage->primary() . '; ';
                 $lessCode .= '@global-background:' . $newPage->background() . '; ';
+                $lessCode .= '@global-primary-background:' . $newPage->primary() . '; ';
                 $lessCode .= '@global-secondary-background:' . $newPage->secondary() . '; ';
                 $lessCode .= '@global-muted-background:' . $newPage->muted() . ';';
                 $lessCode .= '@base-selection-background: ' . $newPage->selection()->or('@global-primary-background') . ';';
                
  
-                $lessCode .= '@global-font-size:' . $newPage->basefontsize() . 'px;';
-                $lessCode .= '@global-line-height:' . $newPage->basefontline() . ';';
+                //Text
+                $lessCode .= '@global-font-size:' . $newPage->basefontsize()->or("16") . 'px;';
+                $lessCode .= '@global-line-height:' . $newPage->basefontline()->or("1.5") . ';';
                 $lessCode .= '@global-color:' . $newPage->basecolor()->or('lighten(@global-secondary-background, 12%)') . ';';
  
                 //Headlines
@@ -175,6 +181,13 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 //Meta
                 $lessCode .= '@text-meta-color:' . $newPage->metacolor()->or('@global-primary-background') . ';';
                 $lessCode .= '.hook-text-meta() { text-transform:' . $newPage->metastyle()->or('none') . ';}';
+                $lessCode .= '@text-meta-font-size: ' . $newPage->metafontsize()->or("14") . 'px;';
+
+                //Lead
+                $lessCode .= '@text-lead-color' . $newPage->leadcolor()->or('@global-secondary-background') . ';';
+                $lessCode .= '@text-lead-line-height:' . $newPage->leadline()->or("1.5") . ';';
+                $lessCode .= '@text-lead-font-size: ' . $newPage->leadfontsize()->or("24") . 'px;';
+ 
  
                 //Buttons
                 $lessCode .= '.hook-button() { border-radius:' . $newPage->buttonradius() . 'px; text-transform:' . $newPage->buttonstyle()->value() . ';}';
@@ -253,13 +266,11 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 
                 //Preheader
                 $lessCode .= '.preheader { background:' . $newPage->preheaderbackgroundcolor()->or('@global-primary-background') . ';}';
-                $lessCode .= '.preheader p { text-transform:' . $newPage->preheaderstyle()->value() . ';}';
-                $lessCode .= '.preheader p { color:' . $newPage->preheaderitemcolor() . ' !important;}';
                 
                 //Header
                 $lessCode .= '@navbar-background:' . $newPage->headerbackgroundcolor()->or('@global-background') . ';';
                 $lessCode .= '@navbar-dropdown-background:' . $newPage->headerbackgroundcolor()->or('@global-background') . ';';
-                $lessCode .= '@dropbar-background:' . $newPage->headerbackgroundcolor()->or('@global-muted-background') . ';';
+                $lessCode .= '@dropbar-background:' . $newPage->dropbarbackgroundcolor()->or('@global-muted-background') . ';';
 
                 // Navigation - Header
                 $lessCode .= '.hook-navbar-nav-item() { text-transform:' . $newPage->navstyle()->value() . ';}';
@@ -273,6 +284,8 @@ App::plugin('tilmannruppert/uikit-blocks', [
                 $lessCode .= '@navbar-dropdown-nav-item-hover-color:' . $newPage->navitemhovercolor()->or('@global-secondary-background') . ';';
                 $lessCode .= '.hook-navbar-dropdown-nav-item-active() { color:' . $newPage->navitemactivecolor()->or('@global-primary-background') . ';}';
                 $lessCode .= '@dropdown-nav-item-color:' . $newPage->navitemcolor()->or('@global-color') . ' !important;';
+
+                $lessCode .= '@dropdown-background:' . $newPage->dropdownbackgroundcolor()->or('@global-muted-background') . ';';
 
                 // Menus - Subnav
                 $lessCode .= '.hook-subnav-item() { text-transform:' . $newPage->menustyle()->value() . ';}';

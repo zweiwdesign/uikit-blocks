@@ -4,6 +4,10 @@ preview: image
 tabs:
   main:
     fields:
+      class:
+        label: Class
+        type: text
+        help: Zusätzliche CSS-Klassen
       location:
         label: field.blocks.image.location
         type: radio
@@ -33,14 +37,16 @@ tabs:
         label: field.blocks.image.alt
         type: text
         icon: title
+        width: 1/2
       caption:
         label: field.blocks.image.caption
         type: writer
         icon: text
         inline: true
+        width: 1/2
       link:
         label: field.blocks.image.link
-        type: text
+        type: link
         icon: url
       width:
         label: Width
@@ -64,15 +70,20 @@ tabs:
           3/1: "3:1"
       toggle_align:
         type: toggles
-        label: Ausrichtung
-        width: 1/2
+        reset: false
+        default: "uk-text-left"
+        labels: false
         options:
-          - center
-          - right
-      class:
-        label: Class
-        type: text
-        width: 1/2
+          - value: uk-text-left
+            icon: text-left
+            text: left
+          - value: uk-text-center@m
+            icon: text-center
+            text: center
+          - value: uk-text-right@m
+            icon: text-right
+            text: right
+        help: Horizontale Ausrichtung des Bildes (links, zentriert oder rechts)
 
   move:
     label: Parallax-Einstellungen

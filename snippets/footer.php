@@ -26,7 +26,7 @@ $backgroundblendmode = $layout->backgroundblendmode();
 $backgroundfixed = $layout->backgroundfixed()->toBool();
 ?>
 
-<div class="footer uk-section <?= $class ?> <?= $sectioncolor ?> <?= $sectionsize ?> <?= $sectionremove ?> <?= $backgroundimageat ?>  <?php if($backgroundImage): ?>
+<div class="footer uk-section <?= $class ?> <?= $sectioncolor ?> <?= $sectionsize ?> <?= $sectionremove ?> <?= $backgroundimageat ?> <?php if($backgroundImage): ?>
                 uk-background-<?= $backgroundsize ?> <?= $backgroundposition ?> <?= $backgroundblendmode ?><?php if($backgroundfixed): ?> uk-background-fixed<?php endif; ?><?php endif; ?>"
     <?php if ($usebackgroundimage && $backgroundImage): ?> uk-img
     sources="srcset: <?= $backgroundImage->thumb(['width' => 960, 'quality' => 60, 'format' => 'webp'])->url() ?>; media: (max-width: 960px)"
@@ -52,22 +52,10 @@ $backgroundfixed = $layout->backgroundfixed()->toBool();
                 <?php endforeach ?>
             </div>
         </div>
-
     </div>
 </div>
-
-
 <?php endforeach ?>
-
-<div class="uk-section uk-section-muted uk-section-xsmall">
-    <div class="uk-container uk-text-center">
-        <button class="uk-button uk-button-small uk-button-text" type="button"
-            data-cc="show-preferencesModal">Datenschutz Einstellungen</button>
-    </div>
-</div>
-<?php snippet('cookieconsentJs') ?>
 <?php snippet('seo/schemas'); ?>
-
 </body>
 
 </html>

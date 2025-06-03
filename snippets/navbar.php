@@ -1,9 +1,13 @@
-<?php
-// main menu items
-$items = $site->menubuilder()->toStructure();
-// rechtliches menu items
+<?php 
+$toggle_preheader = $site->toggle_preheader()->or('davor');
 ?>
 
-<?php foreach ($site->header_builder()->toBlocks() as $block): ?>
-<?= $block ?>
-<?php endforeach ?>
+<?php if($toggle_preheader == "davor") : ?>
+<?php snippet('blocks/preheader') ?>
+<?php endif; ?>
+
+<?php snippet('blocks/header') ?>
+
+<?php if($toggle_preheader == "danach") : ?>
+<?php snippet('blocks/preheader') ?>
+<?php endif; ?>

@@ -21,6 +21,9 @@ tabs:
   einstellungen:
     label: Einstellungen
     fields:
+      class:
+        type: text
+        help: Zusätzliche CSS-Klassen
       ausrichtung:
         type: toggles
         label: Ausrichtung

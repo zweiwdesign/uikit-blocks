@@ -3,6 +3,9 @@ name: button
 tabs:
   bild:
     fields:
+      class:
+        type: text
+        help: Zusätzliche CSS-Klassen
       # Inhalt & Verhalten
       link:
         type: link

@@ -11,6 +11,7 @@ fieldsets:
   - form
   - overlay
   - card
+  - panel
   - table
   - social_icons
   - menu_horizontal

@@ -13,3 +13,4 @@ fieldsets:
   - navmenu
   - language_switcher
   - sticky_badge
+settings: header/settings

@@ -1,6 +1,9 @@
 title: Accordion
 name: Accordion
 fields:
+  class:
+    type: text
+    help: Zusätzliche CSS-Klassen
   blocks:
     type: blocks
     fieldsets:

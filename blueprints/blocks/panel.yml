@@ -1,0 +1,75 @@
+name: Panel
+tabs:
+  content:
+    label: Inhalt
+    fields:
+      class:
+        label: Class
+        type: text
+        help: Zusätzliche CSS-Klassen zur individuellen Gestaltung
+      image:
+        label: Image
+        type: files
+        layout: cards
+        size: full
+        multiple: false
+        image:
+          ratio: 16/9
+          cover: true
+        multiple: false
+        max: 1
+      
+      blocks: main/fieldsets
+      
+  einstellungen:
+    label: Einstellungen
+    fields:
+      minheight:
+        label: Mindesthöhe der Box
+        type: text
+        after: px
+      background:
+        label: Background Color
+        type: select
+        width: 1/3
+        help: Legt die Hintergrundfarbe fest.
+        default: none
+        placeholder: Keine Farbe
+        options:
+          uk-background-default: Default
+          uk-background-muted: Muted
+          uk-background-primary: Primary
+          uk-background-secondary: Secondary
+      # color:
+      #   label: Color
+      #   type: select
+      #   width: 1/3
+      #   help: Legt die Textfarbe fest.
+      #   options:
+      #     uk-light: Light
+      #     uk-dark: Dark
+      flex_vertical:
+        label: Ausrichtung des Inhalts vertikal
+        type: toggles
+        width: 1/2
+        default: uk-flex-top
+        help: Vertikale Ausrichtung des Overlay-Inhalts (oben, mittig oder unten)
+        options:
+          - value: uk-flex-top
+            text: Oben
+            icon: text-top
+          - value: uk-flex-middle
+            text: Zentriert
+            icon: text-middle
+          - value: uk-flex-bottom
+            text: Unten
+            icon: text-bottom
+      padding:
+        label: Padding
+        type: select
+        width: 1/3
+        help: Padding (Innenabstand) zwischen Inhalt und Box
+        options:
+          uk-padding-small: small
+          uk-padding: medium
+          uk-padding-large: large

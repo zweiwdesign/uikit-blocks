@@ -25,3 +25,7 @@ tabs:
           - value: uk-flex-right@m
             icon: text-right
             text: right
+
+      class:
+        type: text
+        help: Zusätzliche CSS-Klassen

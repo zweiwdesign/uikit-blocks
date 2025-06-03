@@ -1,11 +1,13 @@
-<?php
-$toggle_sticky = $block->toggle_sticky()->toBool();
-$toggle_schatten = $block->toggle_schatten()->toBool();
-$toggle_transparent = $block->toggle_transparent()->toBool();
-$transparent_art = $block->transparent_art()->or('transparent-immer');
-$toggle_headerinverse = $block->toggle_headerinverse()->toBool();
+<?php foreach ($site->header_builder()->toLayouts()->values() as $i => $layout):
 
-$headerAlign = $block->header_vertical_align()->or('uk-flex-middle');
+$toggle_sticky = $layout->toggle_sticky()->toBool();
+$toggle_schatten = $layout->toggle_schatten()->toBool();
+$toggle_transparent = $layout->toggle_transparent()->toBool();
+$transparent_art = $layout->transparent_art()->or('transparent-immer');
+$toggle_headerinverse = $layout->toggle_headerinverse()->toBool();
+$toggle_dropbar = $layout->toggle_dropbar()->toBool();
+
+$headerAlign = $layout->header_vertical_align()->or('uk-flex-middle');
 
 $headerClasses = '';
 $navbarClasses = '';
@@ -41,13 +43,11 @@ if ($toggle_transparent) {
 
 ?>
 
-
-<?php foreach ($block->header()->toLayouts()->values() as $i => $layout): ?>
-<header class="<?= $headerClasses ?> <?= $block->class() ?>" uk-header>
+<header class="<?= $headerClasses ?> <?= $layout->class() ?>" uk-header>
     <div <?= $stickyAttributes ?>>
         <div class="uk-navbar-container <?= $navbarClasses ?>" <?= $navbarAttributes ?? '' ?>>
             <div
-                class="uk-container <?php if($block->sectionbreite() != 'remove'): ?><?= $block->sectionbreite() ?><?php endif; ?>">
+                class="uk-container <?php if($layout->sectionbreite() != 'remove'): ?><?= $layout->sectionbreite() ?><?php endif; ?>">
                 <nav class="uk-navbar uk-flex uk-flex-auto <?= $headerAlign ?>" uk-navbar style="width: 100%;">
                     <?php $columns = $layout->columns(); $count = count($columns); ?>
                     <?php for ($i = 0; $i < $count; $i++): ?>

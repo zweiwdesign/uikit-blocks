@@ -127,23 +127,6 @@ fields:
       uk-hidden@l: anzeigen ab l und kleiner
       uk-hidden@xl: anzeigen ab xl und kleiner
     help: Blendet die Section je nach Bildschirmgröße ein oder aus
-  sectiongridchildwidth:
-    label: Section Child Width
-    type: select
-    help: ????Die eingestellte Width hat nur eine Auswirkung auf Layouts kleiner als 1/1
-    width: 1/2
-    options:
-      uk-width-1-2: 1/2
-      uk-width-1-3: 1/3
-      uk-width-1-4: 1/4
-  sectiongridchildwidthresponsiv:
-    label: Child Width ab...
-    type: select
-    width: 1/2
-    options:
-      s: Child Width ab s bis l
-      m: Child Width ab m bis l
-    help: ????Legt die Breite der Grid-Elemente ab einer bestimmten Breakpoint-Größe fest
   usebackgroundimage:
     label: Hintergrundbild verwenden
     type: toggle

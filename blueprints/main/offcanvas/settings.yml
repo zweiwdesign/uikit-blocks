@@ -2,6 +2,7 @@ fields:
   class:
     type: text
     width: 1/2
+    help: Zusätzliche CSS-Klassen zur individuellen Gestaltung
   sectioncolor:
     type: select
     label: Section Farbe
@@ -10,28 +11,30 @@ fields:
       uk-section-primary: primary
       uk-section-secondary: secondary
       uk-section-muted: muted
+    help: Bestimmt die Farbstimmung bzw. Hintergrundfarbe des Abschnitts
   sectionsize:
     type: select
     label: Section Padding
-    width: 1/3
+    width: 1/2
     options:
       uk-section-xsmall: xsmall
       uk-section-small: small
       uk-section-large: large
       uk-section-xlarge: xlarge
-      vh: VH
+    help: Definiert die vertikale Innenabstände (Padding) der Section
   sectionremove:
     type: select
     label: Section Padding Remove
-    width: 1/3
+    width: 1/2
     options:
       uk-padding-remove-top: top
       uk-padding-remove-bottom: bottom
       uk-padding-remove-vertical: top + bottom
+    help: Entfernt gezielt den oberen, unteren oder vertikalen Innenabstand
   sectionbreite:
     type: select
     label: Section Breite
-    width: 1/3
+    width: 1/2
     options:
       uk-container-xsmall: xsmall
       uk-container-small: small
@@ -39,6 +42,7 @@ fields:
       uk-container-xlarge: xlarge
       uk-container-expand: expand
       remove: remove
+    help: Legt die maximale Breite des Inhaltsbereichs innerhalb der Section fest
   sectionexpand:
     type: select
     width: 1/2
@@ -50,10 +54,11 @@ fields:
   sectionausrichtung:
     type: select
     label: Section Ausrichtung Vertikal
-    width: 1/3
+    width: 1/2
     options:
       uk-flex-middle: middle
       uk-flex-bottom: bottom
+    help: Vertikale Ausrichtung des Abschnittinhalts
   sectionausrichtung_hori:
     type: select
     label: Section Ausrichtung Horizontal
@@ -61,18 +66,21 @@ fields:
     options:
       uk-flex-center: center
       uk-flex-right: right
+    help: Horizontale Ausrichtung des Abschnittinhalts
   gutter:
     type: select
     label: Gutter
-    width: 1/3
+    width: 1/2
     options:
       uk-grid-small: small
       uk-grid-large: large
       uk-grid-collapse: collapse
+    help: Abstand (Spacing) zwischen den Grid-Elementen
   toggle_griddivider:
     label: Griddivider
     type: toggle
     width: 1/2
+    help: Trennt die Grid-Spalten optisch mit einer Linie
   # background image
   usebackgroundimage:
     label: Hintergrundbild verwenden

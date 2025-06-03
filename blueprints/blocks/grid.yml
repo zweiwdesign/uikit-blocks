@@ -1,0 +1,245 @@
+name: Section Grid
+icon: grid
+tabs:
+  inhalt:
+    label: Inhalt
+    fields:
+      slider:
+        label: Slider
+        type: toggle
+        help: Aktivieren, um die Inhalte des Grids als Slider darzustellen.
+      layout:
+        label: Global Grid-Layout
+        type: toggles
+        width: 1/2
+        help: Anzahl der angezeigten Elemente nebeneinander
+        options:
+          - value: uk-child-width-1-1
+            text: "1"
+          - value: uk-child-width-1-2
+            text: "2"
+          - value: uk-child-width-1-3
+            text: "3"
+          - value: uk-child-width-1-4
+            text: "4"
+          - value: uk-child-width-1-5
+            text: "5"
+          - value: uk-child-width-1-6
+            text: "6"
+      child_width_s:
+        label: Anzahl Elemente nebeneinander ab s und größer
+        type: toggles
+        width: 1/2
+        help: Anzahl der angezeigten Elemente nebeneinander ab Handygröße und größer. Wenn default wird der Standard-Wert genommen.
+        default: default
+        reset: false
+        options:
+          - value: default
+            text: Default
+          - value: uk-child-width-1-2@s
+            text: "2"
+          - value: uk-child-width-1-3@s
+            text: "3"
+          - value: uk-child-width-1-4@s
+            text: "4"
+          - value: uk-child-width-1-5@s
+            text: "5"
+          - value: uk-child-width-1-6@s
+            text: "6"
+      child_width_m:
+        label: Anzahl Elemente nebeneinander ab m und größer
+        type: toggles
+        width: 1/2
+        help: Anzahl der angezeigten Elemente nebeneinander ab Tabletgröße und größer. Wenn default wird Handywert genommen.
+        default: default
+        reset: false
+        options:
+          - value: default
+            text: Default
+          - value: uk-child-width-1-2@m
+            text: "2"
+          - value: uk-child-width-1-3@m
+            text: "3"
+          - value: uk-child-width-1-4@m
+            text: "4"
+          - value: uk-child-width-1-5@m
+            text: "5"
+          - value: uk-child-width-1-6@m
+            text: "6"
+      child_width_l:
+        label: Anzahl Elemente nebeneinander ab l und größer
+        type: toggles
+        width: 1/2
+        help: Anzahl der angezeigten Elemente nebeneinander ab Desktopgröße und größer. Wenn default wird Tabletwert genommen.
+        default: default
+        reset: false
+        options:
+          - value: default
+            text: Default
+          - value: uk-child-width-1-2@l
+            text: "2"
+          - value: uk-child-width-1-3@l
+            text: "3"
+          - value: uk-child-width-1-4@l
+            text: "4"
+          - value: uk-child-width-1-5@l
+            text: "5"
+          - value: uk-child-width-1-6@l
+            text: "6"
+      content:
+        label: Inhalt
+        type: blocks
+        fieldsets:
+          - image
+          - overlay
+          - card
+  einstellungen:
+    label: Einstellungen
+    fields:
+      class:
+        label: Class
+        type: text
+        help: Zusätzliche CSS-Klassen zur individuellen Gestaltung
+      autoplay:
+        label: Autoplay
+        type: toggle
+        width: 1/4
+        help: Startet die Slideshow automatisch.
+        when:
+          slider: true
+      infinite_scrolling:
+        label: Unendliches Sliden
+        type: toggle
+        width: 1/4
+        default: true
+        help: Wiederholt die Slides endlos.
+        when:
+          slider: true
+      center:
+        label: Center
+        type: toggle
+        width: 1/4
+        help: Setzt das aktuelle Element mittig und schneidet die restlichen Elemente an.
+        when:
+          slider: true
+      sets:
+        label: In Sets sliden
+        type: toggle
+        width: 1/4
+        help: Aktiviert das gleichzeitige Sliden mehrerer Elemente.
+        when:
+          slider: true
+      sameHeight:
+        label: Same Height
+        type: toggle
+        width: 1/4
+        help: Aktivieren, um gleiche Höhe von Cards/Overlays innerhalb des Grids zu erzwingen.
+      toggle_masonry:
+        label: Masonry
+        type: toggle
+        width: 1/4
+        help: Aktivieren, um ein Layout zu erhalten, bei dem sich die Elemente dynamisch wie in einem Pinterest-Grid anordnen.
+        when:
+          slider: false
+      toggle_griddivider:
+        label: Griddivider
+        type: toggle
+        width: 1/4
+        help: Trennt die Grid-Spalten optisch mit einer Linie
+        when:
+          slider: false
+      gap:
+        label: Gap
+        type: toggle
+        width: 1/4
+        when:
+          slider: true
+      gutter:
+        type: select
+        label: Gutter
+        width: 1/4
+        options:
+          uk-grid-small: small
+          uk-grid-large: large
+          uk-grid-collapse: collapse
+        help: Abstand (Spacing) zwischen den Grid-Elementen
+      align:
+        type: toggles
+        label: Ausrichtung
+        width: 1/4
+        reset: false
+        labels: false
+        default: uk-flex-left
+        when:
+          slider: false
+        options:
+          - value: uk-flex-left
+            text: Links
+            icon: text-left
+          - value: uk-flex-center
+            text: Zentriert
+            icon: text-center
+          - value: uk-flex-right
+            text: Rechts
+            icon: text-right
+      align_vertikal:
+        type: toggles
+        label: Ausrichtung Vertikal
+        width: 1/4
+        reset: false
+        labels: false
+        default: uk-flex-top
+        when:
+          slider: true
+        options:
+          - value: uk-flex-top
+            text: Oben
+            icon: text-top
+          - value: uk-flex-middle
+            text: Zentriert
+            icon: text-middle
+          - value: uk-flex-bottom
+            text: Unten
+            icon: text-bottom
+      # Navigation
+      navigation_visibility:
+        label: Pfeile Sichtbarkeit
+        type: select
+        default: uk-hidden-hover
+        placeholder: Nur bei Hover sichtbar und sonst nicht sichtbar
+        width: 1/2
+        options:
+          immer: Immer sichtbar
+          uk-hidden: Immer unsichtbar
+        when:
+          slider: true
+      dotnav_visibility:
+        label: Dotnav Sichtbarkeit
+        type: select
+        width: 1/2
+        default: immer
+        placeholder: Immer sichtbar
+        options:
+          uk-hidden: Immer unsichtbar
+        when:
+          slider: true
+      navigation_mode:
+        label: Farbe der Pfeile und Dotnav
+        type: select
+        width: 1/2
+        default: uk-dark
+        placeholder: Dunkel
+        options:
+          uk-light: Hell
+        when:
+          slider: true
+      navigation_position:
+        label: Position der Pfeile
+        type: select
+        width: 1/2
+        default: aussen
+        placeholder: Außen
+        options:
+          uk-position-relative: Innen
+        when:
+          slider: true

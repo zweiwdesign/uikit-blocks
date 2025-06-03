@@ -1,4 +1,5 @@
 <?php
+$class = $block->class();
 $ratio = $block->ratio();
 $image = $block->image()->toFile();
 $image_2 = $block->image_2()->toFile();
@@ -42,7 +43,7 @@ $padding = $block->padding();
 $space = $block->space();
 ?>
 
-<div class="uk-inline-clip <?php if($hover === true) { echo "uk-transition-toggle";} ?> <?= $color ?>">
+<div class="uk-inline-clip <?= $class ?> <?php if($hover === true) { echo "uk-transition-toggle";} ?> <?= $color ?>">
     <?php if($hover_image === true) { ?>
     <?php if($image_2): ?>
     <img src="<?= $image_2->url() ?>" alt="<?= $image_2->alt() ?>" loading="lazy" class="uk-width-1-1"
@@ -55,8 +56,10 @@ $space = $block->space();
         style="width: 100%; aspect-ratio: <?= $aspectRatio ?>">
     <?php endif; ?>
 
+    <?php if($block->blocks()->toBlocks()->isNotEmpty()) : ?>
     <div
         class="uk-overlay <?php if($hover === true) { echo "uk-transition-" . $transition; } ?> uk-position-<?= $position ?> <?= $style ?> <?= $width ?> <?= $padding ?> <?= $space ?> uk-flex <?= $flex_vertical ?> <?= $flex_horizontal ?>">
         <div><?= $block->blocks()->toBlocks(); ?></div>
     </div>
+    <?php endif; ?>
 </div>

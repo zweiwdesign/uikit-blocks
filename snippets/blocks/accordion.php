@@ -13,6 +13,7 @@ $accordionAttribute .= implode('; ', $settings);
 $accordionAttribute .= '"';
 ?>
 
-<ul <?= $accordionAttribute ?>>
+<ul <?= $accordionAttribute ?> <?php if($block->class()->isNotEmpty()) : ?>class="<?= $block->class() ?>"
+    <?php endif; ?>>
     <?= $block->blocks()->toBlocks(); ?>
 </ul>

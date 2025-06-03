@@ -24,7 +24,7 @@ if ($navigations == 'live') {
 ?>
 
 
-<ul class="uk-nav <?= $extraClass ?? '' ?> <?= $style ?> <?php if($style == "uk-nav-primary"){ echo $size_primary; } ?> <?php if($toggle_center) { echo "uk-nav-center";} ?> <?php if($toggle_divider) { echo "uk-nav-divider";} ?>"
+<ul class="uk-nav <?= $block->class() ?> <?= $extraClass ?? '' ?> <?= $style ?> <?php if($style == "uk-nav-primary"){ echo $size_primary; } ?> <?php if($toggle_center) { echo "uk-nav-center";} ?> <?php if($toggle_divider) { echo "uk-nav-divider";} ?>"
     <?= $navAttr ?>>
     <?php foreach ($navigations as $item_navigation): ?>
 

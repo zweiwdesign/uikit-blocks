@@ -3,7 +3,7 @@ $dividertype = $block->dividertype();
 $dividerausrichtung = $block->dividerausrichtung();
 ?>
 <?php if ($dividertype == 'uk-divider'): ?>
-<hr>
+<hr <?php if($block->class()->isNotEmpty()): ?>class="<?= $block->class() ?>" <?php endif; ?>>
 <?php else: ?>
-<hr class="<?= $dividertype ?> <?= $dividerausrichtung ?>">
+<hr class="<?= $block->class() ?><?= $dividertype ?> <?= $dividerausrichtung ?>">
 <?php endif ?>

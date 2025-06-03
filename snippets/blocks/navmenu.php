@@ -57,14 +57,28 @@ $burgerNavBlock = $block->burgernav()->toBool();
         } else {
             $toggle_linktype = $item_navigation->toggle_linktype()->toText();
             $isCustom = $item_navigation->toggle_custom()->toBool();
-            $hasSubpages = $item_navigation->subpages()->isNotEmpty();
 
-            $globalToggleMega = $item_navigation->toggle_megamenu()->toBool();
-            if($globalToggleMega && $item_navigation->megamenu_content()->isNotEmpty()) {
-                $hasMegaMenu = true;
-            }            
+            $toggleSubpages = $item_navigation->toggle_subpages()->toBool();
+            $subpages = $item_navigation->subpages()->isNotEmpty();
+
+            if ($toggleSubpages && $subpages) {
+                $hasSubpages = true;
+            } else {
+                $hasSubpages = false;
+            }
+            
+            
             if (!$isCustom && $item_navigation->pages()->toPage()) {
-                $link = $item_navigation->pages()->toPage()->url();
+                $selectedPage = $item_navigation->pages()->toPage(); // Seite
+                $link = $selectedPage->url(); // Seiten-URL
+
+                $toggleMega = $selectedPage->toggle_megamenu()->toBool();
+
+                if ($toggleMega) {
+                    $hasMegaMenu = true;
+                    $megamenuContent = $selectedPage->megamenu_content()->toLayouts();
+                }
+
                 $link_vegleich = $link;
             } elseif ($isCustom && $toggle_linktype == 'extern' && $item_navigation->externlink()->isNotEmpty()) {
                 $link = $item_navigation->externlink()->toUrl();
@@ -101,16 +115,18 @@ $burgerNavBlock = $block->burgernav()->toBool();
         </a>
 
         <?php if ($hasMegaMenu): ?>
+        <!-- Mega Menü Dropdown -->
         <?php 
-                $mega_width = $item_navigation->mega_width();
-                $megaMenuContent = $item_navigation->megamenu_content()->toLayouts()->values();
+                $selectedPage = $item_navigation->pages()->toPage(); // Seite
+                $mega_width = $selectedPage->mega_width();
+                $megaMenuContent = $selectedPage->megamenu_content()->toLayouts();
                  ?>
         <div class="mega-menu uk-dropdown <?php if($mega_width != "uk-width-1-1") { echo $mega_width;} ?>"
             <?php if($mega_width != "uk-width-1-1") { echo 'uk-dropdown="boundary: !.uk-navbar; flip: false"';} else { echo 'uk-dropdown="boundary: !.uk-navbar; stretch: x; flip: false"';} ?>>
 
             <?php foreach ($megaMenuContent as $i => $layout): ?>
             <div
-                class="uk-section <?= $layout->class() ?> <?= $layout->sectioncolor()->or('uk-section-default') ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?>">
+                class="uk-section <?= $layout->class() ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?>">
                 <div class="uk-width-1-1">
                     <div
                         class="<?php if($layout->sectionbreite() != 'remove'): ?>uk-padding uk-container <?= $layout->sectionbreite() ?><?php endif; ?>">
@@ -143,6 +159,7 @@ $burgerNavBlock = $block->burgernav()->toBool();
             <?php endforeach ?>
         </div>
         <?php elseif ($hasSubpages): ?>
+        <!-- Subpages Dropdown -->
         <div class="uk-dropdown" uk-dropdown>
             <ul class="uk-nav uk-navbar-dropdown-nav">
                 <?php foreach ($item_navigation->subpages()->toBlocks() as $subpage_item): ?>
@@ -171,8 +188,7 @@ $burgerNavBlock = $block->burgernav()->toBool();
     <div
         class="offcanvas <?php if($showoffcanvas) { echo "uk-flex uk-flex-column ". $offcanvas_align;} ?> uk-height-1-1">
         <?php foreach ($offcanvasContent as $i => $layout): ?>
-        <div
-            class="uk-section <?= $layout->class() ?> <?= $layout->sectioncolor()->or('uk-section-default') ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?>">
+        <div class="uk-section <?= $layout->class() ?> <?= $layout->sectionsize() ?> <?= $layout->sectionremove() ?>">
             <div class="uk-width-1-1">
                 <div
                     class="<?php if($layout->sectionbreite() != 'remove'): ?>uk-padding uk-container <?= $layout->sectionbreite() ?><?php endif; ?>">

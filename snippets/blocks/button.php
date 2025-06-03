@@ -14,7 +14,7 @@ $icon_align = $block->icon_align();
 $icon_show = $block->icon_show()->toBool();
 
 ?>
-<div class="<?php if($breite === true) { echo 'uk-width-1-1'; } ?>">
+<div class="<?= $block->class() ?><?php if($breite === true) { echo ' uk-width-1-1'; } ?>">
     <a class="uk-button <?= $style ?> <?= $size ?> <?php if($breite === true) { echo 'uk-width-1-1'; } ?>"
         href="<?= $link ?>" <?= $target_blank === true ? 'target="_blank"' : '' ?> uk-scroll aria-label="<?= $text ?>">
         <?php if($icon_show === true) { ?>

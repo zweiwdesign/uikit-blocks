@@ -5,6 +5,7 @@ preview: text
 fields:
   class:
     type: text
+    help: Zusätzliche CSS-Klassen
   text:
     type: writer
     nodes: false
@@ -52,6 +53,7 @@ fields:
     type: select
     help: Wähle eine Textformatierung – z. B. Groß- oder Kleinschreibung.
     default: none
+    placeholder: none
     width: 1/3
     options:
       - value: uk-text-uppercase
@@ -80,11 +82,24 @@ fields:
       s: ab „s“ (kleine Geräte)
       l: ab „l“ (große Geräte)
       xl: ab „xl“ (sehr große Geräte)
+  margin_set:
+    label: Margin setzten
+    type: multiselect
+    min: 0
+    max: 5
+    width: 1/2
+    options:
+      uk-margin-top: top
+      uk-margin-bottom: bottom
+      uk-margin-left: left
+      uk-margin-right: right
+    help: Steuert den Außenabstand (Margin).
   margin:
+    label: Margin entfernen
     type: select
-    width: 1/3
+    width: 1/2
     options:
       uk-margin-remove: remove top + bottom
       uk-margin-remove-top: remove top
       uk-margin-remove-bottom: remove bottom
-    help: Steuert den Außenabstand (Margin) oben und/oder unten
+    help: Entfernt den Außenabstand (Margin) oben und/oder unten

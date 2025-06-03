@@ -1,11 +1,9 @@
 <?php
-$class = $block->class();
-$size = $block->size();
-$color = $block->color();
-$align = $block->align();
-
-$textstyle = $block->textstyle();
-$text = $block->text();
+$margin_values = "";
+$margin_set = $block->margin_set();
+foreach ($margin_set->split() as $margin_value) {
+    $margin_values .= " " .$margin_value;
+}
 
 $textcolumns = $block->textcolumns();
 $textcolumnsresponsiv = $block->textcolumnsresponsiv()->or('m');
@@ -16,9 +14,24 @@ if ($textcolumns->isNotEmpty()) {
     $textcolumnsfinal = "";
 }
 
+$classes = [
+    $block->class() ?? '',
+    $textcolumnsfinal ?? '',
+    $block->size() ?? '',
+    $block->color() ?? '',
+    $block->align() ?? '',
+    $block->textstyle() ?? '',
+    $margin_values ?? '',
+    $block->margin() ?? '',
+];
+
+// Entferne leere oder nur aus Leerzeichen bestehende Einträge
+$classes = array_filter($classes, 'trim');
+
+$classString = implode(' ', $classes);
+
 ?>
 
-<div
-    class="<?= $class ?> <?= $textcolumnsfinal ?> <?= $size ?> <?= $color ?> <?= $align ?> <?= $textstyle ?> uk-margin <?= $block->margin() ?> <?php if($block->margin() == "uk-margin-remove-bottom" || $block->margin() == ""): ?>uk-margin-top<?php endif; ?>">
-    <?= $text ?>
+<div class="<?= $classString ?>">
+    <?= $block->text() ?>
 </div>

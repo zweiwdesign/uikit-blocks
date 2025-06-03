@@ -20,7 +20,7 @@ $ausrichtung = $block->ausrichtung()->or('uk-flex-left');
 $navAttr = '';
 ?>
 
-<ul class="uk-subnav <?= $extraClass ?? '' ?> <?= $ausrichtung ?> <?php if($toggle_divider) { echo "uk-subnav-divider";} ?> <?php if($toggle_pill) { echo "uk-subnav-pill";} ?>"
+<ul class="uk-subnav <?= $block->class() ?> <?= $extraClass ?? '' ?> <?= $ausrichtung ?> <?php if($toggle_divider) { echo "uk-subnav-divider";} ?> <?php if($toggle_pill) { echo "uk-subnav-pill";} ?>"
     uk-margin <?= $navAttr ?>>
     <?php foreach ($navigations as $item_navigation): ?>
 

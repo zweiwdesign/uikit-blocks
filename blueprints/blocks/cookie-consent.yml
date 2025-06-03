@@ -1,0 +1,21 @@
+title: Cookie Consent Button
+name: Cookie Consent Button
+fields:
+  class:
+    type: text
+    help: Zusätzliche CSS-Klassen
+  text:
+    type: text
+    help: Angezeigter Text im Button
+    placeholder: Datenschutz Einstellungen
+  style:
+    type: select
+    label: Style
+    help: Stil des Buttons
+    default: uk-button-default
+    placeholder: default
+    options:
+      uk-button-primary: primary
+      uk-button-secondary: secondary
+      uk-button-text: text
+      uk-button-link: link

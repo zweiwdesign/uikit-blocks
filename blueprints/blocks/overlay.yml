@@ -2,6 +2,10 @@ title: Overlay
 tabs:
   content:
     fields:
+      class:
+        label: Class
+        type: text
+        help: Zusätzliche CSS-Klassen zur individuellen Gestaltung
       image:
         label: Hintergrundbild
         type: files

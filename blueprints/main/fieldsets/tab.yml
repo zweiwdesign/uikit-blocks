@@ -16,5 +16,6 @@ fieldsets:
   - social_icons
   - table
   - card
+  - panel
   - accordion
   - overlay

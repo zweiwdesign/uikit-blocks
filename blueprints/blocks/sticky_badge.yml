@@ -24,6 +24,7 @@ tabs:
         help: Option den Link sich bei Klick in einem neuen Tab/Fenster zu öffnen.
       class:
         type: text
+        help: Zusätzliche CSS-Klassen
       # Darstellung
       icon_show:
         type: toggle

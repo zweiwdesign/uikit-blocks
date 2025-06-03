@@ -21,4 +21,5 @@ fieldsets:
   - social_icons
   - language_switcher
   - sticky_badge
+  - cookie-consent
 settings: footer/settings
