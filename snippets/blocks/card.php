@@ -80,7 +80,7 @@ if($cardsize == "normal") {
                 <picture>
                     <source srcset="<?= $thumbMobile->url(); ?>" media="(max-width: 640px)">
                     <img src="<?= $thumbLarge->url(); ?>" width="<?= $thumbLarge->width(); ?>"
-                        height="<?= $thumbLarge->height(); ?>" alt=""
+                        height="<?= $thumbLarge->height(); ?>" alt="<?= $img->alt() ?>"
                         <?= $medialayout == 'left' || $medialayout == 'right' ? 'uk-cover' : ''; ?>>
                 </picture>
                 <?php if ($medialayout == 'left' || $medialayout == 'right'): ?>
